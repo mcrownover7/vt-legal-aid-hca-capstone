@@ -7,7 +7,7 @@ function App(props) {
 
   return (
     <div id="layout">
-        <Map center={center} />
+        <Map center={center} />{" "}
         {/* <MapDisplay /> */}
     </div>
   );

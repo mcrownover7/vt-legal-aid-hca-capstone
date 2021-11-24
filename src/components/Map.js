@@ -10,7 +10,7 @@ function Map(props) {
 
   return (
     <MapContainer
-      center={[43.39688232333494, -72.69134242700515]}
+      center={props.center}
       zoom={8}
       scrollWheelZoom={false}
       doubleClickZoom={false}
@@ -19,9 +19,9 @@ function Map(props) {
       dragging={true}
       style={{ height: "600px", width: "600px" }}
     >
-      <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D"
-        attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+   <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       <Polygon
         positions={vtOutline}
