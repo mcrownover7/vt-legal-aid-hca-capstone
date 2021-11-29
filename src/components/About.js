@@ -9,9 +9,9 @@ export default function About () {
   return (
     //React fragment (instead of <div>)
     <>
-      <div class='wrapper'>
+      <div className='wrapper'>
         <Navigation />
-        <div class='left'>left content stuff goes here</div>
+        <div className='left'>left content stuff goes here</div>
         <main>Here's some stuff about us</main>
         <Footer />
       </div>
