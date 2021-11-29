@@ -16,10 +16,12 @@ function MyComponent({ center, zoom }) {
 }
 
 function Map(props) {
+  //global variable to track the previously clicked county
   let previouslySelectedCounty = null;
 
   //creating a function that allows for click evt listener using .on on the layer
   function featureSelection(feature, layer) {
+    //this setStyle determines the default styling for each layer on page load for each feature
     layer.setStyle({
       fillColor: "#ff6863",
       fillOpacity: 0.5,
@@ -28,6 +30,7 @@ function Map(props) {
       opacity: 1,
     });
 
+    //.on for the layer watching for a click evt
     layer.on(
       //click evt calls the countyClick function
       "click",
@@ -51,7 +54,9 @@ function Map(props) {
 
     console.log(previouslySelectedCounty);
 
+    //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.
     if (previouslySelectedCounty !== null) {
+      //resetting the previously selected county's styling
       previouslySelectedCounty.setStyle({
         fillColor: "#ff6863",
         fillOpacity: 0.5,
@@ -59,10 +64,14 @@ function Map(props) {
         weight: 1,
         opacity: 1,
       });
+      //setting the currently selected county's styling
       layer.setStyle({ fillColor: "#0000FF" });
+      //updating the previously selected county's variable to the currently clicked one
       previouslySelectedCounty = layer;
     } else {
+      //setting the currently selected county's styling
       layer.setStyle({ fillColor: "#0000FF" });
+      //updating the previously selected county's variable to the currently clicked one
       previouslySelectedCounty = layer;
     }
   }
@@ -87,10 +96,7 @@ function Map(props) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
-      <GeoJSON
-        data={countyBoundary}
-        onEachFeature={featureSelection}
-      />
+      <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />
     </MapContainer>
   );
 }
