@@ -7,7 +7,6 @@ import {
   useMap,
 } from "react-leaflet";
 import countyBoundary from "../data/countyBorder.js";
-import { useState } from "react";
 
 //creating a function to reset the view (center and zoom) on the map using the useMap and setView methods imported from leaflet
 function MyComponent({ center, zoom }) {
@@ -17,10 +16,18 @@ function MyComponent({ center, zoom }) {
 }
 
 function Map(props) {
-  // const [countyStyleColor, setCountyStyleColor] = useState("#ff6863");
+  let previouslySelectedCounty = null;
 
   //creating a function that allows for click evt listener using .on on the layer
   function featureSelection(feature, layer) {
+    layer.setStyle({
+      fillColor: "#ff6863",
+      fillOpacity: 0.5,
+      color: "black",
+      weight: 1,
+      opacity: 1,
+    });
+
     layer.on(
       //click evt calls the countyClick function
       "click",
@@ -41,8 +48,23 @@ function Map(props) {
     ]);
     //zooming in on the clicked on counties center point
     props.setZoom(9);
-    // setCountyStyleColor("#0000FF");
-    layer.setStyle({ fillColor: "#0000FF" });
+
+    console.log(previouslySelectedCounty);
+
+    if (previouslySelectedCounty !== null) {
+      previouslySelectedCounty.setStyle({
+        fillColor: "#ff6863",
+        fillOpacity: 0.5,
+        color: "black",
+        weight: 1,
+        opacity: 1,
+      });
+      layer.setStyle({ fillColor: "#0000FF" });
+      previouslySelectedCounty = layer;
+    } else {
+      layer.setStyle({ fillColor: "#0000FF" });
+      previouslySelectedCounty = layer;
+    }
   }
 
   return (
@@ -67,13 +89,6 @@ function Map(props) {
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON
         data={countyBoundary}
-        style={{
-          fillColor: "#ff6863",
-          fillOpacity: 0.5,
-          color: "black",
-          weight: 1,
-          opacity: 1,
-        }}
         onEachFeature={featureSelection}
       />
     </MapContainer>
