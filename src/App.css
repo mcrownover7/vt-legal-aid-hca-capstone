@@ -14,6 +14,7 @@ header {
 
 main {
   grid-column: 2 / 3;
+  word-wrap: normal;
 }
 
 footer {
