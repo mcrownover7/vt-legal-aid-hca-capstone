@@ -17,18 +17,21 @@ function MyComponent({ center, zoom }) {
 }
 
 function Map(props) {
-  const [countyStyleColor, setCountyStyleColor] = useState("#ff6863");
+  // const [countyStyleColor, setCountyStyleColor] = useState("#ff6863");
 
   //creating a function that allows for click evt listener using .on on the layer
   function featureSelection(feature, layer) {
-    layer.on({
+    layer.on(
       //click evt calls the countyClick function
-      click: countyClick,
-    });
+      "click",
+      (evt) => {
+        countyClick(evt, layer);
+      }
+    );
   }
 
   //function for when a county is clicked on the map
-  function countyClick(evt) {
+  function countyClick(evt, layer) {
     console.log(evt);
     console.log(evt.target.feature.properties.cntyname);
     //resetting the center point of the map using the lat and lon from the features properties in the geojson
@@ -38,6 +41,8 @@ function Map(props) {
     ]);
     //zooming in on the clicked on counties center point
     props.setZoom(9);
+    // setCountyStyleColor("#0000FF");
+    layer.setStyle({ fillColor: "#0000FF" });
   }
 
   return (
@@ -63,7 +68,7 @@ function Map(props) {
       <GeoJSON
         data={countyBoundary}
         style={{
-          fillColor: countyStyleColor,
+          fillColor: "#ff6863",
           fillOpacity: 0.5,
           color: "black",
           weight: 1,
