@@ -30,6 +30,16 @@ function Map(props) {
       opacity: 1,
     });
 
+    //attempt to set up tooltip label
+    let label = feature.properties.cntyname;
+    layer
+      .bindTooltip(label, {
+        permanent: true,
+        direction: "center",
+        opacity: 0.7,
+      })
+      .openTooltip();
+
     //.on for the layer watching for a click evt
     layer.on(
       //click evt calls the countyClick function
