@@ -5,7 +5,7 @@ import {
   Polygon,
   GeoJSON,
   useMap,
-  ScaleControl
+  ScaleControl,
 } from "react-leaflet";
 import countyBoundary from "../data/countyBorder.js";
 
