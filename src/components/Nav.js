@@ -47,10 +47,10 @@ export default function Nav () {
           Home
         </Button>
         <Button color='inherit' component={Link} to='/about'>
-          About Us
+          About
         </Button>
         <Button color='inherit' component={Link} to='/contact'>
-          Contact Us
+          Contact
         </Button>
       </Toolbar>
     </AppBar>
