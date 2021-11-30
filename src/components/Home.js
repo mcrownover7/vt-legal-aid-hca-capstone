@@ -3,7 +3,7 @@ import React from 'react'
 import '../App.css'
 import Map from './Map'
 import Footer from './Footer'
-import Navigation from './Navigation'
+import Nav from './Nav'
 
 //Home function to render page structural elements
 export default function Home () {
@@ -11,7 +11,7 @@ export default function Home () {
     //React fragment (instead of <div>)
     <>
       <div class='wrapper'>
-        <Navigation />
+        <Nav />
         <div class='left'>left content stuff goes here</div>
         <main>
           <Map />
