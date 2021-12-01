@@ -53,8 +53,8 @@ function Map(props) {
 
   //function for when a county is clicked on the map
   function countyClick(evt, layer) {
-    console.log(evt);
-    console.log(evt.target.feature.properties.cntyname);
+    // console.log(evt);
+    // console.log(evt.target.feature.properties.cntyname);
     //resetting the center point of the map using the lat and lon from the features properties in the geojson
     props.setCenter([
       evt.target.feature.properties.geo_point_2d[0],
@@ -72,7 +72,7 @@ function Map(props) {
     //using props to set the selected county using the clicked features properties
     props.setSelectedCounty(evt.target.feature.properties.cntyname);
 
-    console.log(previouslySelectedCounty);
+    // console.log(previouslySelectedCounty);
 
     //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.
     if (previouslySelectedCounty !== null) {

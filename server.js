@@ -10,15 +10,20 @@ const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 //------------------------------MONGOOSE SETUP------------------------------
 //creating mongoose Schema for stories
 const StorySchema = new mongoose.Schema({
-  relationalId: Number,
-  county: String,
-  insured: String,
-  age: String,
-  impactLife: String,
-  impactAccess: String,
-  costOfCare: String,
-  surpriseBill: String,
-  debtCollection: String,
+  RespId: Number,
+  County: String,
+  Insured: String,
+  Age: String,
+  QuoteTag_ImpactOnLife: Number,
+  HowHasMedicalDebtImpactedYourLife: String,
+  QuoteTag_Access: Number,
+  HowHasMedicalDebtImpactedYourAccessToCare: String,
+  QuoteTag_Cost: Number,
+  WhatDoYouThinkOfTheCostOfMedicalCare: String,
+  QuoteTag_SurpriseBill: Number,
+  HaveYouBeenSurprisedByAMedicalBill: String,
+  QuoteTag_Collections: Number,
+  WhatIsYourExperienceWithMedicalDebtCollectors: String,
 });
 
 //creating the initial connection to the database using url for mongoAtlas and .env secured password
@@ -42,15 +47,20 @@ app.post("/createnew", async (req, res) => {
   //NOTE: WILL NEED THE ADMIN PORTAL FORM TO HAVE EACH ONE OF THESE FIELDS, COULD BE TEXT BOX OR DROP DOWN FOR COUNTY
   //creation of a new story from admin portal
   const newStory = new Stories({
-    relationalId: req.body.id,
-    county: req.body.county,
-    insured: req.body.insured,
-    age: req.body.age,
-    impactLife: req.body.life,
-    impactAccess: req.body.access,
-    costOfCare: req.body.cost,
-    surpriseBill: req.body.surprise,
-    debtCollection: req.body.debt,
+    RespId: req.body.id,
+    County: req.body.county,
+    Insured: req.body.insured,
+    Age: req.body.age,
+    QuoteTag_ImpactOnLife: req.body.tagImpact,
+    HowHasMedicalDebtImpactedYourLife: req.body.impactLife,
+    QuoteTag_Access: req.body.tagAccess,
+    HowHasMedicalDebtImpactedYourAccessToCare: req.body.impactCare,
+    QuoteTag_Cost: req.body.tagCost,
+    WhatDoYouThinkOfTheCostOfMedicalCare: req.body.costCare,
+    QuoteTag_SurpriseBill: req.body.tagSurprise,
+    HaveYouBeenSurprisedByAMedicalBill: req.body.surpriseBill,
+    QuoteTag_Collections: req.body.tagCollections,
+    WhatIsYourExperienceWithMedicalDebtCollectors: req.body.collections,
   });
 
   //saving the new story
@@ -72,17 +82,13 @@ app.get("/allstories", async (req, res) => {
 app.get("/allstories/:county", async (req, res) => {
   //setting up a intermediate variable for the county from the params
   let instanceCounty = req.params.county;
-
   //setting up variable to store res of .find with the instanceCounty being used as a filter
-  let countyStories = await Stories.find({ county: instanceCounty });
-
+  let countyStories = await Stories.find({ County: instanceCounty });
   //sending messages for the specific county as json
   res.json(countyStories);
 });
 
-
 //NOTE: FILTERS MAY NEED TO BE UPDATED ONCE TESTING IS SET-UP-----------------------------------------------------------------------------------------------------
-
 //API endpoint to get the stories from a specific tag
 app.get("/allstories/:tags", async (req, res) => {
   //setting up an intermediate variable for the county from the params
@@ -125,6 +131,7 @@ app.get("/allstories/:county/:tags", async (req, res) => {
 // });
 
 //-----------UPDATE-----------
+//---------------------------NOTE: FIX BASED ON NEW SCHEMA-----------------------
 //API endpoint to update a story
 app.post("/update/:id", async (req, res) => {
   //grabbing the document id (mongo) received in params
@@ -135,31 +142,46 @@ app.post("/update/:id", async (req, res) => {
 
   //series of if statements checking if values were received in the body of the request; assigning them to our updated object if they do exist
   if (req.body.id) {
-    updatedStory.relationalId = req.body.id;
+    updatedStory.RespId = req.body.id;
   }
   if (req.body.county) {
-    updatedStory.county = req.body.county;
+    updatedStory.County = req.body.county;
   }
   if (req.body.insured) {
-    updatedStory.insured = req.body.insured;
+    updatedStory.Insured = req.body.insured;
   }
   if (req.body.age) {
-    updatedStory.age = req.body.age;
+    updatedStory.Age = req.body.age;
+  }
+  if (req.body.tagLife) {
+    updatedStory.QuoteTag_ImpactOnLife = req.body.tagLife;
   }
   if (req.body.life) {
-    updatedStory.impactLife = req.body.life;
+    updatedStory.HowHasMedicalDebtImpactedYourLife = req.body.life;
+  }
+  if (req.body.tagAccess) {
+    updatedStory.QuoteTag_Access = req.body.tagAccess;
   }
   if (req.body.access) {
-    updatedStory.impactAccess = req.body.access;
+    updatedStory.HowHasMedicalDebtImpactedYourAccessToCare = req.body.access;
+  }
+  if (req.body.tagCost) {
+    updatedStory.QuoteTag_Cost = req.body.tagCost;
   }
   if (req.body.cost) {
-    updatedStory.costOfCare = req.body.cost;
+    updatedStory.WhatDoYouThinkOfTheCostOfMedicalCare = req.body.cost;
+  }
+  if (req.body.tagSurprise) {
+    updatedStory.QuoteTag_SurpriseBill = req.body.tagSurprise;
   }
   if (req.body.surprise) {
-    updatedStory.surpriseBill = req.body.surprise;
+    updatedStory.HaveYouBeenSurprisedByAMedicalBill = req.body.surprise;
+  }
+  if (req.body.tagDebt) {
+    updatedStory.QuoteTag_Collections = req.body.tagDebt;
   }
   if (req.body.debt) {
-    updatedStory.debtCollection = req.body.debt;
+    updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors = req.body.debt;
   }
 
   //finding a document by its ID and then updating its key:value pairs dependant on whether or not they exist in the updated object

@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
-export default function Featured() {
+export default function Featured(props) {
   const [allStories, setAllStories] = useState([]);
   const GreenTextTypography = withStyles({
     root: {
@@ -20,7 +20,7 @@ export default function Featured() {
       .then((storiesArray) => {
         //setting all stories state variable to the response.json from the fetch
         setAllStories(storiesArray);
-        console.log(storiesArray);
+        // console.log(storiesArray);
       });
   }, []);
 
@@ -32,7 +32,7 @@ export default function Featured() {
     randomStories.push(randomNumber());
     randomStories.push(randomNumber());
     randomStories.push(randomNumber());
-    console.log(randomStories);
+    // console.log(randomStories);
   }
 
   //function to generate a random number based on the length of the all stories array
