@@ -7,19 +7,30 @@ import { useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 
 //Home function to render page structural elements
 export default function Home () {
   const [center, setCenter] = useState([43.88, -72.7317])
   const [zoom, setZoom] = useState(8)
+  const GreenTextTypography = withStyles({
+    root: {
+      color: '#5a203c'
+    }
+  })(Typography)
+
   return (
     //React fragment (instead of <div>)
     <>
       <Grid container spacing={2}>
         <Grid item xs='auto'>
           <Paper>
-            <Typography variant='h2'>Featured Stories: </Typography>My story
-            is... My story is... My story is...
+            <GreenTextTypography variant='h5'>
+              Featured Stories:{' '}
+            </GreenTextTypography>
+            <div>My story is...</div>
+            <div>My story is...</div>
+            <div>My story is...</div>
           </Paper>
         </Grid>
 
