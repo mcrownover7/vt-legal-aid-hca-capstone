@@ -17,22 +17,21 @@ export default function Story(props) {
 
   let correctedCounty = props.selectedCounty.toLowerCase().split(" ");
   useEffect(() => {
-     if (correctedCounty.length === 1) {
-    setCorrectedCountyFetch(
-      correctedCounty[0].toString().charAt(0).toUpperCase() +
-        correctedCounty[0].toString().substring(1).toLowerCase()
-    );
-  } else {
-    setCorrectedCountyFetch(
-      correctedCounty[0].toString().charAt(0).toUpperCase() +
-        correctedCounty[0].toString().substring(1).toLowerCase() +
-        " " +
-        correctedCounty[1].toString().charAt(0).toUpperCase() +
-        correctedCounty[1].toString().substring(1).toLowerCase()
-    );
-  }
-  }, [correctedCounty])
- 
+    if (correctedCounty.length === 1) {
+      setCorrectedCountyFetch(
+        correctedCounty[0].toString().charAt(0).toUpperCase() +
+          correctedCounty[0].toString().substring(1).toLowerCase()
+      );
+    } else {
+      setCorrectedCountyFetch(
+        correctedCounty[0].toString().charAt(0).toUpperCase() +
+          correctedCounty[0].toString().substring(1).toLowerCase() +
+          " " +
+          correctedCounty[1].toString().charAt(0).toUpperCase() +
+          correctedCounty[1].toString().substring(1).toLowerCase()
+      );
+    }
+  }, [correctedCounty]);
 
   console.log(correctedCountyFetch);
   useEffect(() => {
@@ -45,6 +44,21 @@ export default function Story(props) {
       });
   }, [correctedCountyFetch]);
 
+  let randomStories;
+
+  //once all stories state variable has data from the fetch it fires
+  //** address state variable multiple fires */
+  if (countyStories.length !== 0 && countyStories.length !== 212) {
+    //pushing one random number using the random number function
+    randomStories = randomNumber();
+    console.log(randomStories);
+  }
+
+  //function to generate a random number based on the length of the all stories array
+  function randomNumber() {
+    return Math.floor(Math.random() * (countyStories.length - 1) + 1);
+  }
+
   return (
     //React fragment (instead of <div>)
     <>
@@ -56,219 +70,75 @@ export default function Story(props) {
           <GreenTextTypography variant="h6">
             Featured Story #1{" "}
           </GreenTextTypography>
-          {/* <div>
-          County:{" "}
-          {countyStories.length ? countyStories[randomStories[0]].County : null}
-        </div>
-        <div>
-          Insured:{" "}
-          {countyStories.length ? countyStories[randomStories[0]].Insured : null}
-        </div>
-        <div>
-          Age: {countyStories.length ? countyStories[randomStories[0]].Age : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[0]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    countyStories[randomStories[0]]
-                      .HaveYouBeenSurprisedByAMedicalBill
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[0]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    countyStories[randomStories[0]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[0]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    countyStories[randomStories[0]]
-                      .HowHasMedicalDebtImpactedYourLife
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[0]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    countyStories[randomStories[0]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[0]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
-                    countyStories[randomStories[0]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
-                  : null,
-              ]
-            : null}
-        </div>
-        <GreenTextTypography variant="h6">
-          Featured Story #2{" "}
-        </GreenTextTypography>
-        <div>
-          County:{" "}
-          {countyStories.length ? countyStories[randomStories[1]].County : null}
-        </div>
-        <div>
-          Insured:{" "}
-          {countyStories.length ? countyStories[randomStories[1]].Insured : null}
-        </div>
-        <div>
-          Age: {countyStories.length ? countyStories[randomStories[1]].Age : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[1]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    countyStories[randomStories[1]]
-                      .HaveYouBeenSurprisedByAMedicalBill
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[1]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    countyStories[randomStories[1]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[1]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    countyStories[randomStories[1]]
-                      .HowHasMedicalDebtImpactedYourLife
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[1]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    countyStories[randomStories[1]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[1]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
-                    countyStories[randomStories[1]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
-                  : null,
-              ]
-            : null}
-        </div>
-        <GreenTextTypography variant="h6">
-          Featured Story #3{" "}
-        </GreenTextTypography>
-        <div>
-          County:{" "}
-          {countyStories.length ? countyStories[randomStories[2]].County : null}
-        </div>
-        <div>
-          Insured:{" "}
-          {countyStories.length ? countyStories[randomStories[2]].Insured : null}
-        </div>
-        <div>
-          Age: {countyStories.length ? countyStories[randomStories[2]].Age : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[2]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    countyStories[randomStories[2]]
-                      .HaveYouBeenSurprisedByAMedicalBill
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[2]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    countyStories[randomStories[2]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[2]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    countyStories[randomStories[2]]
-                      .HowHasMedicalDebtImpactedYourLife
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[2]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    countyStories[randomStories[2]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
-          {countyStories.length
-            ? [
-                countyStories[randomStories[2]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
-                    countyStories[randomStories[2]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
-                  : null,
-              ]
-            : null}
-        </div> */}
+          <div>
+            County: {randomStories ? countyStories[randomStories].County : null}
+          </div>
+          <div>
+            Insured:{" "}
+            {randomStories ? countyStories[randomStories].Insured : null}
+          </div>
+          <div>
+            Age: {randomStories ? countyStories[randomStories].Age : null}
+          </div>
+          <div>
+            {randomStories
+              ? [
+                  countyStories[randomStories]
+                    .HaveYouBeenSurprisedByAMedicalBill
+                    ? "Have you been surprised by a Medical Bill?" +
+                      countyStories[randomStories]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    : null,
+                ]
+              : null}
+          </div>
+          <div>
+            {randomStories
+              ? [
+                  countyStories[randomStories]
+                    .HowHasMedicalDebtImpactedYourAccessToCare
+                    ? "How has Medical Debt impacted your access to care?" +
+                      countyStories[randomStories]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    : null,
+                ]
+              : null}
+          </div>
+          <div>
+            {randomStories
+              ? [
+                  countyStories[randomStories].HowHasMedicalDebtImpactedYourLife
+                    ? "How has Medical Debt impacted your life?" +
+                      countyStories[randomStories]
+                        .HowHasMedicalDebtImpactedYourLife
+                    : null,
+                ]
+              : null}
+          </div>
+          <div>
+            {randomStories
+              ? [
+                  countyStories[randomStories]
+                    .WhatDoYouThinkOfTheCostOfMedicalCare
+                    ? "What do you think of the cost of medical care?" +
+                      countyStories[randomStories]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    : null,
+                ]
+              : null}
+          </div>
+          <div>
+            {randomStories
+              ? [
+                  countyStories[randomStories]
+                    .WhatIsYourExperienceWithMedicalDebtCollectors
+                    ? "What is your experience with medical debt collectors?" +
+                      countyStories[randomStories]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    : null,
+                ]
+              : null}
+          </div>
         </Paper>
       </Grid>
     </>
