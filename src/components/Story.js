@@ -62,7 +62,7 @@ export default function Story(props) {
   return (
     //React fragment (instead of <div>)
     <>
-      <Grid item xs="auto">
+      <Grid item xs={6}>
         <Paper>
           <GreenTextTypography variant="h5">
             Featured Stories:{" "}
