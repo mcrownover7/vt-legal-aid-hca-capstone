@@ -63,6 +63,15 @@ function Map(props) {
     //zooming in on the clicked on counties center point
     props.setZoom(9);
 
+    //using props to set toggle the feature display boolean, to hide the boolean after a county is selected
+    props.setFeaturedDisplay(false);
+
+    //using props to set toggle the county story display boolean, to show the boolean after a county is selected
+    props.setCountyStoryDisplay(true);
+
+    //using props to set the selected county using the clicked features properties
+    props.setSelectedCounty(evt.target.feature.properties.cntyname);
+
     console.log(previouslySelectedCounty);
 
     //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.

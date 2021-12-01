@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const app = express();
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 
@@ -114,15 +114,15 @@ app.get("/allstories/:county/:tags", async (req, res) => {
 });
 
 // Routing to API endpoint of directory with all counties
-app.get("/api", (req, res) => {
-  res.sendFile(__dirname + "/api/counties.json");
-});
+// app.get("/api", (req, res) => {
+//   res.sendFile(__dirname + "/api/counties.json");
+// });
 
 // Routing to API endpoint matching ID of single county using parameters
-app.get("/api/:id", (req, res) => {
-  let filePath = path.join(countyDir, req.params.id + ".json");
-  res.sendFile(filePath);
-});
+// app.get("/api/:id", (req, res) => {
+//   let filePath = path.join(countyDir, req.params.id + ".json");
+//   res.sendFile(filePath);
+// });
 
 //-----------UPDATE-----------
 //API endpoint to update a story
