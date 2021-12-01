@@ -34,6 +34,7 @@ export default function Story(props) {
   }, [correctedCounty]);
 
   console.log(correctedCountyFetch);
+  
   useEffect(() => {
     fetch(`/allstories/${correctedCountyFetch}`)
       .then((res) => res.json())
