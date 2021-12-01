@@ -42,11 +42,15 @@ app.post("/createnew", async (req, res) => {
   //NOTE: WILL NEED THE ADMIN PORTAL FORM TO HAVE EACH ONE OF THESE FIELDS, COULD BE TEXT BOX OR DROP DOWN FOR COUNTY
   //creation of a new story from admin portal
   const newStory = new Stories({
-    relationalid: req.body.id,
-    name: req.body.name,
-    story: req.body.story,
+    relationalId: req.body.id,
     county: req.body.county,
-    tag: req.body.tag,
+    insured: req.body.insured,
+    age: req.body.age,
+    impactLife: req.body.life,
+    impactAccess: req.body.access,
+    costOfCare: req.body.cost,
+    surpriseBill: req.body.surprise,
+    debtCollection: req.body.debt,
   });
 
   //saving the new story
@@ -76,13 +80,16 @@ app.get("/allstories/:county", async (req, res) => {
   res.json(countyStories);
 });
 
+
+//NOTE: FILTERS MAY NEED TO BE UPDATED ONCE TESTING IS SET-UP-----------------------------------------------------------------------------------------------------
+
 //API endpoint to get the stories from a specific tag
 app.get("/allstories/:tags", async (req, res) => {
   //setting up an intermediate variable for the county from the params
   let instanceTags = req.params.tags;
 
   //setting up variable to store res of .find with the instanceTags being used as a filter
-  let tagsStories = await Stories.find({ tag: instanceTags });
+  let tagsStories = await Stories.find({ instanceTags });
 
   //sending messages for the specific tags as json
   res.json(tagsStories);
@@ -99,18 +106,19 @@ app.get("/allstories/:county/:tags", async (req, res) => {
   //setting up variable to store res of .find with the instanceTags being used as a filter
   let combinedStories = await Stories.find({
     county: instanceCounty,
-    tag: instanceTags,
+    instanceTags,
   });
 
   //sending messages for the specific tags as json
   res.json(combinedStories);
 });
 
-//Routing to API endpoint of directory with all counties
+// Routing to API endpoint of directory with all counties
 app.get("/api", (req, res) => {
   res.sendFile(__dirname + "/api/counties.json");
 });
-//Routing to API endpoint matching ID of single county using parameters
+
+// Routing to API endpoint matching ID of single county using parameters
 app.get("/api/:id", (req, res) => {
   let filePath = path.join(countyDir, req.params.id + ".json");
   res.sendFile(filePath);
@@ -126,20 +134,32 @@ app.post("/update/:id", async (req, res) => {
   let updatedStory = {};
 
   //series of if statements checking if values were received in the body of the request; assigning them to our updated object if they do exist
-  if (req.body.relationalid) {
-    updatedStory.relationalid = req.body.relationalid;
-  }
-  if (req.body.name) {
-    updatedStory.name = req.body.name;
-  }
-  if (req.body.story) {
-    updatedStory.story = req.body.story;
+  if (req.body.id) {
+    updatedStory.relationalId = req.body.id;
   }
   if (req.body.county) {
     updatedStory.county = req.body.county;
   }
-  if (req.body.tag) {
-    updatedStory.tag = req.body.tag;
+  if (req.body.insured) {
+    updatedStory.insured = req.body.insured;
+  }
+  if (req.body.age) {
+    updatedStory.age = req.body.age;
+  }
+  if (req.body.life) {
+    updatedStory.impactLife = req.body.life;
+  }
+  if (req.body.access) {
+    updatedStory.impactAccess = req.body.access;
+  }
+  if (req.body.cost) {
+    updatedStory.costOfCare = req.body.cost;
+  }
+  if (req.body.surprise) {
+    updatedStory.surpriseBill = req.body.surprise;
+  }
+  if (req.body.debt) {
+    updatedStory.debtCollection = req.body.debt;
   }
 
   //finding a document by its ID and then updating its key:value pairs dependant on whether or not they exist in the updated object
