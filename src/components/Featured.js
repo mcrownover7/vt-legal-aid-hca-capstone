@@ -64,9 +64,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[0]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    allStories[randomStories[0]]
-                      .HaveYouBeenSurprisedByAMedicalBill
+                  ? [
+                      <br />,
+                      <b>Have you been surprised by a Medical Bill?</b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .HaveYouBeenSurprisedByAMedicalBill,
+                    ]
                   : null,
               ]
             : null}
@@ -76,9 +80,13 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    allStories[randomStories[0]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your access to care?</b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare,
+                    ]
                   : null,
               ]
             : null}
@@ -87,9 +95,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[0]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    allStories[randomStories[0]]
-                      .HowHasMedicalDebtImpactedYourLife
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your life?</b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .HowHasMedicalDebtImpactedYourLife,
+                    ]
                   : null,
               ]
             : null}
@@ -99,9 +111,13 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    allStories[randomStories[0]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
+                  ? [
+                      <br />,
+                      <b>What do you think of the cost of medical care?</b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare,
+                    ]
                   : null,
               ]
             : null}
@@ -111,9 +127,9 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
+                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
                     allStories[randomStories[0]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
+                      .WhatIsYourExperienceWithMedicalDebtCollectors]
                   : null,
               ]
             : null}
@@ -136,9 +152,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[1]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    allStories[randomStories[1]]
-                      .HaveYouBeenSurprisedByAMedicalBill
+                  ? [
+                      <br />,
+                      <b>Have you been surprised by a Medical Bill?</b>,
+                      <br />,
+                      allStories[randomStories[1]]
+                        .HaveYouBeenSurprisedByAMedicalBill,
+                    ]
                   : null,
               ]
             : null}
@@ -148,9 +168,13 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[1]]
                   .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    allStories[randomStories[1]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your access to care?</b>,
+                      <br />,
+                      allStories[randomStories[1]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare,
+                    ]
                   : null,
               ]
             : null}
@@ -159,9 +183,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[1]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    allStories[randomStories[1]]
-                      .HowHasMedicalDebtImpactedYourLife
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your life?</b>,
+                      <br />,
+                      allStories[randomStories[1]]
+                        .HowHasMedicalDebtImpactedYourLife,
+                    ]
                   : null,
               ]
             : null}
@@ -171,9 +199,13 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[1]]
                   .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    allStories[randomStories[1]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
+                  ? [
+                      <br />,
+                      <b>What do you think of the cost of medical care?</b>,
+                      <br />,
+                      allStories[randomStories[1]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare,
+                    ]
                   : null,
               ]
             : null}
@@ -183,9 +215,9 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[1]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
+                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
                     allStories[randomStories[1]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
+                      .WhatIsYourExperienceWithMedicalDebtCollectors]
                   : null,
               ]
             : null}
@@ -208,9 +240,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[2]].HaveYouBeenSurprisedByAMedicalBill
-                  ? "Have you been surprised by a Medical Bill?" +
-                    allStories[randomStories[2]]
-                      .HaveYouBeenSurprisedByAMedicalBill
+                  ? [
+                      <br />,
+                      <b>Have you been surprised by a Medical Bill?</b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .HaveYouBeenSurprisedByAMedicalBill,
+                    ]
                   : null,
               ]
             : null}
@@ -218,11 +254,15 @@ export default function Featured(props) {
         <div>
           {allStories.length
             ? [
-                allStories[randomStories[2]]
+                allStories[randomStories[0]]
                   .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? "How has Medical Debt impacted your access to care?" +
-                    allStories[randomStories[2]]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your access to care?</b>,
+                      <br />,
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare,
+                    ]
                   : null,
               ]
             : null}
@@ -231,9 +271,13 @@ export default function Featured(props) {
           {allStories.length
             ? [
                 allStories[randomStories[2]].HowHasMedicalDebtImpactedYourLife
-                  ? "How has Medical Debt impacted your life?" +
-                    allStories[randomStories[2]]
-                      .HowHasMedicalDebtImpactedYourLife
+                  ? [
+                      <br />,
+                      <b>How has Medical Debt impacted your life?</b>,
+                      <br />,
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife,
+                    ]
                   : null,
               ]
             : null}
@@ -243,9 +287,13 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[2]]
                   .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? "What do you think of the cost of medical care?" +
-                    allStories[randomStories[2]]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
+                  ? [
+                      <br />,
+                      <b>What do you think of the cost of medical care?</b>,
+                      <br />,
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare,
+                    ]
                   : null,
               ]
             : null}
@@ -255,9 +303,9 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[2]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? "What is your experience with medical debt collectors?" +
+                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
                     allStories[randomStories[2]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
+                      .WhatIsYourExperienceWithMedicalDebtCollectors]
                   : null,
               ]
             : null}
