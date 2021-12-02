@@ -7,7 +7,7 @@ export default function Footer () {
   return (
     //React fragment (instead of <div>)
     <>
-      <footer>YO, I'm a footer</footer>
+      {/* <footer>YO, I'm a footer</footer> */}
     </>
   )
 }

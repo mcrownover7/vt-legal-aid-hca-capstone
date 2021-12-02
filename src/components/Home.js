@@ -9,7 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Featured from "./Featured";
-import Story from "./Story"
+import Story from "./Story";
 
 //Home function to render page structural elements
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
   const [featuredDisplay, setFeaturedDisplay] = useState(true);
   const [countyStoryDisplay, setCountyStoryDisplay] = useState(false);
   const [selectedCounty, setSelectedCounty] = useState("");
+  const [shuffledIndex, setShuffledIndex] = useState(0);
 
   const GreenTextTypography = withStyles({
     root: {
@@ -30,7 +31,13 @@ export default function Home() {
     <>
       <Grid container spacing={2}>
         {featuredDisplay ? <Featured /> : null}
-        {countyStoryDisplay ? <Story selectedCounty={selectedCounty} /> : null}
+        {countyStoryDisplay ? (
+          <Story
+            selectedCounty={selectedCounty}
+            shuffledIndex={shuffledIndex}
+            setShuffledIndex={setShuffledIndex}
+          />
+        ) : null}
         <Grid item xs={12} sm={6} md={2}>
           <Paper>
             <Map
@@ -41,6 +48,7 @@ export default function Home() {
               setFeaturedDisplay={setFeaturedDisplay}
               setSelectedCounty={setSelectedCounty}
               setCountyStoryDisplay={setCountyStoryDisplay}
+              setShuffledIndex={setShuffledIndex}
             />
           </Paper>
         </Grid>

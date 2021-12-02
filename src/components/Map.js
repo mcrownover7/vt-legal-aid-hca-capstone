@@ -72,6 +72,8 @@ function Map(props) {
     //using props to set the selected county using the clicked features properties
     props.setSelectedCounty(evt.target.feature.properties.cntyname);
 
+    //using props to reset the index for the array shuffle display in story.js
+    props.setShuffledIndex(0)
     // console.log(previouslySelectedCounty);
 
     //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.

@@ -10,7 +10,6 @@ import Button from "@material-ui/core/Button";
 export default function Story(props) {
   const [countyStories, setCountyStories] = useState([]);
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState("");
-  const [shuffledIndex, setShuffledIndex] = useState(0);
 
   const GreenTextTypography = withStyles({
     root: {
@@ -72,16 +71,16 @@ export default function Story(props) {
   }
 
   function nextButton() {
-    if (shuffledIndex < countyStories.length) {
-      setShuffledIndex(shuffledIndex + 1);
+    if (props.shuffledIndex < countyStories.length) {
+      props.setShuffledIndex(props.shuffledIndex + 1);
     } else {
       return null;
     }
   }
 
   function previousButton() {
-    if (shuffledIndex > 0) {
-      setShuffledIndex(shuffledIndex - 1);
+    if (props.shuffledIndex > 0) {
+      props.setShuffledIndex(props.shuffledIndex - 1);
     } else {
       return null;
     }
@@ -96,24 +95,24 @@ export default function Story(props) {
             Featured Stories:{" "}
           </GreenTextTypography>
           <GreenTextTypography variant="h6">
-            Featured Story #1{" "}
+            Featured Story #{props.shuffledIndex + 1}{" "}
           </GreenTextTypography>
           <div>
-            County: {dataFetched ? countyStories[shuffledIndex].County : null}
+            County: {dataFetched ? countyStories[props.shuffledIndex].County : null}
           </div>
           <div>
-            Insured: {dataFetched ? countyStories[shuffledIndex].Insured : null}
+            Insured: {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
           </div>
           <div>
-            Age: {dataFetched ? countyStories[shuffledIndex].Age : null}
+            Age: {dataFetched ? countyStories[props.shuffledIndex].Age : null}
           </div>
           <div>
             {dataFetched
               ? [
-                  countyStories[shuffledIndex]
+                  countyStories[props.shuffledIndex]
                     .HaveYouBeenSurprisedByAMedicalBill
                     ? "Have you been surprised by a Medical Bill?" +
-                      countyStories[shuffledIndex]
+                      countyStories[props.shuffledIndex]
                         .HaveYouBeenSurprisedByAMedicalBill
                     : null,
                 ]
@@ -122,10 +121,10 @@ export default function Story(props) {
           <div>
             {dataFetched
               ? [
-                  countyStories[shuffledIndex]
+                  countyStories[props.shuffledIndex]
                     .HowHasMedicalDebtImpactedYourAccessToCare
                     ? "How has Medical Debt impacted your access to care?" +
-                      countyStories[shuffledIndex]
+                      countyStories[props.shuffledIndex]
                         .HowHasMedicalDebtImpactedYourAccessToCare
                     : null,
                 ]
@@ -134,9 +133,9 @@ export default function Story(props) {
           <div>
             {dataFetched
               ? [
-                  countyStories[shuffledIndex].HowHasMedicalDebtImpactedYourLife
+                  countyStories[props.shuffledIndex].HowHasMedicalDebtImpactedYourLife
                     ? "How has Medical Debt impacted your life?" +
-                      countyStories[shuffledIndex]
+                      countyStories[props.shuffledIndex]
                         .HowHasMedicalDebtImpactedYourLife
                     : null,
                 ]
@@ -145,10 +144,10 @@ export default function Story(props) {
           <div>
             {dataFetched
               ? [
-                  countyStories[shuffledIndex]
+                  countyStories[props.shuffledIndex]
                     .WhatDoYouThinkOfTheCostOfMedicalCare
                     ? "What do you think of the cost of medical care?" +
-                      countyStories[shuffledIndex]
+                      countyStories[props.shuffledIndex]
                         .WhatDoYouThinkOfTheCostOfMedicalCare
                     : null,
                 ]
@@ -157,10 +156,10 @@ export default function Story(props) {
           <div>
             {dataFetched
               ? [
-                  countyStories[shuffledIndex]
+                  countyStories[props.shuffledIndex]
                     .WhatIsYourExperienceWithMedicalDebtCollectors
                     ? "What is your experience with medical debt collectors?" +
-                      countyStories[shuffledIndex]
+                      countyStories[props.shuffledIndex]
                         .WhatIsYourExperienceWithMedicalDebtCollectors
                     : null,
                 ]
