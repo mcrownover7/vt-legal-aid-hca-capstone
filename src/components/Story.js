@@ -92,9 +92,6 @@ export default function Story(props) {
       <Grid item xs={6}>
         <Paper>
           <GreenTextTypography variant="h5">
-            Featured Stories:{" "}
-          </GreenTextTypography>
-          <GreenTextTypography variant="h6">
             {correctedCountyFetch}: Story #{props.shuffledIndex + 1}{" "}
           </GreenTextTypography>
           <div>
@@ -168,7 +165,7 @@ export default function Story(props) {
                 ]
               : null}
           </div>
-          <GreenTextTypography variant="h8">
+          <GreenTextTypography variant="h6">
             Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
           </GreenTextTypography>
           <div>
