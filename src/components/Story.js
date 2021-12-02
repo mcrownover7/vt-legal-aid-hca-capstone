@@ -95,13 +95,15 @@ export default function Story(props) {
             Featured Stories:{" "}
           </GreenTextTypography>
           <GreenTextTypography variant="h6">
-            Featured Story #{props.shuffledIndex + 1}{" "}
+            {correctedCountyFetch}: Story #{props.shuffledIndex + 1}{" "}
           </GreenTextTypography>
           <div>
-            County: {dataFetched ? countyStories[props.shuffledIndex].County : null}
+            County:{" "}
+            {dataFetched ? countyStories[props.shuffledIndex].County : null}
           </div>
           <div>
-            Insured: {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
+            Insured:{" "}
+            {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
           </div>
           <div>
             Age: {dataFetched ? countyStories[props.shuffledIndex].Age : null}
@@ -133,7 +135,8 @@ export default function Story(props) {
           <div>
             {dataFetched
               ? [
-                  countyStories[props.shuffledIndex].HowHasMedicalDebtImpactedYourLife
+                  countyStories[props.shuffledIndex]
+                    .HowHasMedicalDebtImpactedYourLife
                     ? "How has Medical Debt impacted your life?" +
                       countyStories[props.shuffledIndex]
                         .HowHasMedicalDebtImpactedYourLife
@@ -165,8 +168,17 @@ export default function Story(props) {
                 ]
               : null}
           </div>
-          <Button variant="contained" onClick={previousButton}>Previous Story</Button>
-          <Button variant="contained" onClick={nextButton}>Next Story</Button>
+          <GreenTextTypography variant="h8">
+            Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
+          </GreenTextTypography>
+          <div>
+          <Button variant="contained" onClick={previousButton}>
+            Previous Story
+          </Button>
+          <Button variant="contained" onClick={nextButton}>
+            Next Story
+          </Button>
+          </div>
         </Paper>
       </Grid>
     </>
