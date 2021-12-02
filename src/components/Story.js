@@ -92,7 +92,7 @@ export default function Story(props) {
       <Grid item xs={6}>
         <Paper>
           <GreenTextTypography variant="h5">
-            {correctedCountyFetch} Story #{props.shuffledIndex + 1}{" "}
+            {correctedCountyFetch} Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
           </GreenTextTypography>
           <div>
             County:{" "}
@@ -179,11 +179,7 @@ export default function Story(props) {
                     : null,
                 ]
               : null}
-          </div>
-          <GreenTextTypography variant="h6">
-            Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
-          </GreenTextTypography>
-          <div>
+          <br />
             <Button variant="contained" onClick={previousButton}>
               Previous Story
             </Button>
