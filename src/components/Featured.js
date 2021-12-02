@@ -244,7 +244,7 @@ export default function Featured(props) {
                       <br />,
                       <b>Have you been surprised by a Medical Bill?</b>,
                       <br />,
-                      allStories[randomStories[0]]
+                      allStories[randomStories[2]]
                         .HaveYouBeenSurprisedByAMedicalBill,
                     ]
                   : null,
@@ -254,7 +254,7 @@ export default function Featured(props) {
         <div>
           {allStories.length
             ? [
-                allStories[randomStories[0]]
+                allStories[randomStories[2]]
                   .HowHasMedicalDebtImpactedYourAccessToCare
                   ? [
                       <br />,
