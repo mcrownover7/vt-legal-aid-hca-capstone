@@ -48,6 +48,7 @@ export default function Home() {
               setFeaturedDisplay={setFeaturedDisplay}
               setSelectedCounty={setSelectedCounty}
               setCountyStoryDisplay={setCountyStoryDisplay}
+              countyStoryDisplay={countyStoryDisplay}
               setShuffledIndex={setShuffledIndex}
             />
           </Paper>

@@ -49,6 +49,17 @@ function Map(props) {
         countyClick(evt, layer);
       }
     );
+
+//  if (props.countyStoryDisplay === true){
+//    return null
+//   } else{
+//     layer.on("mouseout", (evt) => {
+//         layer.setStyle({ fillColor: "#ff6863"})
+//       })
+//       layer.on("mouseover", (evt) => {
+//         layer.setStyle({ fillColor: "#0000FF" })
+//     })
+//     }
   }
 
   //function for when a county is clicked on the map
