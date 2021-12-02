@@ -4,11 +4,13 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 //Home function to render page structural elements
 export default function Story(props) {
   const [countyStories, setCountyStories] = useState([]);
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState("");
+
   const GreenTextTypography = withStyles({
     root: {
       color: "#5a203c",
@@ -33,31 +35,55 @@ export default function Story(props) {
     }
   }, [correctedCounty]);
 
-  console.log(correctedCountyFetch);
-  
+  // console.log(correctedCountyFetch);
   useEffect(() => {
     fetch(`/allstories/${correctedCountyFetch}`)
       .then((res) => res.json())
       .then((storiesArray) => {
-        //setting all stories state variable to the response.json from the fetch
-        setCountyStories(storiesArray);
-        console.log(storiesArray);
+        //utilizing a Fisher-Yates Shuffle to randomize the order of the objects in the json array
+        function shuffle(myArray) {
+          let currentIndex = myArray.length,
+            randomIndex;
+
+          while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [myArray[currentIndex], myArray[randomIndex]] = [
+              myArray[randomIndex],
+              myArray[currentIndex],
+            ];
+          }
+          return myArray;
+        }
+        setCountyStories(shuffle(storiesArray));
+        // console.log(storiesArray);
       });
   }, [correctedCountyFetch]);
 
-  let randomStories;
+  let dataFetched = false;
 
+  //NOTE: WILL NEED A DIFFERENT SOLUTION ONCE STORIES CAN BE ADDED------------------------------------------------------
   //once all stories state variable has data from the fetch it fires
-  //** address state variable multiple fires */
   if (countyStories.length !== 0 && countyStories.length !== 212) {
-    //pushing one random number using the random number function
-    randomStories = randomNumber();
-    console.log(randomStories);
+    //setting boolean true to show data has been fetched
+    dataFetched = true;
   }
 
-  //function to generate a random number based on the length of the all stories array
-  function randomNumber() {
-    return Math.floor(Math.random() * (countyStories.length - 1) + 1);
+  function nextButton() {
+    if (props.shuffledIndex < countyStories.length - 1) {
+      props.setShuffledIndex(props.shuffledIndex + 1);
+    } else {
+      return null;
+    }
+  }
+
+  function previousButton() {
+    if (props.shuffledIndex > 0) {
+      props.setShuffledIndex(props.shuffledIndex - 1);
+    } else {
+      return null;
+    }
   }
 
   return (
@@ -66,79 +92,100 @@ export default function Story(props) {
       <Grid item xs={6}>
         <Paper>
           <GreenTextTypography variant="h5">
-            Featured Stories:{" "}
-          </GreenTextTypography>
-          <GreenTextTypography variant="h6">
-            Featured Story #1{" "}
+            {correctedCountyFetch} Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
           </GreenTextTypography>
           <div>
-            County: {randomStories ? countyStories[randomStories].County : null}
+            County:{" "}
+            {dataFetched ? countyStories[props.shuffledIndex].County : null}
           </div>
           <div>
             Insured:{" "}
-            {randomStories ? countyStories[randomStories].Insured : null}
+            {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
           </div>
           <div>
-            Age: {randomStories ? countyStories[randomStories].Age : null}
+            Age: {dataFetched ? countyStories[props.shuffledIndex].Age : null}
           </div>
           <div>
-            {randomStories
+            {dataFetched
               ? [
-                  countyStories[randomStories]
+                  countyStories[props.shuffledIndex]
                     .HaveYouBeenSurprisedByAMedicalBill
-                    ? "Have you been surprised by a Medical Bill?" +
-                      countyStories[randomStories]
-                        .HaveYouBeenSurprisedByAMedicalBill
+                    ? [<br />, 
+                        <b>Have you been surprised by a Medical Bill?</b>,
+                        <br />,
+                        countyStories[props.shuffledIndex]
+                          .HaveYouBeenSurprisedByAMedicalBill,
+                      ]
                     : null,
                 ]
               : null}
           </div>
           <div>
-            {randomStories
+            {dataFetched
               ? [
-                  countyStories[randomStories]
+                  countyStories[props.shuffledIndex]
                     .HowHasMedicalDebtImpactedYourAccessToCare
-                    ? "How has Medical Debt impacted your access to care?" +
-                      countyStories[randomStories]
-                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    ? [<br />, 
+                        <b>How has Medical Debt impacted your access to care?</b>,
+                        <br />,
+                        countyStories[props.shuffledIndex]
+                          .HowHasMedicalDebtImpactedYourAccessToCare,
+                      ]
                     : null,
                 ]
               : null}
           </div>
           <div>
-            {randomStories
+            {dataFetched
               ? [
-                  countyStories[randomStories].HowHasMedicalDebtImpactedYourLife
-                    ? "How has Medical Debt impacted your life?" +
-                      countyStories[randomStories]
-                        .HowHasMedicalDebtImpactedYourLife
+                  countyStories[props.shuffledIndex]
+                    .HowHasMedicalDebtImpactedYourLife
+                    ? [<br />, 
+                        <b>How has Medical Debt impacted your life?</b>,
+                        <br />,
+                        countyStories[props.shuffledIndex]
+                          .HowHasMedicalDebtImpactedYourLife,
+                      ]
                     : null,
                 ]
               : null}
           </div>
           <div>
-            {randomStories
+            {dataFetched
               ? [
-                  countyStories[randomStories]
+                  countyStories[props.shuffledIndex]
                     .WhatDoYouThinkOfTheCostOfMedicalCare
-                    ? "What do you think of the cost of medical care?" +
-                      countyStories[randomStories]
-                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    ? [<br />, 
+                        <b>What do you think of the cost of medical care?</b>,
+                        <br />,
+                        countyStories[props.shuffledIndex]
+                          .WhatDoYouThinkOfTheCostOfMedicalCare,
+                      ]
                     : null,
                 ]
               : null}
           </div>
           <div>
-            {randomStories
+            {dataFetched
               ? [
-                  countyStories[randomStories]
+                  countyStories[props.shuffledIndex]
                     .WhatIsYourExperienceWithMedicalDebtCollectors
-                    ? "What is your experience with medical debt collectors?" +
-                      countyStories[randomStories]
-                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    ? [<br />, 
+                        <b>What is your experience with medical debt collectors?</b>,
+                        <br />,
+                        countyStories[props.shuffledIndex]
+                          .WhatIsYourExperienceWithMedicalDebtCollectors,
+                      ]
                     : null,
                 ]
               : null}
+          <br />
+            <Button variant="contained" onClick={previousButton}>
+              Previous Story
+            </Button>
+            <Button variant="contained" onClick={nextButton}>
+              Next Story
+            </Button>
           </div>
         </Paper>
       </Grid>
