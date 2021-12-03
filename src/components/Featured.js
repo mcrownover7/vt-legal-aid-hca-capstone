@@ -127,9 +127,15 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
-                    allStories[randomStories[0]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors]
+                  ? [
+                      <br />,
+                      <b>
+                        What is your experience with medical debt collectors?
+                      </b>,
+                      <br />,
+                      allStories[randomStories[0]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors,
+                    ]
                   : null,
               ]
             : null}
@@ -215,9 +221,15 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[1]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
-                    allStories[randomStories[1]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors]
+                  ? [
+                      <br />,
+                      <b>
+                        What is your experience with medical debt collectors?
+                      </b>,
+                      <br />,
+                      allStories[randomStories[1]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors,
+                    ]
                   : null,
               ]
             : null}
@@ -303,9 +315,15 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[2]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [<br />, <b>What is your experience with medical debt collectors?</b>, <br />, 
-                    allStories[randomStories[2]]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors]
+                  ? [
+                      <br />,
+                      <b>
+                        What is your experience with medical debt collectors?
+                      </b>,
+                      <br />,
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors,
+                    ]
                   : null,
               ]
             : null}
