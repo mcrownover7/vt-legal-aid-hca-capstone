@@ -92,7 +92,8 @@ export default function Story(props) {
       <Grid item>
         <Paper>
           <GreenTextTypography variant="h5">
-            {correctedCountyFetch} Story #{props.shuffledIndex + 1} of {countyStories.length}{" "}
+            {correctedCountyFetch} Story #{props.shuffledIndex + 1} of{" "}
+            {countyStories.length}{" "}
           </GreenTextTypography>
           <div>
             County:{" "}
@@ -109,14 +110,14 @@ export default function Story(props) {
             {dataFetched
               ? [
                   countyStories[props.shuffledIndex]
-                    .HaveYouBeenSurprisedByAMedicalBill
-                    ? [<br />, 
-                        <b>Have you been surprised by a Medical Bill?</b>,
-                        <br />,
+                    .HaveYouBeenSurprisedByAMedicalBill ? (
+                    <li>
+                      {
                         countyStories[props.shuffledIndex]
-                          .HaveYouBeenSurprisedByAMedicalBill,
-                      ]
-                    : null,
+                          .HaveYouBeenSurprisedByAMedicalBill
+                      }
+                    </li>
+                  ) : null,
                 ]
               : null}
           </div>
@@ -124,14 +125,14 @@ export default function Story(props) {
             {dataFetched
               ? [
                   countyStories[props.shuffledIndex]
-                    .HowHasMedicalDebtImpactedYourAccessToCare
-                    ? [<br />, 
-                        <b>How has Medical Debt impacted your access to care?</b>,
-                        <br />,
+                    .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                    <li>
+                      {
                         countyStories[props.shuffledIndex]
-                          .HowHasMedicalDebtImpactedYourAccessToCare,
-                      ]
-                    : null,
+                          .HowHasMedicalDebtImpactedYourAccessToCare
+                      }
+                    </li>
+                  ) : null,
                 ]
               : null}
           </div>
@@ -139,14 +140,14 @@ export default function Story(props) {
             {dataFetched
               ? [
                   countyStories[props.shuffledIndex]
-                    .HowHasMedicalDebtImpactedYourLife
-                    ? [<br />, 
-                        <b>How has Medical Debt impacted your life?</b>,
-                        <br />,
+                    .HowHasMedicalDebtImpactedYourLife ? (
+                    <li>
+                      {
                         countyStories[props.shuffledIndex]
-                          .HowHasMedicalDebtImpactedYourLife,
-                      ]
-                    : null,
+                          .HowHasMedicalDebtImpactedYourLife
+                      }
+                    </li>
+                  ) : null,
                 ]
               : null}
           </div>
@@ -154,14 +155,14 @@ export default function Story(props) {
             {dataFetched
               ? [
                   countyStories[props.shuffledIndex]
-                    .WhatDoYouThinkOfTheCostOfMedicalCare
-                    ? [<br />, 
-                        <b>What do you think of the cost of medical care?</b>,
-                        <br />,
+                    .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                    <li>
+                      {
                         countyStories[props.shuffledIndex]
-                          .WhatDoYouThinkOfTheCostOfMedicalCare,
-                      ]
-                    : null,
+                          .WhatDoYouThinkOfTheCostOfMedicalCare
+                      }
+                    </li>
+                  ) : null,
                 ]
               : null}
           </div>
@@ -169,17 +170,17 @@ export default function Story(props) {
             {dataFetched
               ? [
                   countyStories[props.shuffledIndex]
-                    .WhatIsYourExperienceWithMedicalDebtCollectors
-                    ? [<br />, 
-                        <b>What is your experience with medical debt collectors?</b>,
-                        <br />,
+                    .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                    <li>
+                      {
                         countyStories[props.shuffledIndex]
-                          .WhatIsYourExperienceWithMedicalDebtCollectors,
-                      ]
-                    : null,
+                          .WhatIsYourExperienceWithMedicalDebtCollectors
+                      }
+                    </li>
+                  ) : null,
                 ]
               : null}
-          <br />
+            <br />
             <Button variant="contained" onClick={previousButton}>
               Previous Story
             </Button>

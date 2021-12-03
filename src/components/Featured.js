@@ -74,69 +74,58 @@ export default function Featured(props) {
                 ) : null,
               ]
             : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[0]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your access to care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
                       allStories[randomStories[0]]
-                        .HowHasMedicalDebtImpactedYourAccessToCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
-          {allStories.length
-            ? [
-                allStories[randomStories[0]].HowHasMedicalDebtImpactedYourLife
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your life?</b>,
-                      <br />,
-                      allStories[randomStories[0]]
-                        .HowHasMedicalDebtImpactedYourLife,
-                    ]
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[0]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? [
-                      <br />,
-                      <b>What do you think of the cost of medical care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
                       allStories[randomStories[0]]
-                        .WhatDoYouThinkOfTheCostOfMedicalCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
+
           {allStories.length
             ? [
                 allStories[randomStories[0]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [
-                      <br />,
-                      <b>
-                        What is your experience with medical debt collectors?
-                      </b>,
-                      <br />,
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
                       allStories[randomStories[0]]
-                        .WhatIsYourExperienceWithMedicalDebtCollectors,
-                    ]
-                  : null,
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[0]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[0]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
         </div>
@@ -157,80 +146,69 @@ export default function Featured(props) {
         <div>
           {allStories.length
             ? [
-                allStories[randomStories[1]].HaveYouBeenSurprisedByAMedicalBill
-                  ? [
-                      <br />,
-                      <b>Have you been surprised by a Medical Bill?</b>,
-                      <br />,
+                allStories[randomStories[1]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
                       allStories[randomStories[1]]
-                        .HaveYouBeenSurprisedByAMedicalBill,
-                    ]
-                  : null,
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[1]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your access to care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
                       allStories[randomStories[1]]
-                        .HowHasMedicalDebtImpactedYourAccessToCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
-          {allStories.length
-            ? [
-                allStories[randomStories[1]].HowHasMedicalDebtImpactedYourLife
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your life?</b>,
-                      <br />,
-                      allStories[randomStories[1]]
-                        .HowHasMedicalDebtImpactedYourLife,
-                    ]
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[1]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? [
-                      <br />,
-                      <b>What do you think of the cost of medical care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
                       allStories[randomStories[1]]
-                        .WhatDoYouThinkOfTheCostOfMedicalCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
+
           {allStories.length
             ? [
                 allStories[randomStories[1]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [
-                      <br />,
-                      <b>
-                        What is your experience with medical debt collectors?
-                      </b>,
-                      <br />,
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
                       allStories[randomStories[1]]
-                        .WhatIsYourExperienceWithMedicalDebtCollectors,
-                    ]
-                  : null,
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[1]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[1]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
         </div>
@@ -251,80 +229,69 @@ export default function Featured(props) {
         <div>
           {allStories.length
             ? [
-                allStories[randomStories[2]].HaveYouBeenSurprisedByAMedicalBill
-                  ? [
-                      <br />,
-                      <b>Have you been surprised by a Medical Bill?</b>,
-                      <br />,
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
                       allStories[randomStories[2]]
-                        .HaveYouBeenSurprisedByAMedicalBill,
-                    ]
-                  : null,
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[2]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your access to care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
                       allStories[randomStories[2]]
-                        .HowHasMedicalDebtImpactedYourAccessToCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
-          {allStories.length
-            ? [
-                allStories[randomStories[2]].HowHasMedicalDebtImpactedYourLife
-                  ? [
-                      <br />,
-                      <b>How has Medical Debt impacted your life?</b>,
-                      <br />,
-                      allStories[randomStories[2]]
-                        .HowHasMedicalDebtImpactedYourLife,
-                    ]
-                  : null,
-              ]
-            : null}
-        </div>
-        <div>
           {allStories.length
             ? [
                 allStories[randomStories[2]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare
-                  ? [
-                      <br />,
-                      <b>What do you think of the cost of medical care?</b>,
-                      <br />,
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
                       allStories[randomStories[2]]
-                        .WhatDoYouThinkOfTheCostOfMedicalCare,
-                    ]
-                  : null,
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
-        </div>
-        <div>
+
           {allStories.length
             ? [
                 allStories[randomStories[2]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors
-                  ? [
-                      <br />,
-                      <b>
-                        What is your experience with medical debt collectors?
-                      </b>,
-                      <br />,
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
                       allStories[randomStories[2]]
-                        .WhatIsYourExperienceWithMedicalDebtCollectors,
-                    ]
-                  : null,
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
         </div>
