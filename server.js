@@ -5,7 +5,10 @@ const mongoose = require("mongoose");
 
 const port = process.env.PORT || 5001;
 const app = express();
+
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
+
+app.use(express.urlencoded({ extended: true }));
 
 //------------------------------MONGOOSE SETUP------------------------------
 //creating mongoose Schema for stories
@@ -46,27 +49,69 @@ database.on("error", console.error.bind(console, "connection error"));
 app.post("/createnew", async (req, res) => {
   //NOTE: WILL NEED THE ADMIN PORTAL FORM TO HAVE EACH ONE OF THESE FIELDS, COULD BE TEXT BOX OR DROP DOWN FOR COUNTY
   //creation of a new story from admin portal
+
+  let tagImpact;
+  if (req.body.impactLife) {
+    tagImpact = 1;
+  } else {
+    tagImpact = 0;
+  }
+
+  let tagAccess;
+  if (req.body.impactCare) {
+    tagAccess = 1;
+  } else {
+    tagAccess = 0;
+  }
+
+  let tagCost;
+  if (req.body.costCare) {
+    tagCost = 1;
+  } else {
+    tagCost = 0;
+  }
+
+  let tagSurprise;
+  if (req.body.surpriseBill) {
+    tagSurprise = 1;
+  } else {
+    tagSurprise = 0;
+  }
+
+  let tagCollections;
+  if (req.body.collections) {
+    tagCollections = 1;
+  } else {
+    tagCollections = 0;
+  }
+
+  console.log(req.body);
   const newStory = new Stories({
     RespId: req.body.id,
     County: req.body.county,
     Insured: req.body.insured,
     Age: req.body.age,
-    QuoteTag_ImpactOnLife: req.body.tagImpact,
+
+    QuoteTag_ImpactOnLife: tagImpact,
     HowHasMedicalDebtImpactedYourLife: req.body.impactLife,
-    QuoteTag_Access: req.body.tagAccess,
+
+    QuoteTag_Access: tagAccess,
     HowHasMedicalDebtImpactedYourAccessToCare: req.body.impactCare,
-    QuoteTag_Cost: req.body.tagCost,
+
+    QuoteTag_Cost: tagCost,
     WhatDoYouThinkOfTheCostOfMedicalCare: req.body.costCare,
-    QuoteTag_SurpriseBill: req.body.tagSurprise,
+
+    QuoteTag_SurpriseBill: tagSurprise,
     HaveYouBeenSurprisedByAMedicalBill: req.body.surpriseBill,
-    QuoteTag_Collections: req.body.tagCollections,
+
+    QuoteTag_Collections: tagCollections,
     WhatIsYourExperienceWithMedicalDebtCollectors: req.body.collections,
   });
 
   //saving the new story
   await newStory.save();
 
-  //res.redirect("back") -> would reload page
+  res.redirect("back");
 });
 
 //---------READ---------------

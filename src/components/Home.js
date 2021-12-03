@@ -2,10 +2,9 @@
 import React from "react";
 import "../App.css";
 import Map from "./Map";
-import Footer from "./Footer";
+
 import { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Featured from "./Featured";
