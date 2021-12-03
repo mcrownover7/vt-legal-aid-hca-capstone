@@ -41,7 +41,7 @@ export default function Featured(props) {
   }
 
   return (
-    <Grid item xs={6}>
+    <Grid item>
       <Paper>
         <GreenTextTypography variant="h5">
           Featured Stories:{" "}
@@ -49,7 +49,7 @@ export default function Featured(props) {
         <GreenTextTypography variant="h6">
           Featured Story #1{" "}
         </GreenTextTypography>
-        <div>
+        <div id="featured-stories">
           County:{" "}
           {allStories.length ? allStories[randomStories[0]].County : null}
         </div>

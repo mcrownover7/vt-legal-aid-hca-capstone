@@ -29,7 +29,20 @@ export default function Home() {
   return (
     //React fragment (instead of <div>)
     <>
-      <Grid container spacing={2}>
+      <div id="map-display">
+        <Map
+          center={center}
+          setCenter={setCenter}
+          zoom={zoom}
+          setZoom={setZoom}
+          setFeaturedDisplay={setFeaturedDisplay}
+          setSelectedCounty={setSelectedCounty}
+          setCountyStoryDisplay={setCountyStoryDisplay}
+          countyStoryDisplay={countyStoryDisplay}
+          setShuffledIndex={setShuffledIndex}
+        />
+      </div>
+      <div id="stories-display">
         {featuredDisplay ? <Featured /> : null}
         {countyStoryDisplay ? (
           <Story
@@ -38,24 +51,7 @@ export default function Home() {
             setShuffledIndex={setShuffledIndex}
           />
         ) : null}
-        <Grid item xs={12} sm={6} md={2}>
-          <Paper>
-            <Map
-              center={center}
-              setCenter={setCenter}
-              zoom={zoom}
-              setZoom={setZoom}
-              setFeaturedDisplay={setFeaturedDisplay}
-              setSelectedCounty={setSelectedCounty}
-              setCountyStoryDisplay={setCountyStoryDisplay}
-              countyStoryDisplay={countyStoryDisplay}
-              setShuffledIndex={setShuffledIndex}
-            />
-          </Paper>
-        </Grid>
-      </Grid>
-
-      <Footer />
+      </div>
     </>
   );
 }
