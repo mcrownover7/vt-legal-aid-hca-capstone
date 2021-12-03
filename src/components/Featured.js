@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -41,7 +41,7 @@ export default function Featured(props) {
   }
 
   return (
-    <Grid item>
+    <>
       <Paper>
         <GreenTextTypography variant="h5">
           Featured Stories:{" "}
@@ -63,15 +63,15 @@ export default function Featured(props) {
         <div>
           {allStories.length
             ? [
-                allStories[randomStories[0]].HaveYouBeenSurprisedByAMedicalBill
-                  ? [
-                      <br />,
-                      <b>Have you been surprised by a Medical Bill?</b>,
-                      <br />,
+                allStories[randomStories[0]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
                       allStories[randomStories[0]]
-                        .HaveYouBeenSurprisedByAMedicalBill,
-                    ]
-                  : null,
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
               ]
             : null}
         </div>
@@ -329,6 +329,6 @@ export default function Featured(props) {
             : null}
         </div>
       </Paper>
-    </Grid>
+    </>
   );
 }
