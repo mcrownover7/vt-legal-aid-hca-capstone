@@ -50,3 +50,9 @@ footer {
   margin-left: 15px;
   margin-right: 15px;
 }
+
+.age-insurance {
+  display: flex;
+ max-width: 20vw;
+  justify-content:space-between;
+}
