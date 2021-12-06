@@ -85,7 +85,6 @@ app.post("/createnew", async (req, res) => {
     tagCollections = 0;
   }
 
-  console.log(req.body);
   const newStory = new Stories({
     RespId: req.body.id,
     County: req.body.county,

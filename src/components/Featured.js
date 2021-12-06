@@ -295,6 +295,1665 @@ export default function Featured(props) {
               ]
             : null}
         </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <GreenTextTypography variant="h6">
+          Featured Story #3{" "}
+        </GreenTextTypography>
+        <div>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[2]].County : null}
+        </div>
+        <div>
+          Insured:{" "}
+          {allStories.length ? allStories[randomStories[2]].Insured : null}
+        </div>
+        <div>
+          Age: {allStories.length ? allStories[randomStories[2]].Age : null}
+        </div>
+        <div>
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+
+          {allStories.length
+            ? [
+                allStories[randomStories[2]]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li>
+                    {
+                      allStories[randomStories[2]]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
       </Paper>
     </>
   );

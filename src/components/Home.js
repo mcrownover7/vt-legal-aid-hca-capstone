@@ -28,28 +28,30 @@ export default function Home() {
   return (
     //React fragment (instead of <div>)
     <>
-      <div id="map-display">
-        <Map
-          center={center}
-          setCenter={setCenter}
-          zoom={zoom}
-          setZoom={setZoom}
-          setFeaturedDisplay={setFeaturedDisplay}
-          setSelectedCounty={setSelectedCounty}
-          setCountyStoryDisplay={setCountyStoryDisplay}
-          countyStoryDisplay={countyStoryDisplay}
-          setShuffledIndex={setShuffledIndex}
-        />
-      </div>
-      <div id="stories-display">
-        {featuredDisplay ? <Featured /> : null}
-        {countyStoryDisplay ? (
-          <Story
-            selectedCounty={selectedCounty}
-            shuffledIndex={shuffledIndex}
+      <div id="homepage-wrapper">
+        <div id="map-display">
+          <Map
+            center={center}
+            setCenter={setCenter}
+            zoom={zoom}
+            setZoom={setZoom}
+            setFeaturedDisplay={setFeaturedDisplay}
+            setSelectedCounty={setSelectedCounty}
+            setCountyStoryDisplay={setCountyStoryDisplay}
+            countyStoryDisplay={countyStoryDisplay}
             setShuffledIndex={setShuffledIndex}
           />
-        ) : null}
+        </div>
+        <div id="stories-display">
+          {featuredDisplay ? <Featured /> : null}
+          {countyStoryDisplay ? (
+            <Story
+              selectedCounty={selectedCounty}
+              shuffledIndex={shuffledIndex}
+              setShuffledIndex={setShuffledIndex}
+            />
+          ) : null}
+        </div>
       </div>
     </>
   );

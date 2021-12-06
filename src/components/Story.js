@@ -89,7 +89,6 @@ export default function Story(props) {
   return (
     //React fragment (instead of <div>)
     <>
-      <Grid item>
         <Paper>
           <GreenTextTypography variant="h5">
             {correctedCountyFetch} Story #{props.shuffledIndex + 1} of{" "}
@@ -189,7 +188,6 @@ export default function Story(props) {
             </Button>
           </div>
         </Paper>
-      </Grid>
     </>
   );
 }

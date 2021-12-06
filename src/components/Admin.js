@@ -45,41 +45,24 @@ export default function Admin(props) {
               <input type="text" name="insured" placeholder="Insured" />
               <input type="text" name="age" placeholder="Age" />
               <input
-                type="hidden"
-                name="tagImpact"
-                placeholder="Impact on Life"
-              />
-              <input
                 type="text"
                 name="impactLife"
                 placeholder="How has Medical Debt Impacted your Life"
               />
-              <input type="hidden" name="tagAccess" placeholder="Access" />
               <input
                 type="text"
                 name="impactCare"
                 placeholder="How has Medical Debt Impacted your Access to Care"
               />
-              <input type="hidden" name="tagCost" placeholder="Cost" />
               <input
                 type="text"
                 name="costCare"
                 placeholder="What do you Think of the Cost of Medical Care"
               />
               <input
-                type="hidden"
-                name="tagSurprise"
-                placeholder="Surprise Bill"
-              />
-              <input
                 type="text"
                 name="surpriseBill"
                 placeholder="Have You Been Surprised by a Medical Bill"
-              />
-              <input
-                type="hidden"
-                name="tagCollections"
-                placeholder="Collections"
               />
               <input
                 type="text"
