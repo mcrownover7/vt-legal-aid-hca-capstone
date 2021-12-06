@@ -6,6 +6,7 @@
 .wrapper {
   display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
+  padding: 2px
 }
 
 header {
@@ -41,6 +42,7 @@ footer {
   justify-content: center;
   padding: 1em;
   margin: 0 1em;
+  border: solid 0.2em;
 }
 
 #homepage-wrapper {

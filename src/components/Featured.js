@@ -40,8 +40,7 @@ export default function Featured(props) {
   }
   return (
     <>
-    <div><img src="graph.jpg" alt="graph" />
-    </div>
+    <div><Graph /></div>
         <GreenTextTypography variant="h5">
           <b>Featured Story:{" "}</b>
         </GreenTextTypography>
@@ -54,11 +53,11 @@ export default function Featured(props) {
         </div>
         <div class="age-insurance">
         <div>
-          Insured:{" "}
+          <b>Insured:{" "}</b>
           {allStories.length ? allStories[randomStories[0]].Insured : null}
         </div>
         <div>
-          Age: {allStories.length ? allStories[randomStories[0]].Age : null}
+         <b> Age:</b> {allStories.length ? allStories[randomStories[0]].Age : null}
         </div>
         </div>
         <div>

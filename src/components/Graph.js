@@ -1,13 +1,13 @@
 import React from 'react'
-import Graph1 from '../Graph1.jpg' 
+import Graph1 from '../Graph1.png' 
 
 function Graph () {
  
   return (
     <img
-      src={Graph}
+      src={Graph1}
       alt='graph'
-      width='300'
+      width='550'
       height='300'
     />
   )
