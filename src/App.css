@@ -27,7 +27,6 @@ footer {
   grid-column: 1 / 4;
 }
 
-
 #stories-display {
   width: 100%;
   height: 600px;
@@ -42,7 +41,7 @@ footer {
   justify-content: center;
   padding: 1em;
   margin: 0 1em;
-  border: solid 0.2em;
+  border: solid 0.2em black;
 }
 
 #homepage-wrapper {
@@ -55,6 +54,6 @@ footer {
 
 .age-insurance {
   display: flex;
- max-width: 20vw;
-  justify-content:space-between;
+  max-width: 20vw;
+  justify-content: space-between;
 }
