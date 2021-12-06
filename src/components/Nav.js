@@ -33,6 +33,10 @@ export default function Nav() {
     background: "#205A3E",
   };
 
+  function refreshPage() {
+    window.location.reload(false)
+  }
+
   return (
     <AppBar style={{ backgroundColor: "#205A3E" }} position="static">
       <Toolbar>
@@ -48,7 +52,7 @@ export default function Nav() {
           Health Care Debt in Vermont
         </Typography>
         {/* NOTE: this is currently not doing anything since it is a single page app */}
-        <Button color="inherit" component={Link} to="/">
+        <Button color="inherit" onClick={refreshPage}>
           Home
         </Button>
         <Button color="inherit" component={Link} to="/about">
