@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import Graph from "./Graph.js"
+import Graph from "./Graph.js";
 
 export default function Featured(props) {
   const [allStories, setAllStories] = useState([]);
@@ -40,19 +40,20 @@ export default function Featured(props) {
   }
   return (
     <>
-    <div><img src="graph.jpg" alt="graph" />
-    </div>
-        <GreenTextTypography variant="h5">
-          <b>Featured Story:{" "}</b>
-        </GreenTextTypography>
-        <GreenTextTypography variant="h7">
-         <b>County:{" "}
-          {allStories.length ? allStories[randomStories[0]].County : null}</b>
-        </GreenTextTypography>
-        <div id="featured-stories">
-          
-        </div>
-        <div class="age-insurance">
+      <div>
+        <Graph />
+      </div>
+      <GreenTextTypography variant="h5">
+        <b>Featured Story: </b>
+      </GreenTextTypography>
+      <GreenTextTypography variant="h7">
+        <b>
+          County:{" "}
+          {allStories.length ? allStories[randomStories[0]].County : null}
+        </b>
+      </GreenTextTypography>
+      <div id="featured-stories"></div>
+      <div class="age-insurance">
         <div>
           Insured:{" "}
           {allStories.length ? allStories[randomStories[0]].Insured : null}
@@ -60,76 +61,75 @@ export default function Featured(props) {
         <div>
           Age: {allStories.length ? allStories[randomStories[0]].Age : null}
         </div>
-        </div>
-        <div>
-          {allStories.length
-            ? [
-                allStories[randomStories[0]]
-                  .HaveYouBeenSurprisedByAMedicalBill ? (
-                  <li>
-                    {
-                      allStories[randomStories[0]]
-                        .HaveYouBeenSurprisedByAMedicalBill
-                    }
-                  </li>
-                ) : null,
-              ]
-            : null}
-          {allStories.length
-            ? [
-                allStories[randomStories[0]]
-                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
-                  <li>
-                    {
-                      allStories[randomStories[0]]
-                        .HowHasMedicalDebtImpactedYourAccessToCare
-                    }
-                  </li>
-                ) : null,
-              ]
-            : null}
-          {allStories.length
-            ? [
-                allStories[randomStories[0]]
-                  .HowHasMedicalDebtImpactedYourLife ? (
-                  <li>
-                    {
-                      allStories[randomStories[0]]
-                        .HowHasMedicalDebtImpactedYourLife
-                    }
-                  </li>
-                ) : null,
-              ]
-            : null}
+      </div>
+      <div>
+        {allStories.length
+          ? [
+              allStories[randomStories[0]]
+                .HaveYouBeenSurprisedByAMedicalBill ? (
+                <li>
+                  {
+                    allStories[randomStories[0]]
+                      .HaveYouBeenSurprisedByAMedicalBill
+                  }
+                </li>
+              ) : null,
+            ]
+          : null}
+        {allStories.length
+          ? [
+              allStories[randomStories[0]]
+                .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                <li>
+                  {
+                    allStories[randomStories[0]]
+                      .HowHasMedicalDebtImpactedYourAccessToCare
+                  }
+                </li>
+              ) : null,
+            ]
+          : null}
+        {allStories.length
+          ? [
+              allStories[randomStories[0]].HowHasMedicalDebtImpactedYourLife ? (
+                <li>
+                  {
+                    allStories[randomStories[0]]
+                      .HowHasMedicalDebtImpactedYourLife
+                  }
+                </li>
+              ) : null,
+            ]
+          : null}
 
-          {allStories.length
-            ? [
-                allStories[randomStories[0]]
-                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
-                  <li>
-                    {
-                      allStories[randomStories[0]]
-                        .WhatDoYouThinkOfTheCostOfMedicalCare
-                    }
-                  </li>
-                ) : null,
-              ]
-            : null}
+        {allStories.length
+          ? [
+              allStories[randomStories[0]]
+                .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                <li>
+                  {
+                    allStories[randomStories[0]]
+                      .WhatDoYouThinkOfTheCostOfMedicalCare
+                  }
+                </li>
+              ) : null,
+            ]
+          : null}
 
-          {allStories.length
-            ? [
-                allStories[randomStories[0]]
-                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
-                  <li>
-                    {
-                      allStories[randomStories[0]]
-                        .WhatIsYourExperienceWithMedicalDebtCollectors
-                    }
-                  </li>
-                ) : null,
-              ]
-            : null}
-        </div>
+        {allStories.length
+          ? [
+              allStories[randomStories[0]]
+                .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                <li>
+                  {
+                    allStories[randomStories[0]]
+                      .WhatIsYourExperienceWithMedicalDebtCollectors
+                  }
+                </li>
+              ) : null,
+            ]
+          : null}
+      </div>
     </>
   );
 }
