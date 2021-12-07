@@ -55,11 +55,11 @@ export default function Featured(props) {
       <div id="featured-stories"></div>
       <div class="age-insurance">
         <div>
-          Insured:{" "}
+          <b>Insured:{" "}</b>
           {allStories.length ? allStories[randomStories[0]].Insured : null}
         </div>
         <div>
-          Age: {allStories.length ? allStories[randomStories[0]].Age : null}
+         <b> Age:</b> {allStories.length ? allStories[randomStories[0]].Age : null}
         </div>
       </div>
       <div>

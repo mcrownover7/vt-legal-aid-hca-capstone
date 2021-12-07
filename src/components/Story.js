@@ -1,7 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -89,21 +87,19 @@ export default function Story(props) {
   return (
     //React fragment (instead of <div>)
     <>
-        <Paper>
+      
           <GreenTextTypography variant="h5">
-            {correctedCountyFetch} Story #{props.shuffledIndex + 1} of{" "}
-            {countyStories.length}{" "}
+            <b>{correctedCountyFetch} County Story #{props.shuffledIndex + 1} of{" "}
+            {countyStories.length}</b>
           </GreenTextTypography>
-          <div>
-            County:{" "}
-            {dataFetched ? countyStories[props.shuffledIndex].County : null}
-          </div>
+           <div class="age-insurance">
           <div>
             Insured:{" "}
             {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
           </div>
           <div>
             Age: {dataFetched ? countyStories[props.shuffledIndex].Age : null}
+          </div>
           </div>
           <div>
             {dataFetched
@@ -187,7 +183,7 @@ export default function Story(props) {
               Next Story
             </Button>
           </div>
-        </Paper>
+        
     </>
   );
 }
