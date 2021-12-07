@@ -9,7 +9,7 @@ import Dropdown from './Dropdown.js'
 export default function Story (props) {
   const [countyStories, setCountyStories] = useState([])
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState('')
-  const [impact, setImpact] = React.useState('')
+  // const [impact, setImpact] = React.useState('')
 
   const MaroonTextTypography = withStyles({
     root: {
@@ -128,7 +128,7 @@ export default function Story (props) {
           Age: {dataFetched ? countyStories[props.shuffledIndex].Age : null}
         </div>
 
-        <Dropdown impact={impact} setImpact={setImpact} correctedCountyFetch={correctedCountyFetch} countyStories={countyStories} setCountyStories={setCountyStories} />
+        <Dropdown impact={props.impact} setImpact={props.setImpact} correctedCountyFetch={correctedCountyFetch} countyStories={countyStories} setCountyStories={setCountyStories} />
       </div>
       <div>
         {dataFetched

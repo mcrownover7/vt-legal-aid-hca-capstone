@@ -1,69 +1,69 @@
-import * as React from 'react'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
-import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
+import * as React from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-const impact = [
-  'overall-impacts',
-  'healthcare-impacts',
-  'overall-costs',
-  'medical-bills',
-  'medical-debts'
-]
 
-export default function Dropdown (props) {
-  // const [impact, setImpact] = React.useState('')
 
-  // let newCountyStories = []
-  const handleChange = event => {
-    props.setImpact(event.target.value)
-    console.log(props.countyStories)
+export default function Dropdown(props) {
 
-    // newCountyStories = props.countyStories.map((object, index) => {
+  const handleChange = (event) => {
+    props.setImpact(event.target.value);
+    console.log(props.countyStories);
 
-    // })
     fetch(`/allstories/${props.correctedCountyFetch}+${event.target.value}`)
-      .then(res => res.json())
-      .then(storiesArray => {
+      .then((res) => res.json())
+      .then((storiesArray) => {
         //utilizing a Fisher-Yates Shuffle to randomize the order of the objects in the json array
-        function shuffle (myArray) {
+        function shuffle(myArray) {
           let currentIndex = myArray.length,
-            randomIndex
+            randomIndex;
 
           while (currentIndex !== 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex)
-            currentIndex--
-            ;[myArray[currentIndex], myArray[randomIndex]] = [
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [myArray[currentIndex], myArray[randomIndex]] = [
               myArray[randomIndex],
-              myArray[currentIndex]
-            ]
+              myArray[currentIndex],
+            ];
           }
-          return myArray
+          return myArray;
         }
-        props.setCountyStories(shuffle(storiesArray))
+        props.setCountyStories(shuffle(storiesArray));
         // console.log(storiesArray);
-      })
-  }
+      });
+  };
 
   return (
     <div>
-      <FormControl variant='standard' sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id='select-topic-label'>Filter Topics</InputLabel>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="select-topic-label">Filter Topics</InputLabel>
         <Select
           // labelId='select-impact-label'
           // id='select-impact'
           value={props.impact}
           onChange={handleChange}
-          label='Impact'
+          label="Impact"
         >
-          <MenuItem value={'HowHasMedicalDebtImpactedYourLife'}>Overall Impacts</MenuItem>
-          <MenuItem value={'HowHasMedicalDebtImpactedYourAccessToCare'}>Healthcare Access</MenuItem>
-          <MenuItem value={'WhatDoYouThinkOfTheCostOfMedicalCare'}>Healthcare Costs</MenuItem>
-          <MenuItem value={'HaveYouBeenSurprisedByAMedicalBill'}>Medical Bills</MenuItem>
-          <MenuItem value={'WhatIsYourExperienceWithMedicalDebtCollectors'}>Medical Debts</MenuItem>
+          <MenuItem value={"HowHasMedicalDebtImpactedYourLife"}>
+            Overall Impacts
+          </MenuItem>
+          <MenuItem value={"HowHasMedicalDebtImpactedYourAccessToCare"}>
+            Healthcare Access
+          </MenuItem>
+          <MenuItem value={"WhatDoYouThinkOfTheCostOfMedicalCare"}>
+            Healthcare Costs
+          </MenuItem>
+          <MenuItem value={"HaveYouBeenSurprisedByAMedicalBill"}>
+            Medical Bills
+          </MenuItem>
+          <MenuItem value={"WhatIsYourExperienceWithMedicalDebtCollectors"}>
+            Medical Debts
+          </MenuItem>
+          <MenuItem value={"Reset"}>Clear Filter</MenuItem>
         </Select>
       </FormControl>
     </div>
-  )
+  );
 }

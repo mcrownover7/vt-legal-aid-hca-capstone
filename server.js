@@ -47,63 +47,16 @@ database.on("error", console.error.bind(console, "connection error"));
 //-------------------------------ROUTES----------------------------------------
 //---------CREATE-------------
 app.post("/createnew", async (req, res) => {
-  //NOTE: WILL NEED THE ADMIN PORTAL FORM TO HAVE EACH ONE OF THESE FIELDS, COULD BE TEXT BOX OR DROP DOWN FOR COUNTY
   //creation of a new story from admin portal
-
-  let tagImpact;
-  if (req.body.impactLife) {
-    tagImpact = 1;
-  } else {
-    tagImpact = 0;
-  }
-
-  let tagAccess;
-  if (req.body.impactCare) {
-    tagAccess = 1;
-  } else {
-    tagAccess = 0;
-  }
-
-  let tagCost;
-  if (req.body.costCare) {
-    tagCost = 1;
-  } else {
-    tagCost = 0;
-  }
-
-  let tagSurprise;
-  if (req.body.surpriseBill) {
-    tagSurprise = 1;
-  } else {
-    tagSurprise = 0;
-  }
-
-  let tagCollections;
-  if (req.body.collections) {
-    tagCollections = 1;
-  } else {
-    tagCollections = 0;
-  }
-
   const newStory = new Stories({
     RespID: req.body.id,
     County: req.body.county,
     Insured: req.body.insured,
     Age: req.body.age,
-
-    // QuoteTag_ImpactOnLife: tagImpact,
     HowHasMedicalDebtImpactedYourLife: req.body.impactLife,
-
-    // QuoteTag_Access: tagAccess,
     HowHasMedicalDebtImpactedYourAccessToCare: req.body.impactCare,
-
-    // QuoteTag_Cost: tagCost,
     WhatDoYouThinkOfTheCostOfMedicalCare: req.body.costCare,
-
-    // QuoteTag_SurpriseBill: tagSurprise,
     HaveYouBeenSurprisedByAMedicalBill: req.body.surpriseBill,
-
-    // QuoteTag_Collections: tagCollections,
     WhatIsYourExperienceWithMedicalDebtCollectors: req.body.collections,
   });
 
@@ -132,10 +85,10 @@ app.get("/allstories/:county", async (req, res) => {
     let instanceCounty = splitParams[0];
     //setting up a intermediate variable for the question filter from the split params
     let instanceFilter = splitParams[1];
-    //setting up variable to store res of .find with the instanceCounty being used as a filter
+    //setting up variable to store res of .find with the instanceCounty and instanceFilter being used as a filter
     let countyStories = await Stories.find({
       County: instanceCounty,
-      instanceFilter: { $ne: "" },
+      [instanceFilter]: { $ne: "" },
     });
     //sending messages for the specific county as json
     res.json(countyStories);
@@ -149,50 +102,7 @@ app.get("/allstories/:county", async (req, res) => {
   }
 });
 
-//NOTE: FILTERS MAY NEED TO BE UPDATED ONCE TESTING IS SET-UP-----------------------------------------------------------------------------------------------------
-//API endpoint to get the stories from a specific tag
-app.get("/allstories/:tags", async (req, res) => {
-  //setting up an intermediate variable for the county from the params
-  let instanceTags = req.params.tags;
-
-  //setting up variable to store res of .find with the instanceTags being used as a filter
-  let tagsStories = await Stories.find({ instanceTags });
-
-  //sending messages for the specific tags as json
-  res.json(tagsStories);
-});
-
-//API endpoint to get the stories from a specific county and tag combination
-app.get("/allstories/:county/:tags", async (req, res) => {
-  //setting up an intermediate variable for the county from the params
-  let instanceCounty = req.params.county;
-
-  //setting up an intermediate variable for the tags from the params
-  let instanceTags = req.params.tags;
-
-  //setting up variable to store res of .find with the instanceTags being used as a filter
-  let combinedStories = await Stories.find({
-    county: instanceCounty,
-    instanceTags,
-  });
-
-  //sending messages for the specific tags as json
-  res.json(combinedStories);
-});
-
-// Routing to API endpoint of directory with all counties
-// app.get("/api", (req, res) => {
-//   res.sendFile(__dirname + "/api/counties.json");
-// });
-
-// Routing to API endpoint matching ID of single county using parameters
-// app.get("/api/:id", (req, res) => {
-//   let filePath = path.join(countyDir, req.params.id + ".json");
-//   res.sendFile(filePath);
-// });
-
 //-----------UPDATE-----------
-//---------------------------NOTE: FIX BASED ON NEW SCHEMA-----------------------
 //API endpoint to update a story
 app.post("/update/:id", async (req, res) => {
   //grabbing the document id (mongo) received in params

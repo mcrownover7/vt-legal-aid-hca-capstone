@@ -50,16 +50,16 @@ function Map(props) {
       }
     );
 
-//  if (props.countyStoryDisplay === true){
-//    return null
-//   } else{
-//     layer.on("mouseout", (evt) => {
-//         layer.setStyle({ fillColor: "#ff6863"})
-//       })
-//       layer.on("mouseover", (evt) => {
-//         layer.setStyle({ fillColor: "#0000FF" })
-//     })
-//     }
+    //  if (props.countyStoryDisplay === true){
+    //    return null
+    //   } else{
+    //     layer.on("mouseout", (evt) => {
+    //         layer.setStyle({ fillColor: "#ff6863"})
+    //       })
+    //       layer.on("mouseover", (evt) => {
+    //         layer.setStyle({ fillColor: "#0000FF" })
+    //     })
+    //     }
   }
 
   //function for when a county is clicked on the map
@@ -84,8 +84,11 @@ function Map(props) {
     props.setSelectedCounty(evt.target.feature.properties.cntyname);
 
     //using props to reset the index for the array shuffle display in story.js
-    props.setShuffledIndex(0)
+    props.setShuffledIndex(0);
     // console.log(previouslySelectedCounty);
+
+    //using props to reset the impact for the filter in dropdown.js
+    props.setImpact("");
 
     //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.
     if (previouslySelectedCounty !== null) {
@@ -125,7 +128,7 @@ function Map(props) {
       {/* returning the created function with center and zoom */}
       <MyComponent center={props.center} zoom={props.zoom} />
       <TileLayer
-        url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png'
+        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}

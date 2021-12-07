@@ -18,6 +18,7 @@ export default function Home() {
   const [countyStoryDisplay, setCountyStoryDisplay] = useState(false);
   const [selectedCounty, setSelectedCounty] = useState("");
   const [shuffledIndex, setShuffledIndex] = useState(0);
+  const [impact, setImpact] = React.useState("");
 
   const GreenTextTypography = withStyles({
     root: {
@@ -26,7 +27,6 @@ export default function Home() {
   })(Typography);
 
   return (
-    //React fragment (instead of <div>)
     <>
       <div id="homepage-wrapper">
         <div id="map-display">
@@ -40,12 +40,15 @@ export default function Home() {
             setCountyStoryDisplay={setCountyStoryDisplay}
             countyStoryDisplay={countyStoryDisplay}
             setShuffledIndex={setShuffledIndex}
+            setImpact={setImpact}
           />
         </div>
         <div id="stories-display">
           {featuredDisplay ? <Featured /> : null}
           {countyStoryDisplay ? (
             <Story
+              impact={impact}
+              setImpact={setImpact}
               selectedCounty={selectedCounty}
               shuffledIndex={shuffledIndex}
               setShuffledIndex={setShuffledIndex}
