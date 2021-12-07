@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 //------------------------------MONGOOSE SETUP------------------------------
 //creating mongoose Schema for stories
 const StorySchema = new mongoose.Schema({
-  RespId: Number,
+  RespID: Number,
   County: String,
   Insured: String,
   Age: String,
@@ -86,24 +86,24 @@ app.post("/createnew", async (req, res) => {
   }
 
   const newStory = new Stories({
-    RespId: req.body.id,
+    RespID: req.body.id,
     County: req.body.county,
     Insured: req.body.insured,
     Age: req.body.age,
 
-    QuoteTag_ImpactOnLife: tagImpact,
+    // QuoteTag_ImpactOnLife: tagImpact,
     HowHasMedicalDebtImpactedYourLife: req.body.impactLife,
 
-    QuoteTag_Access: tagAccess,
+    // QuoteTag_Access: tagAccess,
     HowHasMedicalDebtImpactedYourAccessToCare: req.body.impactCare,
 
-    QuoteTag_Cost: tagCost,
+    // QuoteTag_Cost: tagCost,
     WhatDoYouThinkOfTheCostOfMedicalCare: req.body.costCare,
 
-    QuoteTag_SurpriseBill: tagSurprise,
+    // QuoteTag_SurpriseBill: tagSurprise,
     HaveYouBeenSurprisedByAMedicalBill: req.body.surpriseBill,
 
-    QuoteTag_Collections: tagCollections,
+    // QuoteTag_Collections: tagCollections,
     WhatIsYourExperienceWithMedicalDebtCollectors: req.body.collections,
   });
 
@@ -186,7 +186,7 @@ app.post("/update/:id", async (req, res) => {
 
   //series of if statements checking if values were received in the body of the request; assigning them to our updated object if they do exist
   if (req.body.id) {
-    updatedStory.RespId = req.body.id;
+    updatedStory.RespID = parseInt(req.body.id);
   }
   if (req.body.county) {
     updatedStory.County = req.body.county;
@@ -197,32 +197,17 @@ app.post("/update/:id", async (req, res) => {
   if (req.body.age) {
     updatedStory.Age = req.body.age;
   }
-  if (req.body.tagLife) {
-    updatedStory.QuoteTag_ImpactOnLife = req.body.tagLife;
-  }
   if (req.body.life) {
     updatedStory.HowHasMedicalDebtImpactedYourLife = req.body.life;
-  }
-  if (req.body.tagAccess) {
-    updatedStory.QuoteTag_Access = req.body.tagAccess;
   }
   if (req.body.access) {
     updatedStory.HowHasMedicalDebtImpactedYourAccessToCare = req.body.access;
   }
-  if (req.body.tagCost) {
-    updatedStory.QuoteTag_Cost = req.body.tagCost;
-  }
   if (req.body.cost) {
     updatedStory.WhatDoYouThinkOfTheCostOfMedicalCare = req.body.cost;
   }
-  if (req.body.tagSurprise) {
-    updatedStory.QuoteTag_SurpriseBill = req.body.tagSurprise;
-  }
   if (req.body.surprise) {
     updatedStory.HaveYouBeenSurprisedByAMedicalBill = req.body.surprise;
-  }
-  if (req.body.tagDebt) {
-    updatedStory.QuoteTag_Collections = req.body.tagDebt;
   }
   if (req.body.debt) {
     updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors = req.body.debt;
@@ -231,7 +216,7 @@ app.post("/update/:id", async (req, res) => {
   //finding a document by its ID and then updating its key:value pairs dependant on whether or not they exist in the updated object
   await Stories.updateOne({ _id: storyId }, { $set: updatedStory });
 
-  //res.redirect("back") -> would reload page
+  res.redirect("back")
 });
 
 //-----------DELETE-----------
@@ -243,7 +228,7 @@ app.post("/delete/:id", async (req, res) => {
   //deleting the story using its mongo ID as a filter
   await Stories.deleteOne({ _id: storyId });
 
-  //res.redirect("back") -> would reload page
+  res.redirect("back")
 });
 
 //routing * to handle any non-set routes to a 404 page
