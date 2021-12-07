@@ -124,12 +124,29 @@ app.get("/allstories", async (req, res) => {
 
 //API endpoint to get the stories from a specific county
 app.get("/allstories/:county", async (req, res) => {
-  //setting up a intermediate variable for the county from the params
-  let instanceCounty = req.params.county;
-  //setting up variable to store res of .find with the instanceCounty being used as a filter
-  let countyStories = await Stories.find({ County: instanceCounty });
-  //sending messages for the specific county as json
-  res.json(countyStories);
+  if (req.params.county.includes("+")) {
+    //splitting the params based on the + added when a filter is applied
+    let splitParams = req.params.county.split("+");
+    console.log(splitParams);
+    //setting up a intermediate variable for the county from the split params
+    let instanceCounty = splitParams[0];
+    //setting up a intermediate variable for the question filter from the split params
+    let instanceFilter = splitParams[1];
+    //setting up variable to store res of .find with the instanceCounty being used as a filter
+    let countyStories = await Stories.find({
+      County: instanceCounty,
+      instanceFilter: { $ne: "" },
+    });
+    //sending messages for the specific county as json
+    res.json(countyStories);
+  } else {
+    //setting up a intermediate variable for the county from the params
+    let instanceCounty = req.params.county;
+    //setting up variable to store res of .find with the instanceCounty being used as a filter
+    let countyStories = await Stories.find({ County: instanceCounty });
+    //sending messages for the specific county as json
+    res.json(countyStories);
+  }
 });
 
 //NOTE: FILTERS MAY NEED TO BE UPDATED ONCE TESTING IS SET-UP-----------------------------------------------------------------------------------------------------
@@ -201,7 +218,8 @@ app.post("/update/:id", async (req, res) => {
     updatedStory.HowHasMedicalDebtImpactedYourLife = req.body.impactLife;
   }
   if (req.body.impactCare) {
-    updatedStory.HowHasMedicalDebtImpactedYourAccessToCare = req.body.impactCare;
+    updatedStory.HowHasMedicalDebtImpactedYourAccessToCare =
+      req.body.impactCare;
   }
   if (req.body.costCare) {
     updatedStory.WhatDoYouThinkOfTheCostOfMedicalCare = req.body.costCare;
@@ -210,13 +228,14 @@ app.post("/update/:id", async (req, res) => {
     updatedStory.HaveYouBeenSurprisedByAMedicalBill = req.body.surpriseBill;
   }
   if (req.body.collections) {
-    updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors = req.body.collections;
+    updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors =
+      req.body.collections;
   }
 
   //finding a document by its ID and then updating its key:value pairs dependant on whether or not they exist in the updated object
   await Stories.updateOne({ _id: storyId }, { $set: updatedStory });
 
-  res.redirect("back")
+  res.redirect("back");
 });
 
 //-----------DELETE-----------
@@ -228,7 +247,7 @@ app.post("/delete/:id", async (req, res) => {
   //deleting the story using its mongo ID as a filter
   await Stories.deleteOne({ _id: storyId });
 
-  res.redirect("back")
+  res.redirect("back");
 });
 
 //routing * to handle any non-set routes to a 404 page

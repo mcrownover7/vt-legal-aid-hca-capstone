@@ -8,7 +8,7 @@ import { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Featured from "./Featured";
-import Story from "./Story";
+import Story from "./CountyStory";
 
 //Home function to render page structural elements
 export default function Home() {
