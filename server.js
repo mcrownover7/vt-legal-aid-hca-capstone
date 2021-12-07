@@ -186,7 +186,7 @@ app.post("/update/:id", async (req, res) => {
 
   //series of if statements checking if values were received in the body of the request; assigning them to our updated object if they do exist
   if (req.body.id) {
-    updatedStory.RespID = parseInt(req.body.id);
+    updatedStory.RespID = req.body.id;
   }
   if (req.body.county) {
     updatedStory.County = req.body.county;
@@ -197,20 +197,20 @@ app.post("/update/:id", async (req, res) => {
   if (req.body.age) {
     updatedStory.Age = req.body.age;
   }
-  if (req.body.life) {
-    updatedStory.HowHasMedicalDebtImpactedYourLife = req.body.life;
+  if (req.body.impactLife) {
+    updatedStory.HowHasMedicalDebtImpactedYourLife = req.body.impactLife;
   }
-  if (req.body.access) {
-    updatedStory.HowHasMedicalDebtImpactedYourAccessToCare = req.body.access;
+  if (req.body.impactCare) {
+    updatedStory.HowHasMedicalDebtImpactedYourAccessToCare = req.body.impactCare;
   }
-  if (req.body.cost) {
-    updatedStory.WhatDoYouThinkOfTheCostOfMedicalCare = req.body.cost;
+  if (req.body.costCare) {
+    updatedStory.WhatDoYouThinkOfTheCostOfMedicalCare = req.body.costCare;
   }
-  if (req.body.surprise) {
-    updatedStory.HaveYouBeenSurprisedByAMedicalBill = req.body.surprise;
+  if (req.body.surpriseBill) {
+    updatedStory.HaveYouBeenSurprisedByAMedicalBill = req.body.surpriseBill;
   }
-  if (req.body.debt) {
-    updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors = req.body.debt;
+  if (req.body.collections) {
+    updatedStory.WhatIsYourExperienceWithMedicalDebtCollectors = req.body.collections;
   }
 
   //finding a document by its ID and then updating its key:value pairs dependant on whether or not they exist in the updated object

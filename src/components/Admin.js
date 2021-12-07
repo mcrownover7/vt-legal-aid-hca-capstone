@@ -94,35 +94,106 @@ export default function Admin(props) {
       {createStoryFormBool
         ? [
             <form action="/createnew" method="POST">
-              <input type="text" name="id" placeholder="RespID" />
-              <input type="text" name="county" placeholder="County" />
-              <input type="text" name="insured" placeholder="Insured" />
-              <input type="text" name="age" placeholder="Age" />
-              <input
-                type="text"
-                name="impactLife"
-                placeholder="How has Medical Debt Impacted your Life"
-              />
-              <input
-                type="text"
-                name="impactCare"
-                placeholder="How has Medical Debt Impacted your Access to Care"
-              />
-              <input
-                type="text"
-                name="costCare"
-                placeholder="What do you Think of the Cost of Medical Care"
-              />
-              <input
-                type="text"
-                name="surpriseBill"
-                placeholder="Have You Been Surprised by a Medical Bill"
-              />
-              <input
-                type="text"
-                name="collections"
-                placeholder="What is your Experience with Medical Debt Collectors"
-              />
+              <div>
+                <label for="id">RespID: </label>
+                <input type="number" name="id" placeholder="RespID" />
+              </div>
+              {/* <input type="text" name="county" placeholder="County" /> */}
+              <div>
+                <label for="county">County: </label>
+                <select name="county">
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="Addison">Addison</option>
+                  <option value="Bennington">Bennington</option>
+                  <option value="Caledonia">Caledonia</option>
+                  <option value="Chittenden">Chittenden</option>
+                  <option value="Essex">Essex</option>
+                  <option value="Franklin">Franklin</option>
+                  <option value="Grand Isle">Grand Isle</option>
+                  <option value="Lamoille">Lamoille</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Orleans">Orleans</option>
+                  <option value="Rutland">Rutland</option>
+                  <option value="Washington">Washington</option>
+                  <option value="Windham">Windham</option>
+                  <option value="Windsor">Windsor</option>
+                </select>
+              </div>
+              {/* <input type="text" name="insured" placeholder="Insured" /> */}
+              <div>
+                <label for="insured">Insured: </label>
+                <select name="insured">
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                {/* <input type="text" name="age" placeholder="Age" /> */}
+              </div>
+              <div>
+                <label for="age">Age: </label>
+                <select name="age">
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="18-26">18-26</option>
+                  <option value="27-40">27-40</option>
+                  <option value="41-64">41-64</option>
+                  <option value="65+">65+</option>
+                </select>
+              </div>
+              <div>
+                <label for="impactLife">
+                  How Has Medical Debt Impacted Your Life?{" "}
+                </label>
+                <div>
+                  <textarea
+                    type="text"
+                    name="impactLife"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="impactCare">
+                  How Has Medical Debt Impacted Your Access to Care?{" "}
+                </label>
+                <div>
+                  <textarea
+                    type="text"
+                    name="impactCare"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="costCare">
+                  What Do You Think Of The Cost Of Medical Care?{" "}
+                </label>
+                <div>
+                  <textarea
+                    type="text"
+                    name="costCare"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="surpriseBill">
+                  Have You Been Surprised By A Medical Bill?{" "}
+                </label>
+                <div>
+                  <textarea
+                    type="text"
+                    name="surpriseBill"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="collections">
+                  What Is Your Experience With Medical Debt Collectors?{" "}
+                </label>
+                <div>
+                  <textarea
+                    type="text"
+                    name="collections"
+                  />
+                </div>
+              </div>
               <input type="submit" />
             </form>,
           ]
@@ -189,25 +260,59 @@ export default function Admin(props) {
                 <label for="id">
                   Current RespID {rowSelection[0].RespID}:{" "}
                 </label>
-                <input type="text" name="id" placeholder="RespID" />
+                <input type="number" name="id" placeholder="RespID" />
               </div>
               <div>
                 <label for="county">
                   Current County {rowSelection[0].County}:{" "}
                 </label>
-                <input type="text" name="county" placeholder="County" />
+                <select name="county">
+                  <option value={`${rowSelection[0].County}`}>No Change</option>
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="Addison">Addison</option>
+                  <option value="Bennington">Bennington</option>
+                  <option value="Caledonia">Caledonia</option>
+                  <option value="Chittenden">Chittenden</option>
+                  <option value="Essex">Essex</option>
+                  <option value="Franklin">Franklin</option>
+                  <option value="Grand Isle">Grand Isle</option>
+                  <option value="Lamoille">Lamoille</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Orleans">Orleans</option>
+                  <option value="Rutland">Rutland</option>
+                  <option value="Washington">Washington</option>
+                  <option value="Windham">Windham</option>
+                  <option value="Windsor">Windsor</option>
+                </select>
+                {/* <input type="text" name="county" placeholder="County" /> */}
               </div>
               <div>
                 <label for="insured">
                   Current Insured {rowSelection[0].Insured}:{" "}
                 </label>
-                <input type="text" name="insured" placeholder="Insured" />
+                <select name="insured">
+                  <option value={`${rowSelection[0].Insured}`}>
+                    No Change
+                  </option>
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                {/* <input type="text" name="insured" placeholder="Insured" /> */}
               </div>
               <div>
                 <label for="age">Current Age {rowSelection[0].Age}: </label>
-                <input type="text" name="age" placeholder="Age" />
+                <select name="age">
+                  <option value={`${rowSelection[0].Age}`}>No Change</option>
+                  <option value="Did Not Answer">Did Not Answer</option>
+                  <option value="18-26">18-26</option>
+                  <option value="27-40">27-40</option>
+                  <option value="41-64">41-64</option>
+                  <option value="65+">65+</option>
+                </select>
+                {/* <input type="text" name="age" placeholder="Age" /> */}
               </div>
-              <h5>How has medical debt impacted your life? (current answer)</h5>
+              <h5>How Has Medical Debt Impacted Your Life? (current answer)</h5>
               {rowSelection[0].HowHasMedicalDebtImpactedYourLife
                 ? [
                     <div>
@@ -215,13 +320,12 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <input
+              <textarea
                 type="text"
                 name="impactLife"
-                placeholder="How has Medical Debt Impacted your Life"
               />
               <h5>
-                How has Medical Debt Impacted your Access to Care? (current
+                How Has Medical Debt Impacted Your Access To Care? (current
                 answer)
               </h5>
               {rowSelection[0].HowHasMedicalDebtImpactedYourAccessToCare
@@ -234,51 +338,40 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <input
+              <textarea
                 type="text"
                 name="impactCare"
-                placeholder="How has Medical Debt Impacted your Access to Care"
               />
               <h5>
-              What do you Think of the Cost of Medical Care? (current
-                answer)
+                What Do You Think Of The Cost Of Medical Care? (current answer)
               </h5>
               {rowSelection[0].WhatDoYouThinkOfTheCostOfMedicalCare
                 ? [
                     <div>
-                      {
-                        rowSelection[0]
-                          .WhatDoYouThinkOfTheCostOfMedicalCare
-                      }
+                      {rowSelection[0].WhatDoYouThinkOfTheCostOfMedicalCare}
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <input
+              <textarea
                 type="text"
                 name="costCare"
-                placeholder="What do you Think of the Cost of Medical Care"
               />
-               <h5>
-               Have You Been Surprised by a Medical Bill? (current
-                answer)
+              <h5>
+                Have You Been Surprised By A Medical Bill? (current answer)
               </h5>
               {rowSelection[0].HaveYouBeenSurprisedByAMedicalBill
                 ? [
                     <div>
-                      {
-                        rowSelection[0]
-                          .HaveYouBeenSurprisedByAMedicalBill
-                      }
+                      {rowSelection[0].HaveYouBeenSurprisedByAMedicalBill}
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <input
+              <textarea
                 type="text"
                 name="surpriseBill"
-                placeholder="Have You Been Surprised by a Medical Bill"
               />
-               <h5>
-               What is your Experience with Medical Debt Collectors? (current
+              <h5>
+                What Is Your Experience With Medical Debt Collectors? (current
                 answer)
               </h5>
               {rowSelection[0].WhatIsYourExperienceWithMedicalDebtCollectors
@@ -291,13 +384,12 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <input
+              <textarea
                 type="text"
                 name="collections"
-                placeholder="What is your Experience with Medical Debt Collectors"
               />
               <div>
-              <input type="submit" />
+                <input type="submit" />
               </div>
             </form>,
           ]
@@ -305,5 +397,3 @@ export default function Admin(props) {
     </>
   );
 }
-
-// 12841061068
