@@ -41,7 +41,7 @@ footer {
   justify-content: center;
   padding: 1em;
   margin: 0 1em;
-  border: solid 0.2em black;
+  /* border: solid 0.2em black; */
 }
 
 #homepage-wrapper {
@@ -50,6 +50,23 @@ footer {
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.graph {
+  padding: 0.5em;
+}
+
+.featured-story {
+  padding: 0.5em;
+  overflow: auto;
+}
+
+#nav-typography {
+  padding: 2em;
+}
+
+#nav-buttons {
+  margin-left: auto;
 }
 
 .age-insurance {

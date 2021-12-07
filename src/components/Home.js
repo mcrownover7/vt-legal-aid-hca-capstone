@@ -20,7 +20,7 @@ export default function Home() {
   const [selectedCounty, setSelectedCounty] = useState("");
   const [shuffledIndex, setShuffledIndex] = useState(0);
   const [impact, setImpact] = useState("");
-  const [navCountySelect, setNavCountySelect] = useState(false);
+  const [navCountySelect, setNavCountySelect] = useState("");
 
   const GreenTextTypography = withStyles({
     root: {
@@ -37,8 +37,8 @@ export default function Home() {
         navCountySelect={navCountySelect}
         setNavCountySelect={setNavCountySelect}
       />
-      <div id="map-display">
-        <div id="homepage-wrapper">
+      <div id="homepage-wrapper">
+        <div id="map-display">
           <Map
             center={center}
             setCenter={setCenter}
@@ -50,6 +50,7 @@ export default function Home() {
             countyStoryDisplay={countyStoryDisplay}
             setShuffledIndex={setShuffledIndex}
             setImpact={setImpact}
+            setNavCountySelect={setNavCountySelect}
           />
         </div>
         <div id="stories-display">

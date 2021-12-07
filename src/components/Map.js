@@ -90,6 +90,9 @@ function Map(props) {
     //using props to reset the impact for the filter in dropdown.js
     props.setImpact("");
 
+    //using props to reset the nav county selection
+    props.setNavCountySelect("");
+
     //if else to check if this is the first clicked county or not. If it is not the first one clicked it will reset the styling of the previously clicked layer to the default.
     if (previouslySelectedCounty !== null) {
       //resetting the previously selected county's styling
@@ -123,7 +126,7 @@ function Map(props) {
       dragging={false}
       zoomDelta={0}
       keyboard={false}
-      style={{ height: "600px", width: "600px" }}
+      style={{ height: "600px", width: "600px", padding: "1em", margin: "0 1em", border: "solid 0.2em black"}}
     >
       {/* returning the created function with center and zoom */}
       <MyComponent center={props.center} zoom={props.zoom} />

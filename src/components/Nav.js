@@ -46,7 +46,7 @@ export default function Nav(props) {
     props.setSelectedCounty(event.target.value);
     props.setCountyStoryDisplay(true);
     props.setFeaturedDisplay(false);
-    props.setNavCountySelect(true)
+    props.setNavCountySelect(event.target.value)
   };
 
   return (
@@ -54,7 +54,7 @@ export default function Nav(props) {
       <Toolbar>
         <img src={LegalAidLogo1} alt="logo" width="100" />
 
-        <div>
+        <div id="nav-typography">
           <Typography variant="h4" className={classes.title}>
             Health Care Debt in Vermont
           </Typography>
@@ -62,8 +62,7 @@ export default function Nav(props) {
             Real People - Real Stories
           </Typography>
         </div>
-
-        {/* NOTE: this is currently not doing anything since it is a single page app */}
+        <div id="nav-buttons">
         <Button color="inherit" onClick={refreshPage}>
           Home
         </Button>
@@ -96,6 +95,7 @@ export default function Nav(props) {
         <Button color="inherit" component={Link} to="/contact">
           Contact
         </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );
