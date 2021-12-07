@@ -6,7 +6,7 @@
 .wrapper {
   display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
-  padding: 2px
+  padding: 2px;
 }
 
 header {
@@ -54,6 +54,10 @@ footer {
 
 .age-insurance {
   display: flex;
-  max-width: 20vw;
+  max-width: 50vw;
   justify-content: space-between;
+}
+
+.title {
+  padding-right: 0.5em;
 }
