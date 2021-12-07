@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Featured from "./Featured";
 import Story from "./CountyStory";
+import Nav from "./Nav";
 
 //Home function to render page structural elements
 export default function Home() {
@@ -18,7 +19,8 @@ export default function Home() {
   const [countyStoryDisplay, setCountyStoryDisplay] = useState(false);
   const [selectedCounty, setSelectedCounty] = useState("");
   const [shuffledIndex, setShuffledIndex] = useState(0);
-  const [impact, setImpact] = React.useState("");
+  const [impact, setImpact] = useState("");
+  const [navCountySelect, setNavCountySelect] = useState(false);
 
   const GreenTextTypography = withStyles({
     root: {
@@ -28,8 +30,15 @@ export default function Home() {
 
   return (
     <>
-      <div id="homepage-wrapper">
-        <div id="map-display">
+      <Nav
+        setSelectedCounty={setSelectedCounty}
+        setCountyStoryDisplay={setCountyStoryDisplay}
+        setFeaturedDisplay={setFeaturedDisplay}
+        navCountySelect={navCountySelect}
+        setNavCountySelect={setNavCountySelect}
+      />
+      <div id="map-display">
+        <div id="homepage-wrapper">
           <Map
             center={center}
             setCenter={setCenter}

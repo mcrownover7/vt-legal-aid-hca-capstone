@@ -8,10 +8,11 @@ import Select from "@mui/material/Select";
 
 export default function Dropdown(props) {
 
+  //evt handler for when a new filter is selected from the form in this component
   const handleChange = (event) => {
+    //setting the impact (displays the filter selected) to the selected field in the filter
     props.setImpact(event.target.value);
-    console.log(props.countyStories);
-
+    //new fetch using the evt.target.value and county to fetch only the counties stories that have that information matching the filter
     fetch(`/allstories/${props.correctedCountyFetch}+${event.target.value}`)
       .then((res) => res.json())
       .then((storiesArray) => {
@@ -30,8 +31,8 @@ export default function Dropdown(props) {
           }
           return myArray;
         }
+        //setting the state variable for countyStories
         props.setCountyStories(shuffle(storiesArray));
-        // console.log(storiesArray);
       });
   };
 
@@ -40,8 +41,6 @@ export default function Dropdown(props) {
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="select-topic-label">Filter Topics</InputLabel>
         <Select
-          // labelId='select-impact-label'
-          // id='select-impact'
           value={props.impact}
           onChange={handleChange}
           label="Impact"
