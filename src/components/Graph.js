@@ -12,100 +12,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// const greenData = [{x: 'A', y: 10}, {x: 'B', y: 5}, {x: 'C', y: 15}];
-
-// const blueData = [{x: 'A', y: 12}, {x: 'B', y: 2}, {x: 'C', y: 11}];
-
-// const labelData = greenData.map((d, idx) => ({
-//   x: d.x,
-//   y: Math.max(greenData[idx].y, blueData[idx].y)
-// }));
-
-// const data = [
-//   {
-//     name: "Addison",
-//     stories: hash.Addison.length,
-//     pv: 2400,
-//     amt: 2400,
-//   },
-//   {
-//     name: "Bennington",
-//     uv: 3000,
-//     pv: 1398,
-//     amt: 2210,
-//   },
-//   {
-//     name: "Caledonia",
-//     uv: 2000,
-//     pv: 9800,
-//     amt: 2290,
-//   },
-//   {
-//     name: "Chittenden",
-//     uv: 2780,
-//     pv: 3908,
-//     amt: 2000,
-//   },
-//   {
-//     name: "Franklin",
-//     uv: 1890,
-//     pv: 4800,
-//     amt: 2181,
-//   },
-//   {
-//     name: "Grand Isle",
-//     uv: 2390,
-//     pv: 3800,
-//     amt: 2500,
-//   },
-//   {
-//     name: "Lamoille",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Orange",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Orleans",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Rutland",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Washington",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Windham",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-//   {
-//     name: "Windsor",
-//     uv: 3490,
-//     pv: 4300,
-//     amt: 2100,
-//   },
-// ];
-
 function Graph(props) {
   const [allStories, setAllStories] = useState([]);
-  const [data, setData] = useState([])
-  const [fetchComplete, setFetchComplete] = useState(false)
+  const [data, setData] = useState([]);
+  const [fetchComplete, setFetchComplete] = useState(false);
 
   //useEffect to fetch all stories once on component render
   useEffect(() => {
@@ -114,103 +24,125 @@ function Graph(props) {
       .then((storiesArray) => {
         //setting all stories state variable to the response.json from the fetch
         setAllStories(groupBy(storiesArray, "County"));
-        setFetchComplete(true)
+        setFetchComplete(true);
       });
-      
   }, []);
 
-  useEffect(() => {
-    if (fetchComplete === true) {
-      setData([
-        {
-          name: "Addison",
-          stories: allStories.Addison.length,
-        },
-        {
-          name: "Bennington",
-          stories: allStories.Bennington.length,
-        },
-        {
-          name: "Caledonia",
-          stories: allStories.Caledonia.length,
-        },
-        {
-          name: "Chittenden",
-          stories: allStories.Chittenden.length,
-        },
-        {
-          name: "Franklin",
-          stories: allStories.Franklin.length,
-        },
-        // {
-        //   name: "Grand Isle",
-        //   stories: ,
-        // },
-        {
-          name: "Lamoille",
-          stories: allStories.Lamoille.length,
-        },
-        {
-          name: "Orange",
-          stories: allStories.Orange.length,
-        },
-        {
-          name: "Orleans",
-          stories: allStories.Orleans.length,
-        },
-        {
-          name: "Rutland",
-          stories: allStories.Rutland.length,
-        },
-        {
-          name: "Washington",
-          stories: allStories.Washington.length,
-        },
-        {
-          name: "Windham",
-          stories: allStories.Windham.length,
-        },
-        {
-          name: "Windsor",
-          stories: allStories.Windsor.length,
-        },
-      ]);
-      console.log("Updated Chart")
-    }}
-    , [fetchComplete])
-
+  //function to create an array with keys for each county
   function groupBy(array, county) {
     let hash = {};
     for (let i = 0; i < array.length; i++) {
       if (!hash[array[i][county]]) hash[array[i][county]] = [];
       hash[array[i][county]].push(array[i]);
     }
-    console.log(hash);
     return hash;
   }
-  
+
+  //useEffect firing when fetchComplete state variable changes
+  useEffect(() => {
+    //checking to ensure that the initial fetch for the allStories state variable is complete
+    if (fetchComplete === true) {
+      //setting the data state variable based on the returns of the database fetch
+      setData([
+        {
+          //name serves as the key
+          name: "Addison",
+          //stories is the y-axis and is the length of the array for that county. ternary is to protect against page erroring when trying to do .length on a undefined array
+          stories: allStories.Addison ? allStories.Addison.length : 0,
+        },
+        {
+          name: "Bennington",
+          stories: allStories.Bennington ? allStories.Bennington.length : 0,
+        },
+        {
+          name: "Caledonia",
+          stories: allStories.Caledonia ? allStories.Caledonia.length : 0,
+        },
+        {
+          name: "Chittenden",
+          stories: allStories.Chittenden ? allStories.Chittenden.length : 0,
+        },
+        {
+          name: "Essex",
+          stories: allStories.Essex ? allStories.Essex.length : 0,
+        },
+        {
+          name: "Franklin",
+          stories: allStories.Franklin ? allStories.Franklin.length : 0,
+        },
+        {
+          name: "Grand Isle",
+          stories: allStories["Grand Isle"] ? allStories["Grand Isle"].length: 0,
+        },
+        {
+          name: "Lamoille",
+          stories: allStories.Lamoille ? allStories.Lamoille.length : 0,
+        },
+        {
+          name: "Orange",
+          stories: allStories.Orange ? allStories.Orange.length : 0,
+        },
+        {
+          name: "Orleans",
+          stories: allStories.Orleans ? allStories.Orleans.length : 0,
+        },
+        {
+          name: "Rutland",
+          stories: allStories.Rutland ? allStories.Rutland.length : 0,
+        },
+        {
+          name: "Washington",
+          stories: allStories.Washington ? allStories.Washington.length : 0,
+        },
+        {
+          name: "Windham",
+          stories: allStories.Windham ? allStories.Windham.length : 0,
+        },
+        {
+          name: "Windsor",
+          stories: allStories.Windsor ? allStories.Windsor.length : 0,
+        },
+      ]);
+    }
+  }, [fetchComplete]);
 
   return (
-    
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
+    // returning the bar chart element
+    <BarChart
+      width={500}
+      height={300}
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      {/* setting up the dashed display in the background of the chart area */}
+      <CartesianGrid strokeDasharray="3 3" />
+      {/* setting the x-axis to be the name field in the data array, and setting up the ticks to be at an angle that allows for all to be displayed */}
+      <XAxis
+        dataKey="name"
+        height={75}
+        scaleToFit="true"
+        textAnchor="end"
+        verticalAnchor="start"
+        interval={0}
+        angle="-40"
+        label={{ value: "County", position: "insideBottom", offset: 0 }}
+      />
+      {/* setting the y-axis to have a label that is vertical */}
+      <YAxis
+        label={{
+          value: "Number of Stories",
+          angle: -90,
+          position: "insideBottomLeft",
         }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="stories" fill="#8884d8" />
-      </BarChart>
-    
+      />
+      <Tooltip />
+      <Bar dataKey="stories" fill="#8884d8" />
+    </BarChart>
   );
 }
 
