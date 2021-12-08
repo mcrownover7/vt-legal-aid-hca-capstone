@@ -28,15 +28,18 @@ footer {
 }
 
 #stories-display {
-  width: 100%;
+
+  width: 600px;
   height: 600px;
-  overflow: auto;
+  
   padding: 1em;
-  margin: 0 1em;
+  
+  margin: 32px 1em;
+
 }
 
 #map-display {
-  width: 100%;
+  width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,6 +61,7 @@ footer {
 }
 
 .featured-story {
+  height: 285px;
   padding: 0.5em;
   overflow: auto;
 }
