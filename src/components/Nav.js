@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
@@ -22,20 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Nav(props) {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [mobile, setMobile] = useState({
+    mobileView: false,
+  });
 
-  //doing anything? 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const style = {
-    background: "#205A3E",
-  };
+  const { mobileView } = mobile;
 
   function refreshPage() {
     window.location.reload(false);
@@ -47,11 +38,28 @@ export default function Nav(props) {
     props.setSelectedCounty(event.target.value);
     props.setCountyStoryDisplay(true);
     props.setFeaturedDisplay(false);
-    props.setNavCountySelect(event.target.value)
+    props.setNavCountySelect(event.target.value);
   };
 
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setMobile((prevState) => ({ ...prevState, mobileView: true }))
+        : setMobile((prevState) => ({ ...prevState, mobileView: false }));
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    window.removeEventListener("resize", () => setResponsiveness());
+  }, []);
+
   return (
-    <AppBar style={{ backgroundColor: "#205A3E" }} position="static">
+    <AppBar
+      setMobile={setMobile}
+      style={{ backgroundColor: "#205A3E" }}
+      // position="static"
+    >
       <Toolbar>
         <img src={LegalAidLogo1} alt="logo" width="100" />
 
@@ -64,39 +72,41 @@ export default function Nav(props) {
           </Typography>
         </div>
         <div id="nav-buttons">
-        <Button color="inherit" onClick={refreshPage}>
-          Home
-        </Button>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
-          <InputLabel id="select-county" style={{color: "white"}}>Select A County</InputLabel>
-          <Select
-            value={props.navCountySelect}
-            onChange={handleChange}
-            label="Nav-County-Set"
-            style={{backgroundColor: "white", color: "#5a203c"}}
-          >
-            <MenuItem value="Addison">Addison</MenuItem>
-            <MenuItem value="Bennington">Bennington</MenuItem>
-            <MenuItem value="Caledonia">Caledonia</MenuItem>
-            <MenuItem value="Chittenden">Chittenden</MenuItem>
-            <MenuItem value="Essex">Essex</MenuItem>
-            <MenuItem value="Franklin">Franklin</MenuItem>
-            <MenuItem value="Grand Isle">Grand Isle</MenuItem>
-            <MenuItem value="Lamoille">Lamoille</MenuItem>
-            <MenuItem value="Orange">Orange</MenuItem>
-            <MenuItem value="Orleans">Orleans</MenuItem>
-            <MenuItem value="Rutland">Rutland</MenuItem>
-            <MenuItem value="Washington">Washington</MenuItem>
-            <MenuItem value="Windham">Windham</MenuItem>
-            <MenuItem value="Windsor">Windsor</MenuItem>
-          </Select>
-        </FormControl>
-        <Button color="inherit" component={Link} to="/about">
-          About
-        </Button>
-        <Button color="inherit" component={Link} to="/contact">
-          Contact
-        </Button>
+          <Button color="inherit" onClick={refreshPage}>
+            Home
+          </Button>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+            <InputLabel id="select-county" style={{ color: "white" }}>
+              Select A County
+            </InputLabel>
+            <Select
+              value={props.navCountySelect}
+              onChange={handleChange}
+              label="Nav-County-Set"
+              style={{ backgroundColor: "white", color: "#5a203c" }}
+            >
+              <MenuItem value="Addison">Addison</MenuItem>
+              <MenuItem value="Bennington">Bennington</MenuItem>
+              <MenuItem value="Caledonia">Caledonia</MenuItem>
+              <MenuItem value="Chittenden">Chittenden</MenuItem>
+              <MenuItem value="Essex">Essex</MenuItem>
+              <MenuItem value="Franklin">Franklin</MenuItem>
+              <MenuItem value="Grand Isle">Grand Isle</MenuItem>
+              <MenuItem value="Lamoille">Lamoille</MenuItem>
+              <MenuItem value="Orange">Orange</MenuItem>
+              <MenuItem value="Orleans">Orleans</MenuItem>
+              <MenuItem value="Rutland">Rutland</MenuItem>
+              <MenuItem value="Washington">Washington</MenuItem>
+              <MenuItem value="Windham">Windham</MenuItem>
+              <MenuItem value="Windsor">Windsor</MenuItem>
+            </Select>
+          </FormControl>
+          <Button color="inherit" component={Link} to="/about">
+            About
+          </Button>
+          <Button color="inherit" component={Link} to="/contact">
+            Contact
+          </Button>
         </div>
       </Toolbar>
     </AppBar>
