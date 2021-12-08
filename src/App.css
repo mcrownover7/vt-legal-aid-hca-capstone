@@ -79,3 +79,18 @@ footer {
 .title {
   padding-right: 0.5em;
 }
+
+.leaflet-tooltip.my-labels {
+  border: 0px solid #000;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  color: blue;
+}
+
+/* NOTE: ATTEMPT TO HIDE TOOLTIP USING MOUSEOUT NOT WORKING */
+/* .leaflet-tooltip.hidden-labels {
+  background-color: transparent;
+  border: transparent;
+  box-shadow: none;
+  color: none;
+} */

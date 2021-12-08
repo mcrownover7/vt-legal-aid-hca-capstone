@@ -39,7 +39,7 @@ export default function Home() {
       />
       <div id="homepage-wrapper">
         <div id="map-display">
-          <MaroonTextTypography variant="h5" align="center"><b>Click Map For Stories</b></MaroonTextTypography>
+          <MaroonTextTypography variant="h5" align="center"><b>Click Counties For Stories</b></MaroonTextTypography>
           <Map
             center={center}
             setCenter={setCenter}

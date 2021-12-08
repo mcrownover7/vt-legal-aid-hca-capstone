@@ -33,13 +33,16 @@ function Map(props) {
 
     //attempt to set up tooltip label
     let label = feature.properties.cntyname;
-    layer
-      .bindTooltip(label, {
-        permanent: true,
-        direction: "center",
-        opacity: 0.7,
-      })
-      .openTooltip();
+    layer.on("mouseover", (evt) => {
+      layer
+        .bindTooltip(label, {
+          permanent: false,
+          direction: "center",
+          opacity: 0.7,
+          className: "my-labels",
+        })
+        .openTooltip();
+    });
 
     //.on for the layer watching for a click evt
     layer.on(
@@ -50,14 +53,15 @@ function Map(props) {
       }
     );
 
+    //--------NOTE: NON-WORKING HOVER TO CHANGE COLOR-------------
     //  if (props.countyStoryDisplay === true){
     //    return null
     //   } else{
     //     layer.on("mouseout", (evt) => {
-    //         layer.setStyle({ fillColor: "#ff6863"})
+    //         layer.setStyle({ fillColor: "#632E0F"})
     //       })
     //       layer.on("mouseover", (evt) => {
-    //         layer.setStyle({ fillColor: "#0000FF" })
+    //         layer.setStyle({ fillColor: "#205A3E" })
     //     })
     //     }
   }
