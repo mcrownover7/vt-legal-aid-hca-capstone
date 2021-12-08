@@ -67,11 +67,12 @@ export default function Nav(props) {
           Home
         </Button>
         <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
-          <InputLabel id="select-county">Select A County</InputLabel>
+          <InputLabel id="select-county" style={{color: "white"}}>Select A County</InputLabel>
           <Select
             value={props.navCountySelect}
             onChange={handleChange}
             label="Nav-County-Set"
+            style={{backgroundColor: "white", color: "#5a203c"}}
           >
             <MenuItem value="Addison">Addison</MenuItem>
             <MenuItem value="Bennington">Bennington</MenuItem>

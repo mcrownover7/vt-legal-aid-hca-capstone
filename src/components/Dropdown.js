@@ -39,7 +39,7 @@ export default function Dropdown(props) {
   return (
     <div>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="select-topic-label">Filter Topics</InputLabel>
+        <InputLabel id="select-topic-label" style={{color: "#5a203c"}}>Filter Topics</InputLabel>
         <Select
           value={props.impact}
           onChange={handleChange}

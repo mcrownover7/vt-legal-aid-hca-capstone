@@ -22,7 +22,7 @@ export default function Home() {
   const [impact, setImpact] = useState("");
   const [navCountySelect, setNavCountySelect] = useState("");
 
-  const GreenTextTypography = withStyles({
+  const MaroonTextTypography = withStyles({
     root: {
       color: "#5a203c",
     },
@@ -39,6 +39,7 @@ export default function Home() {
       />
       <div id="homepage-wrapper">
         <div id="map-display">
+          <MaroonTextTypography variant="h5" align="center"><b>Click Map For Stories</b></MaroonTextTypography>
           <Map
             center={center}
             setCenter={setCenter}

@@ -141,7 +141,7 @@ function Graph(props) {
         }}
       />
       <Tooltip />
-      <Bar dataKey="stories" fill="#8884d8" />
+      <Bar dataKey="stories" fill="#5a203c" />
     </BarChart>
   );
 }

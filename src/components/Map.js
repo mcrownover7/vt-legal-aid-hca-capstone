@@ -24,7 +24,7 @@ function Map(props) {
   function featureSelection(feature, layer) {
     //this setStyle determines the default styling for each layer on page load for each feature
     layer.setStyle({
-      fillColor: "#ff6863",
+      fillColor: "#632E0F",
       fillOpacity: 0.5,
       color: "black",
       weight: 1,
@@ -97,19 +97,19 @@ function Map(props) {
     if (previouslySelectedCounty !== null) {
       //resetting the previously selected county's styling
       previouslySelectedCounty.setStyle({
-        fillColor: "#ff6863",
+        fillColor: "#632E0F",
         fillOpacity: 0.5,
         color: "black",
         weight: 1,
         opacity: 1,
       });
       //setting the currently selected county's styling
-      layer.setStyle({ fillColor: "#0000FF" });
+      layer.setStyle({ fillColor: "#205A3E" });
       //updating the previously selected county's variable to the currently clicked one
       previouslySelectedCounty = layer;
     } else {
       //setting the currently selected county's styling
-      layer.setStyle({ fillColor: "#0000FF" });
+      layer.setStyle({ fillColor: "#205A3E" });
       //updating the previously selected county's variable to the currently clicked one
       previouslySelectedCounty = layer;
     }

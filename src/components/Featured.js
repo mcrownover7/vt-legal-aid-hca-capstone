@@ -6,9 +6,14 @@ import Graph from "./Graph.js";
 
 export default function Featured(props) {
   const [allStories, setAllStories] = useState([]);
-  const GreenTextTypography = withStyles({
+  const MaroonTextTypography = withStyles({
     root: {
       color: "#5a203c",
+    },
+  })(Typography);
+  const GreenTextTypography = withStyles({
+    root: {
+      color: "#205A3E",
     },
   })(Typography);
 
@@ -44,9 +49,9 @@ export default function Featured(props) {
         <Graph />
       </div>
       <div class="featured-story">
-        <GreenTextTypography variant="h5">
+        <MaroonTextTypography variant="h5">
           <b>Featured Story: </b>
-        </GreenTextTypography>
+        </MaroonTextTypography>
         <GreenTextTypography variant="h7">
           <b>
             County:{" "}
