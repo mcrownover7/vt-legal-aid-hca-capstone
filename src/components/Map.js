@@ -126,7 +126,13 @@ function Map(props) {
       dragging={false}
       zoomDelta={0}
       keyboard={false}
-      style={{ height: "600px", width: "600px", padding: "1em", margin: "0 1em", border: "solid 0.2em black"}}
+      style={{
+        height: "600px",
+        width: "600px",
+        padding: "1em",
+        margin: "0 1em",
+        border: "solid 0.2em black",
+      }}
     >
       {/* returning the created function with center and zoom */}
       <MyComponent center={props.center} zoom={props.zoom} />
