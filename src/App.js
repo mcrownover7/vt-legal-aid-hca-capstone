@@ -4,14 +4,13 @@ import Map from "./components/Map";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Nav from "./components/Nav";
+
 import Admin from "./components/Admin";
 
 function App(props) {
   return (
     <div>
       <BrowserRouter>
-        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

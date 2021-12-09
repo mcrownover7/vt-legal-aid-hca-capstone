@@ -72,7 +72,9 @@ function Graph(props) {
         },
         {
           name: "Grand Isle",
-          stories: allStories["Grand Isle"] ? allStories["Grand Isle"].length: 0,
+          stories: allStories["Grand Isle"]
+            ? allStories["Grand Isle"].length
+            : 0,
         },
         {
           name: "Lamoille",
@@ -109,6 +111,7 @@ function Graph(props) {
   return (
     // returning the bar chart element
     <BarChart
+      id={"bar-chart"}
       width={500}
       height={300}
       data={data}

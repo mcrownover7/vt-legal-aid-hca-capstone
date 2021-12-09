@@ -1,14 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import { Menu as MenuIcon } from "@material-ui/icons";
+
 import { DataGrid } from "@mui/x-data-grid";
+import NavAdmin from "./NavAdmin"
 
 export default function Admin(props) {
   const [allStories, setAllStories] = useState([]);
@@ -86,7 +82,9 @@ export default function Admin(props) {
 
   return (
     <>
+    <NavAdmin>
       <h1>ADMIN PORTAL</h1>
+      </NavAdmin>
       <Button color="inherit" onClick={openStoryForm}>
         Create New Story
       </Button>
@@ -144,10 +142,7 @@ export default function Admin(props) {
                   How Has Medical Debt Impacted Your Life?{" "}
                 </label>
                 <div>
-                  <textarea
-                    type="text"
-                    name="impactLife"
-                  />
+                  <textarea type="text" name="impactLife" />
                 </div>
               </div>
               <div>
@@ -155,10 +150,7 @@ export default function Admin(props) {
                   How Has Medical Debt Impacted Your Access to Care?{" "}
                 </label>
                 <div>
-                  <textarea
-                    type="text"
-                    name="impactCare"
-                  />
+                  <textarea type="text" name="impactCare" />
                 </div>
               </div>
               <div>
@@ -166,10 +158,7 @@ export default function Admin(props) {
                   What Do You Think Of The Cost Of Medical Care?{" "}
                 </label>
                 <div>
-                  <textarea
-                    type="text"
-                    name="costCare"
-                  />
+                  <textarea type="text" name="costCare" />
                 </div>
               </div>
               <div>
@@ -177,10 +166,7 @@ export default function Admin(props) {
                   Have You Been Surprised By A Medical Bill?{" "}
                 </label>
                 <div>
-                  <textarea
-                    type="text"
-                    name="surpriseBill"
-                  />
+                  <textarea type="text" name="surpriseBill" />
                 </div>
               </div>
               <div>
@@ -188,10 +174,7 @@ export default function Admin(props) {
                   What Is Your Experience With Medical Debt Collectors?{" "}
                 </label>
                 <div>
-                  <textarea
-                    type="text"
-                    name="collections"
-                  />
+                  <textarea type="text" name="collections" />
                 </div>
               </div>
               <input type="submit" />
@@ -320,10 +303,7 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <textarea
-                type="text"
-                name="impactLife"
-              />
+              <textarea type="text" name="impactLife" />
               <h5>
                 How Has Medical Debt Impacted Your Access To Care? (current
                 answer)
@@ -338,10 +318,7 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <textarea
-                type="text"
-                name="impactCare"
-              />
+              <textarea type="text" name="impactCare" />
               <h5>
                 What Do You Think Of The Cost Of Medical Care? (current answer)
               </h5>
@@ -352,10 +329,7 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <textarea
-                type="text"
-                name="costCare"
-              />
+              <textarea type="text" name="costCare" />
               <h5>
                 Have You Been Surprised By A Medical Bill? (current answer)
               </h5>
@@ -366,10 +340,7 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <textarea
-                type="text"
-                name="surpriseBill"
-              />
+              <textarea type="text" name="surpriseBill" />
               <h5>
                 What Is Your Experience With Medical Debt Collectors? (current
                 answer)
@@ -384,10 +355,7 @@ export default function Admin(props) {
                     </div>,
                   ]
                 : [<div>No Answer</div>]}
-              <textarea
-                type="text"
-                name="collections"
-              />
+              <textarea type="text" name="collections" />
               <div>
                 <input type="submit" />
               </div>

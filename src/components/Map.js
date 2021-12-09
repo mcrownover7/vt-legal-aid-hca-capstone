@@ -121,6 +121,7 @@ function Map(props) {
 
   return (
     <MapContainer
+      id={"map-container"}
       center={props.center}
       zoom={props.zoom}
       scrollWheelZoom={false}
@@ -131,8 +132,8 @@ function Map(props) {
       zoomDelta={0}
       keyboard={false}
       style={{
-        height: "600px",
-        width: "600px",
+        // height: "600px",
+        // width: "600px",
         padding: "1em",
         margin: "0 1em",
         border: "solid 0.2em black",

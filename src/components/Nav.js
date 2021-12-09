@@ -22,15 +22,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Nav(props) {
   const classes = useStyles();
-  const [mobile, setMobile] = useState({
-    mobileView: false,
-  });
 
-  const { mobileView } = mobile;
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+ 
 
   //evt handler for when a new filter is selected from the form in this component
   const handleChange = (event) => {
@@ -41,24 +35,17 @@ export default function Nav(props) {
     props.setNavCountySelect(event.target.value);
   };
 
-  useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 900
-        ? setMobile((prevState) => ({ ...prevState, mobileView: true }))
-        : setMobile((prevState) => ({ ...prevState, mobileView: false }));
-    };
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-
-    window.removeEventListener("resize", () => setResponsiveness());
-  }, []);
 
   return (
+    <div class="nav-wrapper">
     <AppBar
-      setMobile={setMobile}
       style={{ backgroundColor: "#205A3E" }}
-      // position="static"
+      position="static"
+      className={"Nav-bar"}
     >
       <Toolbar>
         <img src={LegalAidLogo1} alt="logo" width="100" />
@@ -110,5 +97,9 @@ export default function Nav(props) {
         </div>
       </Toolbar>
     </AppBar>
+    </div>
   );
 }
+
+
+
