@@ -1,5 +1,5 @@
 //imports
-import Typography from "@material-ui/core/Typography"
+import Typography from "@material-ui/core/Typography";
 import { NoEncryption } from "@material-ui/icons";
 import {
   MapContainer,
@@ -10,8 +10,6 @@ import {
   ScaleControl,
 } from "react-leaflet";
 import countyBoundary from "../data/countyBorder.js";
-
-
 
 //creating a function to reset the view (center and zoom) on the map using the useMap and setView methods imported from leaflet
 function MyComponent({ center, zoom }) {
@@ -49,6 +47,26 @@ function Map(props) {
         })
         .openTooltip();
     });
+
+    if (props.isSelected) {
+      if (props.navCountySelect.toUpperCase() === feature.properties.cntyname) {
+        // console.log(feature.properties);
+        props.setCenter([
+          feature.properties.geo_point_2d[0],
+          feature.properties.geo_point_2d[1],
+        ]);
+        props.setZoom(9);
+        props.setFeaturedDisplay(false);
+        props.setCountyStoryDisplay(true);
+        props.setSelectedCounty(feature.properties.cntyname);
+        props.setShuffledIndex(0);
+        props.setImpact("");
+
+        //NOTE: NOT WORKING CURRENTLY
+        layer.setStyle({ fillColor: "#205A3E" });
+      }
+      props.setIsSelected(false);
+    }
 
     //.on for the layer watching for a click evt
     layer.on(
@@ -150,7 +168,6 @@ function Map(props) {
       <TileLayer
         url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-       
       />
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />
