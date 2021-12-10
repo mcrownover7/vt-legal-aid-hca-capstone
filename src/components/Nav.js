@@ -33,6 +33,7 @@ export default function Nav(props) {
     props.setCountyStoryDisplay(true);
     props.setFeaturedDisplay(false);
     props.setNavCountySelect(event.target.value);
+    props.setIsSelected(true)
   };
 
   function refreshPage() {

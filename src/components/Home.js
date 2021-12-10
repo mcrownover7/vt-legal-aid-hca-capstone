@@ -3,7 +3,7 @@ import React from "react";
 import "../App.css";
 import Map from "./Map";
 
-import { useState } from "react";
+import { useState , useRef } from "react";
 
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -21,6 +21,7 @@ export default function Home() {
   const [shuffledIndex, setShuffledIndex] = useState(0);
   const [impact, setImpact] = useState("");
   const [navCountySelect, setNavCountySelect] = useState("");
+  const [isSelected, setIsSelected] = useState(false)
 
   const MaroonTextTypography = withStyles({
     root: {
@@ -36,11 +37,15 @@ export default function Home() {
         setFeaturedDisplay={setFeaturedDisplay}
         navCountySelect={navCountySelect}
         setNavCountySelect={setNavCountySelect}
+        setIsSelected={setIsSelected}
       />
       <div id="homepage-wrapper">
         <div id="map-display">
           <MaroonTextTypography variant="h5" align="center"><b>Click Counties For Stories</b></MaroonTextTypography>
           <Map
+          navCountySelect={navCountySelect}
+          isSelected={isSelected}
+          setIsSelected={setIsSelected}
             center={center}
             setCenter={setCenter}
             zoom={zoom}

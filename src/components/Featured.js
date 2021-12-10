@@ -45,9 +45,9 @@ export default function Featured(props) {
   }
   return (
     <>
-      {/* <div class="graph">
+      <div class="graph">
         <Graph />
-      </div> */}
+      </div>
       <div class="featured-story">
         <MaroonTextTypography variant="h4">
           <b> Stories from the State of Vermont </b>

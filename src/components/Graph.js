@@ -138,7 +138,7 @@ function Graph(props) {
       {/* setting the y-axis to have a label that is vertical */}
       <YAxis
         label={{
-          value: "Number of Stories",
+          value: "Survey Responses",
           angle: -90,
           position: "insideBottomLeft",
         }}
