@@ -80,7 +80,7 @@ app.get("/allstories/:county", async (req, res) => {
   if (req.params.county.includes("+")) {
     //splitting the params based on the + added when a filter is applied
     let splitParams = req.params.county.split("+");
-    console.log(splitParams);
+
     //setting up a intermediate variable for the county from the split params
     let instanceCounty = splitParams[0];
     //setting up a intermediate variable for the question filter from the split params

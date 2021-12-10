@@ -45,10 +45,13 @@ export default function Featured(props) {
   }
   return (
     <>
-      <div class="graph">
+      {/* <div class="graph">
         <Graph />
-      </div>
+      </div> */}
       <div class="featured-story">
+        <MaroonTextTypography variant="h4">
+          <b> Stories from the State of Vermont </b>
+        </MaroonTextTypography>
         <MaroonTextTypography variant="h5">
           <b>Featured Story: </b>
         </MaroonTextTypography>
@@ -60,7 +63,7 @@ export default function Featured(props) {
         </GreenTextTypography>
         <div class="age-insurance">
           <div>
-            <b>Insured: </b>
+            <b>Insured:</b>{" "}
             {allStories.length ? allStories[randomStories[0]].Insured : null}
           </div>
           <div>
@@ -73,7 +76,7 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .HaveYouBeenSurprisedByAMedicalBill ? (
-                  <li>
+                  <li className="story-bullets">
                     {
                       allStories[randomStories[0]]
                         .HaveYouBeenSurprisedByAMedicalBill
@@ -86,7 +89,7 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .HowHasMedicalDebtImpactedYourAccessToCare ? (
-                  <li>
+                  <li className="story-bullets">
                     {
                       allStories[randomStories[0]]
                         .HowHasMedicalDebtImpactedYourAccessToCare
@@ -99,7 +102,7 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .HowHasMedicalDebtImpactedYourLife ? (
-                  <li>
+                  <li className="story-bullets">
                     {
                       allStories[randomStories[0]]
                         .HowHasMedicalDebtImpactedYourLife
@@ -113,7 +116,7 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .WhatDoYouThinkOfTheCostOfMedicalCare ? (
-                  <li>
+                  <li className="story-bullets">
                     {
                       allStories[randomStories[0]]
                         .WhatDoYouThinkOfTheCostOfMedicalCare
@@ -127,7 +130,7 @@ export default function Featured(props) {
             ? [
                 allStories[randomStories[0]]
                   .WhatIsYourExperienceWithMedicalDebtCollectors ? (
-                  <li>
+                  <li className="story-bullets">
                     {
                       allStories[randomStories[0]]
                         .WhatIsYourExperienceWithMedicalDebtCollectors

@@ -1,4 +1,6 @@
 //imports
+import Typography from "@material-ui/core/Typography"
+import { NoEncryption } from "@material-ui/icons";
 import {
   MapContainer,
   TileLayer,
@@ -8,6 +10,8 @@ import {
   ScaleControl,
 } from "react-leaflet";
 import countyBoundary from "../data/countyBorder.js";
+
+
 
 //creating a function to reset the view (center and zoom) on the map using the useMap and setView methods imported from leaflet
 function MyComponent({ center, zoom }) {
@@ -36,9 +40,11 @@ function Map(props) {
     layer.on("mouseover", (evt) => {
       layer
         .bindTooltip(label, {
+          color: "#ffff00",
           permanent: false,
           direction: "center",
-          opacity: 0.7,
+          opacity: 1,
+          fillOpacity: 0,
           className: "my-labels",
         })
         .openTooltip();
@@ -144,6 +150,7 @@ function Map(props) {
       <TileLayer
         url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+       
       />
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />

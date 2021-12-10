@@ -4,12 +4,19 @@
 }
 
 #stories-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 600px;
   height: 600px;
-
   padding: 1em;
-
+  justify-content: center;
   margin: 32px 1em;
+
+}
+
+.featured-story {
+  overflow: auto;
 }
 
 #map-container {
@@ -28,6 +35,8 @@
 }
 
 #homepage-wrapper {
+ 
+  height: 650px;
   flex-wrap: row;
   display: flex;
   justify-content: space-evenly;
@@ -38,12 +47,6 @@
 
 .graph {
   padding: 0.5em;
-}
-
-.featured-story {
-  height: 285px;
-  padding: 0.5em;
-  overflow: auto;
 }
 
 .nav-wrapper {
@@ -58,10 +61,17 @@
   margin-left: auto;
 }
 
+.featured-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .age-insurance {
   display: flex;
   max-width: 50vw;
   justify-content: space-between;
+
+  margin-bottom: 25px;
 }
 
 .title {
@@ -69,11 +79,38 @@
 }
 
 .leaflet-tooltip.my-labels {
-  border: 0px solid #000;
+  background-color: transparent;
+  fill: none;
+  border: transparent;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  color: blue;
+  box-shadow: none;
+  color: #205a3e;
+  font-size: 1.5em;
+  font-weight: bolder;
 }
+
+li.story-bullets {
+  padding-left: 20px;
+  text-indent: -1.4em;
+  padding-bottom: 8px;
+}
+
+.drop-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.MuiFormControl-root.css-1869usk-MuiFormControl-root {
+  margin-top: -5px;
+}
+
+#select-county {
+  z-index: 1;
+}
+
+/* #select-topic-label {
+  margin-left: 60px;
+} */
 
 /* NOTE: ATTEMPT TO HIDE TOOLTIP USING MOUSEOUT NOT WORKING */
 /* .leaflet-tooltip.hidden-labels {

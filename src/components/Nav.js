@@ -63,7 +63,7 @@ export default function Nav(props) {
             Home
           </Button>
           <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
-            <InputLabel id="select-county" style={{ color: "white" }}>
+            <InputLabel id="select-county" style={{ color: "black" }}>
               Select A County
             </InputLabel>
             <Select
@@ -86,6 +86,7 @@ export default function Nav(props) {
               <MenuItem value="Washington">Washington</MenuItem>
               <MenuItem value="Windham">Windham</MenuItem>
               <MenuItem value="Windsor">Windsor</MenuItem>
+              <MenuItem value={"Reset"}>Clear Filter</MenuItem>
             </Select>
           </FormControl>
           <Button color="inherit" component={Link} to="/about">
