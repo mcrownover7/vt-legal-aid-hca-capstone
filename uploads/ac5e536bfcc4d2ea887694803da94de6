@@ -1,0 +1,4 @@
+RespID,County,Insured,Age,QuoteTag_ImpactOnLife,HowHasMedicalDebtImpactedYourLife,QuoteTag_Access,HowHasMedicalDebtImpactedYourAccessToCare,QuoteTag_Cost,WhatDoYouThinkOfTheCostOfMedicalCare,QuoteTag_SurpriseBill,HaveYouBeenSurprisedByAMedicalBill,QuoteTag_Collections,WhatIsYourExperienceWithMedicalDebtCollectors
+1,Windham,Yes,41-64,1,Makes you feel less worthy and unsuccessful. A constant grating storm cloud that able bodied people do not see their privilege in avoiding.,1,"[People with hearing disabilities] know our health care medical needs are excluded and marginalized, and we cannot afford the cost, so we put off getting appropriate hearing health care for many years. Thirteen years is typical.",0,Test,0,Test2,0,Test3
+2,Chittenden,No,18-200,,,,,,Test4,,Test6,,Test8
+3,Windsor,No,1,,,,,,Test5,,Test7,,Test9

@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const csvtojson = require("csvtojson");
+const multer = require("multer");
+const fs = require("fs");
 
 const port = process.env.PORT || 5001;
 const app = express();
@@ -45,6 +47,10 @@ const Stories = mongoose.model("all-stories", StorySchema);
 //binds error message to the connection variable to print if an error occurs with database connection
 database.on("error", console.error.bind(console, "connection error"));
 
+//-------------------------------MULTER-----------------------------------------
+//setting up multer to point at the destination "uploads/"
+const upload = multer({ dest: "uploads/" });
+
 //-------------------------------ROUTES----------------------------------------
 //---------CREATE-------------
 app.post("/createnew", async (req, res) => {
@@ -67,20 +73,26 @@ app.post("/createnew", async (req, res) => {
   res.redirect("back");
 });
 
-let csvDataImport = [];
-app.post("/bulkupload", async (req, res) => {
-  let csvFilePath = req.body.csv
-  console.log(req.file)
-  console.log(`File Path: ${csvFilePath}`)
+//API endpoint for bulk uploading of data via csv file using multer middleware
+app.post("/bulkupload", upload.single("csv"), async (req, res) => {
+  //setting up the file path needed for the csvtojson using string concatenation
+  let csvFilePath = __dirname + "/uploads/" + req.file.filename;
+  //setting up an empty array to accept the csvtojson file change
+  let csvDataImport = [];
+  // console.log(req.file);
+  //using csvtojson aimed at the file path declared above
   csvtojson()
     .fromFile(csvFilePath)
     .then((csvData) => {
       console.log(csvData);
+      //setting the resulting json data to our pre-setup variable array
       csvDataImport = csvData;
+      //using the insertMany Mongodb method to import all the csv values
+      Stories.insertMany(csvDataImport);
+      //unlinking from the pipe watching the csv file path
+      fs.unlinkSync(csvFilePath);
     });
-
-  await Stories.insertMany(csvDataImport);
-
+  //forcing page reload
   res.redirect("back");
 });
 

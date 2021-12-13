@@ -242,7 +242,7 @@ export default function Admin(props) {
       {/* boolean that displays the bulk upload of stories form after the bulk upload button is pressed */}
       {bulkUploadFormBool
         ? [
-            <form id="bulk-form" action="/bulkupload" method="POST">
+            <form id="bulk-form" action="/bulkupload" method="POST" encType="multipart/form-data">
               <div>
                 <label for="csv">CSV to Upload: </label>
                 <input type="file" name="csv" />
