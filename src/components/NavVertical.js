@@ -72,18 +72,19 @@ export default function NavVertical(props) {
             <Stack spacing={1} direction="row">
               <Stack spacing={0}>
                 <ListItem className="V-Buttons">
-                  <Button
-                    color="inherit"
-                    to="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScRvw8T2MMNnG9up4qYqJ-oKS2WkUUPnOmkIip8QQP-RVxBeQ/viewform?usp=sf_link"
-                  >
-                    Submit Story
+                  {" "}
+                  <Button color="inherit" onClick={refreshPage}>
+                    Home
                   </Button>
                 </ListItem>
                 <ListItem className="V-Buttons">
                   {" "}
-                  <Button color="inherit" onClick={refreshPage}>
-                    Home
+                  <Button
+                    color="inherit"
+                    target="_blank"
+                    href="https://vtlawhelp.org/health"
+                  >
+                    Get Help
                   </Button>
                 </ListItem>
               </Stack>
@@ -95,13 +96,12 @@ export default function NavVertical(props) {
                   </Button>
                 </ListItem>
                 <ListItem className="V-Buttons">
-                  {" "}
                   <Button
                     color="inherit"
-                    target="_blank"
-                    href="https://vtlawhelp.org/health"
+                    to="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScRvw8T2MMNnG9up4qYqJ-oKS2WkUUPnOmkIip8QQP-RVxBeQ/viewform?usp=sf_link"
                   >
-                    Get Help
+                    Submit Story
                   </Button>
                 </ListItem>
               </Stack>

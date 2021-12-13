@@ -245,7 +245,8 @@ export default function Admin(props) {
             <form id="bulk-form" action="/bulkupload" method="POST">
               <div>
                 <label for="csv">CSV to Upload: </label>
-                <input type="file" id="csv" />
+                <input type="file" name="csv" />
+                <input type="submit" />
               </div>
             </form>,
           ]
