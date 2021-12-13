@@ -12,7 +12,6 @@
   padding: 1em;
   justify-content: center;
   margin: 32px 1em;
-
 }
 
 .featured-story {
@@ -31,11 +30,9 @@
   justify-content: center;
   padding: 1em;
   margin: 0 1em;
-
 }
 
 #homepage-wrapper {
- 
   height: 650px;
   flex-wrap: row;
   display: flex;
@@ -93,14 +90,13 @@ li.story-bullets {
   padding-left: 20px;
   text-indent: -1.4em;
   padding-bottom: 8px;
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .drop-wrapper {
   display: flex;
   justify-content: space-between;
 }
-
 
 .V-Buttons {
   margin-top: -20px;
@@ -152,7 +148,6 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
   }
 
   #stories-display {
-    
     width: 300px;
     height: 350px;
     overflow: auto;
@@ -185,5 +180,33 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
     margin-left: 5px;
     margin-right: 5px;
   }
+}
 
+/* ADMIN PORTAL */
+.admin-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+#create-button {
+  display: flex;
+}
+
+#update-delete-button {
+  display: flex;
+}
+
+#create-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+#update-form {
+  margin-left: 5vw;
 }

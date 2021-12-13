@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const csvtojson = require("csvtojson")
 
 const port = process.env.PORT || 5001;
 const app = express();
@@ -65,6 +66,14 @@ app.post("/createnew", async (req, res) => {
 
   res.redirect("back");
 });
+
+app.post("/bulkupload", async(req, res) => {
+  csvtojson()
+    .fromFile(req.body.csv)
+    .then(csvData => {
+      console.log(csvData)
+    })
+})
 
 //---------READ---------------
 //API endpoint for receiving all stories
