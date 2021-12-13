@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 
 import { DataGrid } from "@mui/x-data-grid";
-import NavAdmin from "./NavAdmin"
+import NavAdmin from "./NavAdmin";
 
 export default function Admin(props) {
   const [allStories, setAllStories] = useState([]);
@@ -82,8 +82,8 @@ export default function Admin(props) {
 
   return (
     <>
-    <NavAdmin>
-      <h1>ADMIN PORTAL</h1>
+      <NavAdmin>
+        <h1>ADMIN PORTAL</h1>
       </NavAdmin>
       <Button color="inherit" onClick={openStoryForm}>
         Create New Story
@@ -240,10 +240,15 @@ export default function Admin(props) {
                 field is needed leave it blank.
               </h4>
               <div>
-                <label for="id">
-                  Current RespID {rowSelection[0].RespID}:{" "}
-                </label>
-                <input type="number" name="id" placeholder="RespID" />
+                <label for="id">Current RespID: </label>
+                <input
+                  value={rowSelection[0].RespID}
+                  type="number"
+                  name="id"
+                  required="true"
+                  min="10000000000"
+                  max="99999999999"
+                />
               </div>
               <div>
                 <label for="county">
@@ -296,66 +301,35 @@ export default function Admin(props) {
                 {/* <input type="text" name="age" placeholder="Age" /> */}
               </div>
               <h5>How Has Medical Debt Impacted Your Life? (current answer)</h5>
-              {rowSelection[0].HowHasMedicalDebtImpactedYourLife
-                ? [
-                    <div>
-                      {rowSelection[0].HowHasMedicalDebtImpactedYourLife}
-                    </div>,
-                  ]
-                : [<div>No Answer</div>]}
-              <textarea type="text" name="impactLife" />
+              <textarea type="text" name="impactLife">
+                {rowSelection[0].HowHasMedicalDebtImpactedYourLife}
+              </textarea>
               <h5>
                 How Has Medical Debt Impacted Your Access To Care? (current
                 answer)
               </h5>
-              {rowSelection[0].HowHasMedicalDebtImpactedYourAccessToCare
-                ? [
-                    <div>
-                      {
-                        rowSelection[0]
-                          .HowHasMedicalDebtImpactedYourAccessToCare
-                      }
-                    </div>,
-                  ]
-                : [<div>No Answer</div>]}
-              <textarea type="text" name="impactCare" />
+              <textarea type="text" name="impactCare">
+                {rowSelection[0].HowHasMedicalDebtImpactedYourAccessToCare}
+              </textarea>
               <h5>
                 What Do You Think Of The Cost Of Medical Care? (current answer)
               </h5>
-              {rowSelection[0].WhatDoYouThinkOfTheCostOfMedicalCare
-                ? [
-                    <div>
-                      {rowSelection[0].WhatDoYouThinkOfTheCostOfMedicalCare}
-                    </div>,
-                  ]
-                : [<div>No Answer</div>]}
-              <textarea type="text" name="costCare" />
+              <textarea type="text" name="costCare">
+                {rowSelection[0].WhatDoYouThinkOfTheCostOfMedicalCare}
+              </textarea>
               <h5>
                 Have You Been Surprised By A Medical Bill? (current answer)
               </h5>
-              {rowSelection[0].HaveYouBeenSurprisedByAMedicalBill
-                ? [
-                    <div>
-                      {rowSelection[0].HaveYouBeenSurprisedByAMedicalBill}
-                    </div>,
-                  ]
-                : [<div>No Answer</div>]}
-              <textarea type="text" name="surpriseBill" />
+              <textarea type="text" name="surpriseBill">
+                {rowSelection[0].HaveYouBeenSurprisedByAMedicalBill}
+              </textarea>
               <h5>
                 What Is Your Experience With Medical Debt Collectors? (current
                 answer)
               </h5>
-              {rowSelection[0].WhatIsYourExperienceWithMedicalDebtCollectors
-                ? [
-                    <div>
-                      {
-                        rowSelection[0]
-                          .WhatIsYourExperienceWithMedicalDebtCollectors
-                      }
-                    </div>,
-                  ]
-                : [<div>No Answer</div>]}
-              <textarea type="text" name="collections" />
+              <textarea type="text" name="collections">
+                {rowSelection[0].WhatIsYourExperienceWithMedicalDebtCollectors}
+              </textarea>
               <div>
                 <input type="submit" />
               </div>
