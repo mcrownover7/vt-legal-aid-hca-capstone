@@ -1,7 +1,6 @@
 //----Necessary imports
 import React from 'react'
 import '../App.css'
-import Footer from './Footer'
 
 //Home function to render page structural elements
 export default function About () {
@@ -11,7 +10,6 @@ export default function About () {
       <div className='wrapper'>
         <div className='left'>left content stuff goes here</div>
         <main>Here's some stuff about us</main>
-        <Footer />
       </div>
     </>
   )

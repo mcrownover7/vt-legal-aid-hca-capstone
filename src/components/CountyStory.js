@@ -9,7 +9,7 @@ import Dropdown from "./Dropdown.js";
 export default function Story(props) {
   const [countyStories, setCountyStories] = useState([]);
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState("");
-  // const [impact, setImpact] = React.useState('')
+  // const [dataFetched, setDataFetched] = useState(false)
 
   const MaroonTextTypography = withStyles({
     root: {
@@ -42,26 +42,29 @@ export default function Story(props) {
 
   // console.log(correctedCountyFetch);
   useEffect(() => {
-    fetch(`/allstories/${correctedCountyFetch}`)
-      .then((res) => res.json())
-      .then((storiesArray) => {
-        //utilizing a Fisher-Yates Shuffle to randomize the order of the objects in the json array
-        function shuffle(myArray) {
-          let currentIndex = myArray.length,
-            randomIndex;
+    if (correctedCountyFetch) {
+      fetch(`/allstories/${correctedCountyFetch}`)
+        .then((res) => res.json())
+        .then((storiesArray) => {
+          //utilizing a Fisher-Yates Shuffle to randomize the order of the objects in the json array
+          function shuffle(myArray) {
+            let currentIndex = myArray.length,
+              randomIndex;
 
-          while (currentIndex !== 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [myArray[currentIndex], myArray[randomIndex]] = [
-              myArray[randomIndex],
-              myArray[currentIndex],
-            ];
+            while (currentIndex !== 0) {
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex--;
+              [myArray[currentIndex], myArray[randomIndex]] = [
+                myArray[randomIndex],
+                myArray[currentIndex],
+              ];
+            }
+            return myArray;
           }
-          return myArray;
-        }
-        setCountyStories(shuffle(storiesArray));
-      });
+          setCountyStories(shuffle(storiesArray));
+        });
+    }
+    console.log("Fired this many times");
   }, [correctedCountyFetch]);
 
   let dataFetched = false;
@@ -71,6 +74,7 @@ export default function Story(props) {
   if (countyStories.length !== 0 && countyStories.length !== 212) {
     //setting boolean true to show data has been fetched
     dataFetched = true;
+    // setDataFetched(true)
   }
 
   function nextButton() {
@@ -92,122 +96,120 @@ export default function Story(props) {
   return (
     //React fragment (instead of <div>)
     <>
-    <div className="county-story"> 
-      <MaroonTextTypography variant="h5">
-        <b>The Real Story: Health Care Debt In Vermont</b>
-      </MaroonTextTypography>
-      <GreenTextTypography variant="h6">
-        <div class="drop-wrapper">
-        <b>
-          {correctedCountyFetch} County Story #{props.shuffledIndex + 1} of{" "}
-          {countyStories.length}
-      
-        </b>
-        
-        </div>
-      </GreenTextTypography>
+      <div className="county-story">
+        <MaroonTextTypography variant="h5">
+          <b>The Real Story: Health Care Debt In Vermont</b>
+        </MaroonTextTypography>
+        <GreenTextTypography variant="h6">
+          <div class="drop-wrapper">
+            <b>
+              {correctedCountyFetch} County Story #{props.shuffledIndex + 1} of{" "}
+              {countyStories.length}
+            </b>
+          </div>
+        </GreenTextTypography>
 
-      <div class="age-insurance">
-        <div>
-          <b>Insured:</b>{" "}
-          {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
+        <div class="age-insurance">
+          <div>
+            <b>Insured:</b>{" "}
+            {dataFetched ? countyStories[props.shuffledIndex].Insured : null}
+          </div>
+          <div>
+            <b>Age: </b>{" "}
+            {dataFetched ? countyStories[props.shuffledIndex].Age : null}
+          </div>
         </div>
         <div>
-          <b>Age: </b>{" "}
-          {dataFetched ? countyStories[props.shuffledIndex].Age : null}
+          {dataFetched
+            ? [
+                countyStories[props.shuffledIndex]
+                  .HaveYouBeenSurprisedByAMedicalBill ? (
+                  <li className="story-bullets">
+                    {
+                      countyStories[props.shuffledIndex]
+                        .HaveYouBeenSurprisedByAMedicalBill
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
         </div>
-      </div>
-      <div>
-        {dataFetched
-          ? [
-              countyStories[props.shuffledIndex]
-                .HaveYouBeenSurprisedByAMedicalBill ? (
-                <li className="story-bullets">
-                  {
-                    countyStories[props.shuffledIndex]
-                      .HaveYouBeenSurprisedByAMedicalBill
-                  }
-                </li>
-              ) : null,
-            ]
-          : null}
-      </div>
-      <div>
-        {dataFetched
-          ? [
-              countyStories[props.shuffledIndex]
-                .HowHasMedicalDebtImpactedYourAccessToCare ? (
-                <li className="story-bullets">
-                  {
-                    countyStories[props.shuffledIndex]
-                      .HowHasMedicalDebtImpactedYourAccessToCare
-                  }
-                </li>
-              ) : null,
-            ]
-          : null}
-      </div>
-      <div>
-        {dataFetched
-          ? [
-              countyStories[props.shuffledIndex]
-                .HowHasMedicalDebtImpactedYourLife ? (
-                <li className="story-bullets">
-                  {
-                    countyStories[props.shuffledIndex]
-                      .HowHasMedicalDebtImpactedYourLife
-                  }
-                </li>
-              ) : null,
-            ]
-          : null}
-      </div>
-      <div>
-        {dataFetched
-          ? [
-              countyStories[props.shuffledIndex]
-                .WhatDoYouThinkOfTheCostOfMedicalCare ? (
-                <li className="story-bullets">
-                  {
-                    countyStories[props.shuffledIndex]
-                      .WhatDoYouThinkOfTheCostOfMedicalCare
-                  }
-                </li>
-              ) : null,
-            ]
-          : null}
-      </div>
-      <div>
-        {dataFetched
-          ? [
-              countyStories[props.shuffledIndex]
-                .WhatIsYourExperienceWithMedicalDebtCollectors ? (
-                <li className="story-bullets">
-                  {
-                    countyStories[props.shuffledIndex]
-                      .WhatIsYourExperienceWithMedicalDebtCollectors
-                  }
-                </li>
-              ) : null,
-            ]
-          : null}
-        <br />
-        <div className="featured-buttons">
-        <Button variant="contained" onClick={previousButton}>
-          Previous Story
-        </Button>
-        <Button variant="contained" onClick={nextButton}>
-          Next Story
-        </Button>
-        <Dropdown
-          impact={props.impact}
-          setImpact={props.setImpact}
-          correctedCountyFetch={correctedCountyFetch}
-          countyStories={countyStories}
-          setCountyStories={setCountyStories}
-        />
+        <div>
+          {dataFetched
+            ? [
+                countyStories[props.shuffledIndex]
+                  .HowHasMedicalDebtImpactedYourAccessToCare ? (
+                  <li className="story-bullets">
+                    {
+                      countyStories[props.shuffledIndex]
+                        .HowHasMedicalDebtImpactedYourAccessToCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
         </div>
-      </div>
+        <div>
+          {dataFetched
+            ? [
+                countyStories[props.shuffledIndex]
+                  .HowHasMedicalDebtImpactedYourLife ? (
+                  <li className="story-bullets">
+                    {
+                      countyStories[props.shuffledIndex]
+                        .HowHasMedicalDebtImpactedYourLife
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <div>
+          {dataFetched
+            ? [
+                countyStories[props.shuffledIndex]
+                  .WhatDoYouThinkOfTheCostOfMedicalCare ? (
+                  <li className="story-bullets">
+                    {
+                      countyStories[props.shuffledIndex]
+                        .WhatDoYouThinkOfTheCostOfMedicalCare
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+        </div>
+        <div>
+          {dataFetched
+            ? [
+                countyStories[props.shuffledIndex]
+                  .WhatIsYourExperienceWithMedicalDebtCollectors ? (
+                  <li className="story-bullets">
+                    {
+                      countyStories[props.shuffledIndex]
+                        .WhatIsYourExperienceWithMedicalDebtCollectors
+                    }
+                  </li>
+                ) : null,
+              ]
+            : null}
+          <br />
+          <div className="featured-buttons">
+            <Button variant="contained" onClick={previousButton}>
+              Previous Story
+            </Button>
+            <Button variant="contained" onClick={nextButton}>
+              Next Story
+            </Button>
+            <Dropdown
+              impact={props.impact}
+              setImpact={props.setImpact}
+              correctedCountyFetch={correctedCountyFetch}
+              countyStories={countyStories}
+              setCountyStories={setCountyStories}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

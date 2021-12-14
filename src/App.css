@@ -210,3 +210,12 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
 #update-form {
   margin-left: 5vw;
 }
+
+#bulk-form {
+  margin-left: 5vw;
+}
+
+textarea {
+  min-width: 20vw;
+  min-height: 10vh;
+}

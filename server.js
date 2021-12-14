@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const csvtojson = require("csvtojson");
 const multer = require("multer");
 const fs = require("fs");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const port = process.env.PORT || 5001;
 const app = express();
@@ -12,6 +14,7 @@ const app = express();
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //------------------------------MONGOOSE SETUP------------------------------
 //creating mongoose Schema for stories
@@ -33,16 +36,27 @@ const StorySchema = new mongoose.Schema({
 });
 
 //creating the initial connection to the database using url for mongoAtlas and .env secured password
-mongoose.connect("mongodb://localhost:27017/VT-Legal", {
+// mongoose.connect("mongodb://localhost:27017/VT-Legal", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+
+mongoose.connect(`mongodb+srv://VTLegalAdmin:${process.env.PASSWORDMONGO}@medicaldebt.lmsqy.mongodb.net/VT-Legal?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+// 
 
 //initializing database using connection and storing in variable database
 const database = mongoose.connection;
 
 //setting up Stories model using the StorySchema and the collection
 const Stories = mongoose.model("all-stories", StorySchema);
+const AdminCred = mongoose.model("admins", {
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+});
 
 //binds error message to the connection variable to print if an error occurs with database connection
 database.on("error", console.error.bind(console, "connection error"));
@@ -186,6 +200,56 @@ app.post("/delete/:id", async (req, res) => {
 
   //deleting the story using its mongo ID as a filter
   await Stories.deleteOne({ _id: storyId });
+
+  res.redirect("back");
+});
+
+//------------------------------ADMIN-AUTHENTICATION---------------
+app.post("/attemptLogin", async (req, res) => {
+  const user = await AdminCred.findOne({ username: req.body.username });
+  console.log(user);
+  if (!user) {
+    console.log("Error with User in Database");
+    return { status: "error", error: "Invalid Login" };
+  }
+
+  const isPasswordValid = await bcrypt.compare(
+    req.body.password,
+    user.password
+  );
+  if (isPasswordValid) {
+    console.log("This password was valid");
+    const token = jwt.sign(
+      {
+        userID: user._id,
+      },
+      process.env.SECRET,
+      { expiresIn: "24h" }
+    );
+    console.log(token);
+    // res.cookie("user", token);
+    // return res.json({ status: "ok", userID: token });
+    return res.json({ status: "ok", userID: user._id, token: token });
+  } else {
+    console.log("This password was invalid");
+    return res.json({ status: "error", user: false });
+  }
+});
+
+app.post("/register", async (req, res) => {
+  console.log(req.body);
+  let hashedPassword = await bcrypt.hash(
+    req.body.password,
+    parseInt(process.env.SALT)
+  );
+
+  const newAdmin = new AdminCred({
+    username: req.body.username,
+    password: hashedPassword,
+  });
+
+  //saving the new story
+  await newAdmin.save();
 
   res.redirect("back");
 });

@@ -25,12 +25,16 @@ export default function Nav(props) {
 
   //evt handler for when a new filter is selected from the form in this component
   const handleChange = (event) => {
+    if(event.target.value !== "Clear") {
     //setting the impact (displays the filter selected) to the selected field in the filter
     props.setSelectedCounty(event.target.value);
     props.setCountyStoryDisplay(true);
     props.setFeaturedDisplay(false);
     props.setNavCountySelect(event.target.value);
     props.setIsSelected(true);
+    } else {
+      window.location.reload(false)
+    }
   };
 
   function refreshPage() {
@@ -97,7 +101,7 @@ export default function Nav(props) {
                 <MenuItem value="Washington">Washington</MenuItem>
                 <MenuItem value="Windham">Windham</MenuItem>
                 <MenuItem value="Windsor">Windsor</MenuItem>
-                <MenuItem value={"Reset"}>Clear Filter</MenuItem>
+                <MenuItem value="Clear">Clear Filter</MenuItem>
               </Select>
             </FormControl>
           </div>

@@ -39,13 +39,21 @@ export default function Admin(props) {
   //function for setting the boolean state variable to open the create story form
   function openStoryForm() {
     setCreateStoryFormBool(true);
+    setUpdateDeleteStoryBool(false);
+    setRowSelectionBool(false);
+    setUpdateStoryFormBool(false);
+    setBulkUploadFormBool(false);
     console.log(allStories);
     return null;
   }
 
   //function for setting the boolean state variable to open the mui data grid
   function openUpdate() {
+    setCreateStoryFormBool(false);
     setUpdateDeleteStoryBool(true);
+    setRowSelectionBool(false);
+    setUpdateStoryFormBool(false);
+    setBulkUploadFormBool(false);
     return null;
   }
 
@@ -71,6 +79,10 @@ export default function Admin(props) {
 
   //function for opening the bulk upload form
   function openBulkUpload() {
+    setCreateStoryFormBool(false);
+    setUpdateDeleteStoryBool(false);
+    setRowSelectionBool(false);
+    setUpdateStoryFormBool(false);
     setBulkUploadFormBool(true);
   }
 
@@ -242,10 +254,16 @@ export default function Admin(props) {
       {/* boolean that displays the bulk upload of stories form after the bulk upload button is pressed */}
       {bulkUploadFormBool
         ? [
-            <form id="bulk-form" action="/bulkupload" method="POST" encType="multipart/form-data">
+            <form
+              id="bulk-form"
+              action="/bulkupload"
+              method="POST"
+              encType="multipart/form-data"
+            >
               <div>
                 <label for="csv">CSV to Upload: </label>
                 <input type="file" name="csv" />
+                <br />
                 <input type="submit" />
               </div>
             </form>,
