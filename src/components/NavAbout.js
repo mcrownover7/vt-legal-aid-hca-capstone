@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import LegalAidLogo1 from "../LegalAidLogo1.png";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 
-function refreshPage() {
+export default function NavAbout(props) {
+  function refreshPage() {
     window.location.reload(false);
   }
 
-
-export default function NavAdmin(props) {
   return (
     <div class="nav-wrapper">
       <AppBar
@@ -32,11 +26,25 @@ export default function NavAdmin(props) {
             <Typography variant="h6">Real People - Real Stories</Typography>
           </div>
           <div id="nav-buttons">
-          <Button color="inherit" component={Link} to="/">
-              Main Site Home
+            <Button color="inherit" component={Link} to="/">
+              Home
             </Button>
             <Button color="inherit" onClick={refreshPage}>
-              Admin Home
+              About
+            </Button>
+            <Button
+              color="inherit"
+              target="_blank"
+              href="https://vtlawhelp.org/health"
+            >
+              Get Help
+            </Button>
+            <Button
+              color="inherit"
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScRvw8T2MMNnG9up4qYqJ-oKS2WkUUPnOmkIip8QQP-RVxBeQ/viewform?usp=sf_link"
+            >
+              Submit Story
             </Button>
           </div>
         </Toolbar>
