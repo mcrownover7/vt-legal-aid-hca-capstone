@@ -228,7 +228,6 @@ app.post("/attemptLogin", async (req, res) => {
     );
     console.log(token);
     // res.cookie("user", token);
-    // return res.json({ status: "ok", userID: token });
     return res.json({ status: "ok", userID: user._id, token: token });
   } else {
     console.log("This password was invalid");

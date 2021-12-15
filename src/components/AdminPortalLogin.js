@@ -77,7 +77,7 @@ export default function AdminPortalLogin() {
             <input type="submit" value="Login" />
           </form>
         </div>
-        <div id="login-screen">
+        {/* <div id="login-screen">
           <form action="/register" method="POST">
             <label for="username">Username: </label>
             <input
@@ -95,7 +95,7 @@ export default function AdminPortalLogin() {
             />
             <input type="submit" value="Login" />
           </form>
-        </div>
+        </div> */}
       </>
     );
   }

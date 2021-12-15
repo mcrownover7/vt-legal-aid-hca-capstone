@@ -9,7 +9,6 @@ import Dropdown from "./Dropdown.js";
 export default function Story(props) {
   const [countyStories, setCountyStories] = useState([]);
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState("");
-  // const [dataFetched, setDataFetched] = useState(false)
 
   const MaroonTextTypography = withStyles({
     root: {
@@ -40,7 +39,6 @@ export default function Story(props) {
     }
   }, [correctedCounty]);
 
-  // console.log(correctedCountyFetch);
   useEffect(() => {
     if (correctedCountyFetch) {
       fetch(`/allstories/${correctedCountyFetch}`)
@@ -64,14 +62,11 @@ export default function Story(props) {
           setCountyStories(shuffle(storiesArray));
         });
     }
-    console.log("Fired this many times");
   }, [correctedCountyFetch]);
 
   let dataFetched = false;
-
-  //NOTE: WILL NEED A DIFFERENT SOLUTION ONCE STORIES CAN BE ADDED------------------------------------------------------
   //once all stories state variable has data from the fetch it fires
-  if (countyStories.length !== 0 && countyStories.length !== 212) {
+  if (countyStories.length !== 0) {
     //setting boolean true to show data has been fetched
     dataFetched = true;
     // setDataFetched(true)
