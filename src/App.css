@@ -3,19 +3,55 @@
   padding: 0;
 }
 
-#stories-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 600px;
-  height: 600px;
-  padding: 1em;
-  justify-content: center;
-  margin: 32px 1em;
+/*---------------------Applies to nav bars across all pages-------------------*/
+
+.nav-wrapper {
+  width: 100vw;
 }
 
-.featured-story {
-  overflow: auto;
+#nav-typography {
+  padding: 2em;
+}
+
+#nav-buttons {
+  margin-left: auto;
+}
+
+div.MuiFormControl-root.css-1869usk-MuiFormControl-root {
+  margin-top: -5px;
+}
+
+div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
+  margin-top: -15px;
+}
+
+#select-county {
+  z-index: 1;
+}
+
+.V-Buttons {
+  margin-top: -20px;
+}
+
+#V-Nav-Title {
+  margin-top: -8px;
+}
+
+#V-Nav-Subtitle {
+  margin-top: -17px;
+}
+
+
+
+/*------------------------------Home page------------------------------------*/
+#homepage-wrapper {
+  height: 650px;
+  flex-wrap: row;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #map-container {
@@ -32,49 +68,6 @@
   margin: 0 1em;
 }
 
-#homepage-wrapper {
-  height: 650px;
-  flex-wrap: row;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.graph {
-  padding: 0.5em;
-}
-
-.nav-wrapper {
-  width: 100vw;
-}
-
-#nav-typography {
-  padding: 2em;
-}
-
-#nav-buttons {
-  margin-left: auto;
-}
-
-.featured-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.age-insurance {
-  display: flex;
-  max-width: 50vw;
-  justify-content: space-between;
-
-  margin-bottom: 25px;
-}
-
-.title {
-  padding-right: 0.5em;
-}
-
 .leaflet-tooltip.my-labels {
   background-color: transparent;
   fill: none;
@@ -86,6 +79,33 @@
   font-weight: bolder;
 }
 
+.graph {
+  padding: 0.5em;
+}
+
+#stories-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  padding: 1em;
+  justify-content: center;
+  margin: 32px 1em;
+}
+
+.age-insurance {
+  display: flex;
+  max-width: 50vw;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.featured-story {
+  overflow: auto;
+}
+
 li.story-bullets {
   padding-left: 20px;
   text-indent: -1.4em;
@@ -93,96 +113,17 @@ li.story-bullets {
   margin-left: 0.5em;
 }
 
+.featured-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .drop-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.V-Buttons {
-  margin-top: -20px;
-}
-
-#V-Nav-Title {
-  margin-top: -8px;
-}
-
-#V-Nav-Subtitle {
-  margin-top: -17px;
-}
-
-div.MuiFormControl-root.css-1869usk-MuiFormControl-root {
-  margin-top: -5px;
-}
-
-div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
-  margin-top: -15px;
-}
-
-#select-county {
-  z-index: 1;
-}
-
-/* #select-topic-label {
-  margin-left: 60px;
-} */
-
-/* NOTE: ATTEMPT TO HIDE TOOLTIP USING MOUSEOUT NOT WORKING */
-/* .leaflet-tooltip.hidden-labels {
-  background-color: transparent;
-  border: transparent;
-  box-shadow: none;
-  color: none;
-} */
-
-@media only screen and (min-device-width: 250px) and (max-device-width: 900px) and (-webkit-min-device-pixel-ratio: 3) {
-  #bar-chart {
-    width: 300px;
-  }
-
-  .graph {
-    width: 300px;
-  }
-
-  .recharts-wrapper {
-    width: 300px;
-  }
-
-  #stories-display {
-    width: 300px;
-    height: 350px;
-    overflow: auto;
-  }
-
-  #map-container {
-    height: 500px;
-    width: 75%;
-  }
-
-  #map-display {
-    margin: 0px;
-    width: 100%;
-    height: 600px;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    margin: 0 1em;
-    /* border: solid 0.2em black; */
-  }
-
-  #homepage-wrapper {
-    /* flex-wrap: row; */
-    margin: 0px;
-    flex-direction: column;
-    display: block;
-    justify-content: space-evenly;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-}
-
-/* ADMIN PORTAL */
+/*------------------------------Admin Portal---------------------------------*/
 .admin-buttons {
   display: flex;
   justify-content: space-around;
@@ -224,3 +165,54 @@ textarea {
   margin-top: 2.5vh;
   margin-left: 5vw;
 }
+
+/*------------------------------Responsive Rendering-------------------------------------*/
+
+@media only screen and (min-device-width: 250px) and (max-device-width: 900px) and (-webkit-min-device-pixel-ratio: 3) {
+  #bar-chart {
+    width: 300px;
+  }
+
+  .graph {
+    width: 300px;
+  }
+
+  .recharts-wrapper {
+    width: 300px;
+  }
+
+  #stories-display {
+    width: 300px;
+    height: 350px;
+    overflow: auto;
+  }
+
+  #map-container {
+    height: 500px;
+    width: 75%;
+  }
+
+  #map-display {
+    margin: 0px;
+    width: 100%;
+    height: 600px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    margin: 0 1em;
+   
+  }
+
+  #homepage-wrapper {
+    
+    margin: 0px;
+    flex-direction: column;
+    display: block;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
