@@ -202,6 +202,7 @@ export default function Story(props) {
               correctedCountyFetch={correctedCountyFetch}
               countyStories={countyStories}
               setCountyStories={setCountyStories}
+              setShuffledIndex={props.setShuffledIndex}
             />
           </div>
         </div>
