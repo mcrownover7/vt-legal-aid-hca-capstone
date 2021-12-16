@@ -5,6 +5,27 @@ import Button from "@material-ui/core/Button";
 
 import { DataGrid } from "@mui/x-data-grid";
 import NavAdmin from "./NavAdmin";
+// import { FormControl, FormControlLabel } from "@mui/material";
+// import { TextField } from "@mui/material";
+// import Select from "@mui/material/Select";
+// import MenuItem from "@mui/material/MenuItem";
+// import RadioGroup from "@material-ui/core/RadioGroup";
+// import Radio from "@material-ui/core/Radio";
+// import { InputLabel } from "@mui/material";
+// import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiDataGrid-columnHeader": {
+      backgroundColor: "lightgrey",
+  },
+  "& .MuiDataGrid-columnHeaderTitle": {
+    color: "darkgreen",
+    "font-weight": "bolder",
+    "font-size": "18px"
+},
+}}));
 
 export default function Admin(props) {
   const [allStories, setAllStories] = useState([]);
@@ -25,6 +46,7 @@ export default function Admin(props) {
   const [surprised, setSurprised] = useState("");
   const [collectors, setCollectors] = useState("");
 
+  const classes = useStyles();
   //useEffect to fetch all stories once on component render
   useEffect(() => {
     fetch("/allstories")
@@ -91,12 +113,12 @@ export default function Admin(props) {
     {
       field: "RespID",
       headerName: "Response ID",
-      width: 120,
+      width: 150,
       stretchable: true,
     },
-    { field: "County", headerName: "County", width: 110 },
-    { field: "Insured", headerName: "Insured", width: 70 },
-    { field: "Age", headerName: "Age", width: 70 },
+    { field: "County", headerName: "County", width: 120 },
+    { field: "Insured", headerName: "Insured", width: 90 },
+    { field: "Age", headerName: "Age", width: 90 },
     {
       field: "HowHasMedicalDebtImpactedYourLife",
       headerName: "Life Impact?",
@@ -251,6 +273,153 @@ export default function Admin(props) {
           ]
         : null}
 
+      {/* {createStoryFormBool
+        ? [
+            <form id="create-form" action="/createnew" method="POST">
+              <Grid
+                container
+                alignItems="center"
+                justify="center"
+                direction="column"
+              >
+                <Grid item>
+                  <TextField
+                    type="number"
+                    name="id"
+                    label="RespID:"
+                    required="true"
+                    min="10000000000"
+                    max="99999999999"
+                  />
+                </Grid>
+                <Grid item>
+                  <FormControl>
+                    <Select
+                      label="County"
+                      name="county"
+                      style={{ backgroundColor: "white", color: "#5a203c" }}
+                    >
+                      <MenuItem value="Did Not Answer">Did Not Answer</MenuItem>
+                      <MenuItem value="Addison">Addison</MenuItem>
+                      <MenuItem value="Bennington">Bennington</MenuItem>
+                      <MenuItem value="Caledonia">Caledonia</MenuItem>
+                      <MenuItem value="Chittenden">Chittenden</MenuItem>
+                      <MenuItem value="Essex">Essex</MenuItem>
+                      <MenuItem value="Franklin">Franklin</MenuItem>
+                      <MenuItem value="Grand Isle">Grand Isle</MenuItem>
+                      <MenuItem value="Lamoille">Lamoille</MenuItem>
+                      <MenuItem value="Orange">Orange</MenuItem>
+                      <MenuItem value="Orleans">Orleans</MenuItem>
+                      <MenuItem value="Rutland">Rutland</MenuItem>
+                      <MenuItem value="Washington">Washington</MenuItem>
+                      <MenuItem value="Windham">Windham</MenuItem>
+                      <MenuItem value="Windsor">Windsor</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item>
+                  <FormControl>
+                    <RadioGroup name="insured" row>
+                      <FormControlLabel
+                        key="Did Not Answer"
+                        value="Did Not Answer"
+                        control={<Radio size="small" />}
+                        label="Did Not Answer"
+                      />
+                      <FormControlLabel
+                        key="yes"
+                        value="yes"
+                        control={<Radio size="small" />}
+                        label="Yes"
+                      />
+                      <FormControlLabel
+                        key="no"
+                        value="no"
+                        control={<Radio size="small" />}
+                        label="No"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item>
+                  <FormControl>
+                    <RadioGroup name="age" row>
+                      <FormControlLabel
+                        key="Did Not Answer"
+                        value="Did Not Answer"
+                        control={<Radio size="small" />}
+                        label="Did Not Answer"
+                      />
+                      <FormControlLabel
+                        key="18-26"
+                        value="18-26"
+                        control={<Radio size="small" />}
+                        label="18-26"
+                      />
+                      <FormControlLabel
+                        key="27-40"
+                        value="27-40"
+                        control={<Radio size="small" />}
+                        label="27-40"
+                      />
+                      <FormControlLabel
+                        key="41-64"
+                        value="41-64"
+                        control={<Radio size="small" />}
+                        label="41-64"
+                      />
+                      <FormControlLabel
+                        key="65+"
+                        value="65+"
+                        control={<Radio size="small" />}
+                        label="65+"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    name="impactLife"
+                    label="How Has Medical Debt Impacted Your Life?"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    name="impactCare"
+                    label="How Has Medical Debt Impacted Your Access to Care?"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    name="costCare"
+                    label="What Do You Think Of The Cost Of Medical Care?"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    name="surpriseBill"
+                    label="Have You Been Surprised By A Medical Bill?"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    name="collections"
+                    label="What Is Your Experience With Medical Debt Collectors?"
+                  />
+                </Grid>
+                <Grid item>
+                  <Button type="submit">Submit New Story</Button>
+                </Grid>
+              </Grid>
+            </form>,
+          ]
+        : null} */}
+
       {/* boolean that displays the bulk upload of stories form after the bulk upload button is pressed */}
       {bulkUploadFormBool
         ? [
@@ -275,6 +444,7 @@ export default function Admin(props) {
         ? [
             <div style={{ height: 600, width: "100%" }}>
               <DataGrid
+                className={classes.root}
                 rows={allStories}
                 columns={columns}
                 rowsPerPageOptions={[10, 50, 100]}
