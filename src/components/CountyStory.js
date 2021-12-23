@@ -7,9 +7,11 @@ import Dropdown from "./Dropdown.js";
 
 //Home function to render page structural elements
 export default function Story(props) {
+  //setting up state variables
   const [countyStories, setCountyStories] = useState([]);
   const [correctedCountyFetch, setCorrectedCountyFetch] = useState("");
 
+  //MUI styles for maroon and green text
   const MaroonTextTypography = withStyles({
     root: {
       color: "#5a203c",
@@ -21,7 +23,9 @@ export default function Story(props) {
     },
   })(Typography);
 
+  //creating a corrected county variable to sanitize the input data
   let correctedCounty = props.selectedCounty.toLowerCase().split(" ");
+  //useEffect that uses correctedCounty to fire and sets the fetched county state variable dependent on if the county is multiple words
   useEffect(() => {
     if (correctedCounty.length === 1) {
       setCorrectedCountyFetch(
@@ -39,7 +43,9 @@ export default function Story(props) {
     }
   }, [correctedCounty]);
 
+  //useEffect to fetch all stories for a selected county
   useEffect(() => {
+    //if guards against two firings on mounting. This is needed so that there is not a fetch that returns all stories (when correctedCountyFetch is initially created with no value)
     if (correctedCountyFetch) {
       fetch(`/allstories/${correctedCountyFetch}`)
         .then((res) => res.json())
@@ -64,14 +70,15 @@ export default function Story(props) {
     }
   }, [correctedCountyFetch]);
 
+  //creating data fetched variable boolean that will be used in the conditionally rendered elements of the return
   let dataFetched = false;
   //once all stories state variable has data from the fetch it fires
   if (countyStories.length !== 0) {
     //setting boolean true to show data has been fetched
     dataFetched = true;
-    // setDataFetched(true)
   }
 
+  //function for the next story button that increments the index that will be used to display from the total fetched and shuffled array
   function nextButton() {
     if (props.shuffledIndex < countyStories.length - 1) {
       props.setShuffledIndex(props.shuffledIndex + 1);
@@ -80,6 +87,7 @@ export default function Story(props) {
     }
   }
 
+  //function for the previous story button that increments the index that will be used to display from the total fetched and shuffled array
   function previousButton() {
     if (props.shuffledIndex > 0) {
       props.setShuffledIndex(props.shuffledIndex - 1);
@@ -89,13 +97,13 @@ export default function Story(props) {
   }
 
   return (
-    //React fragment (instead of <div>)
     <>
       <div className="county-story">
         <MaroonTextTypography variant="h5">
           <b>The Real Story: Health Care Debt In Vermont</b>
         </MaroonTextTypography>
         <GreenTextTypography variant="h6">
+          {/* County, insured, age all are conditionally rendered using dataFetched and utilize the shuffledIndex state variable to display that index in the data array */}
           <div class="drop-wrapper">
             <b>
               {correctedCountyFetch} County Story #{props.shuffledIndex + 1} of{" "}
@@ -114,6 +122,7 @@ export default function Story(props) {
             {dataFetched ? countyStories[props.shuffledIndex].Age : null}
           </div>
         </div>
+        {/* Question answers are conditionally rendered using dataFetched. They use the shuffledIndex to display that stories answers from the data array */}
         <div>
           {dataFetched
             ? [
@@ -189,6 +198,7 @@ export default function Story(props) {
               ]
             : null}
           <br />
+          {/* Next and previous buttons that are used to increment or decrement the story index for indexing the array */}
           <div className="featured-buttons">
             <Button variant="contained" onClick={previousButton}>
               Previous Story
@@ -196,6 +206,7 @@ export default function Story(props) {
             <Button variant="contained" onClick={nextButton}>
               Next Story
             </Button>
+            {/* importing the dropdown component and passing props */}
             <Dropdown
               impact={props.impact}
               setImpact={props.setImpact}

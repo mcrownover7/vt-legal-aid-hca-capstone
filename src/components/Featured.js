@@ -5,7 +5,10 @@ import { withStyles } from "@material-ui/core/styles";
 import Graph from "./Graph.js";
 
 export default function Featured(props) {
+  //setting up state variables
   const [allStories, setAllStories] = useState([]);
+
+  //MUI styles for maroon and green text
   const MaroonTextTypography = withStyles({
     root: {
       color: "#5a203c",
@@ -45,6 +48,7 @@ export default function Featured(props) {
   }
   return (
     <>
+      {/* Importing the graph component */}
       <div class="graph">
         <Graph />
       </div>
@@ -55,6 +59,7 @@ export default function Featured(props) {
         <MaroonTextTypography variant="h5">
           <b>Featured Story: </b>
         </MaroonTextTypography>
+        {/* County, Insured, and Age are all displayed conditionally with a ternary */}
         <GreenTextTypography variant="h7">
           <b>
             County:{" "}
@@ -71,6 +76,7 @@ export default function Featured(props) {
             {allStories.length ? allStories[randomStories[0]].Age : null}
           </div>
         </div>
+        {/* Utilizing ternaries to conditionally display the question responses from the survey */}
         <div>
           {allStories.length
             ? [

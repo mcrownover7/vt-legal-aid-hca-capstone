@@ -11,7 +11,7 @@ export default function Dropdown(props) {
     props.setImpact(event.target.value);
     //resetting the shuffle index to remove bugs with the filter starting at the previous value
     props.setShuffledIndex(0);
-    //new fetch using the evt.target.value and county to fetch only the counties stories that have that information matching the filter
+    //new fetch using the evt.target.value and county to fetch only the counties stories that have that information matching the filter (using same API endpoint as county). + is then used to split the question from the county
     fetch(`/allstories/${props.correctedCountyFetch}+${event.target.value}`)
       .then((res) => res.json())
       .then((storiesArray) => {
@@ -37,6 +37,7 @@ export default function Dropdown(props) {
 
   return (
     <div>
+      {/* MUI dropdown element created with form control and select element */}
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="select-topic-label" style={{ color: "#5a203c" }}>
           Filter Topics

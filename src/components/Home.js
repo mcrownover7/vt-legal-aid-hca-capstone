@@ -12,6 +12,7 @@ import NavVertical from "./NavVertical";
 
 //Home function to render page structural elements
 export default function Home() {
+  //creating use state variables
   const [center, setCenter] = useState([43.88, -72.7317]);
   const [zoom, setZoom] = useState(8);
   const [featuredDisplay, setFeaturedDisplay] = useState(true);
@@ -23,14 +24,14 @@ export default function Home() {
   const [mobileView, setMobileView] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
+  //creating a material ui style for maroon text
   const MaroonTextTypography = withStyles({
     root: {
       color: "#5a203c",
     },
   })(Typography);
 
-  // const { mobileView } = state;
-
+  //useEffect to set the mobile view based on the window width
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
@@ -48,6 +49,7 @@ export default function Home() {
 
   return (
     <>
+      {/* ternary to display the correct nav based on the useEffect window width */}
       {mobileView ? (
         <NavVertical
           setSelectedCounty={setSelectedCounty}
@@ -73,6 +75,7 @@ export default function Home() {
           <MaroonTextTypography variant="h5" align="center">
             <b>Click Counties For Stories</b>
           </MaroonTextTypography>
+          {/* Import map component and passing props */}
           <Map
             navCountySelect={navCountySelect}
             isSelected={isSelected}
@@ -90,6 +93,7 @@ export default function Home() {
             setNavCountySelect={setNavCountySelect}
           />
         </div>
+        {/* Import the featured story or county specific stories based on a boolean ternary and passing props */}
         <div id="stories-display">
           {featuredDisplay ? <Featured /> : null}
           {countyStoryDisplay ? (
