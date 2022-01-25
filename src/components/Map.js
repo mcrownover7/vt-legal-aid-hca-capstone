@@ -19,6 +19,7 @@ function MyComponent({ center, zoom }) {
 }
 
 function Map(props) {
+  //-----------------------------------------GeoJSON onEachFeature-------------------------------------------
   //global variable to track the previously clicked county
   let previouslySelectedCounty = null;
 

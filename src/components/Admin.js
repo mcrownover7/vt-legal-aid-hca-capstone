@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }}));
 
 export default function Admin(props) {
+  //creating state variables
   const [allStories, setAllStories] = useState([]);
   const [createStoryFormBool, setCreateStoryFormBool] = useState(false);
   const [updateDeleteStoryBool, setUpdateDeleteStoryBool] = useState(false);
