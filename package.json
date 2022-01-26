@@ -37,6 +37,9 @@
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provider test"
   },
+  "engines": {
+    "node": "17.x"
+  },
   "eslintConfig": {
     "extends": ["react-app", "react-app/jest"]
   },
