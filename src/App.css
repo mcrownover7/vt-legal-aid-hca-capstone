@@ -6,7 +6,7 @@
 /*---------------------Applies to nav bars across all pages-------------------*/
 
 .nav-wrapper {
-  width: 100vw;
+  width: 100%;
 }
 
 #nav-typography {
@@ -22,7 +22,7 @@ div.MuiFormControl-root.css-1869usk-MuiFormControl-root {
 }
 
 div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
-  margin-top: -15px;
+  margin-top: -10px;
 }
 
 #select-county {
@@ -41,31 +41,60 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
   margin-top: -17px;
 }
 
-
-
-/*------------------------------Home page------------------------------------*/
-#homepage-wrapper {
-  height: 650px;
-  flex-wrap: row;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
+/*------------------------ Map.js styles ---------------------*/
 #map-container {
-  width: 100%;
+  width: 98%;
   height: 600px;
+}
+/*------------------------------Home page (mobile-first)------------------------------------*/
+#homepage-wrapper {
+  display: flex;
+  height: auto;
+  flex-direction: column;
 }
 
 #map-display {
-  width: 600px;
+  width: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex: 1;
   justify-content: center;
-  padding: 1em;
-  margin: 0 1em;
+  align-self: center;
+  padding: 0.5em;
+  margin: 0;
+}
+
+#home-right {
+  display: flex;
+  flex: 1;
+  width: 90vw;
+  flex-direction: column;
+}
+
+#intro-image {
+  display: flex;
+  margin-top: 1vw;
+  flex-direction: column;
+}
+
+#intro {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#image {
+  align-self: center;
+}
+
+img[src*='Debt1'] {
+  border-radius: 20px;
+  width: 200px;
+}
+
+#featured-story {
+  width: 80vw;
+  margin: 1em;
 }
 
 .leaflet-tooltip.my-labels {
@@ -79,31 +108,11 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
   font-weight: bolder;
 }
 
-.graph {
-  padding: 0.5em;
-}
-
-#stories-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 600px;
-  height: 600px;
-  padding: 1em;
-  justify-content: center;
-  margin: 32px 1em;
-}
-
 .age-insurance {
   display: flex;
   max-width: 50vw;
   justify-content: space-between;
-
   margin-bottom: 25px;
-}
-
-.featured-story {
-  overflow: auto;
 }
 
 li.story-bullets {
@@ -121,6 +130,37 @@ li.story-bullets {
 .drop-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+p {
+  padding-bottom: 5px;
+}
+/*------------------------------Sub Pages---------------------------------*/
+.subpage-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-left: 3vw;
+  margin-right: 5vw;
+}
+
+.content {
+  padding-top: 10px;
+}
+
+.left-article {
+  width: 60%;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  margin-right: 3vw;
+}
+
+.right-article {
+  width: 40%;
+  align-items: center;
+  /* margin-top: 4vw; */
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 /*------------------------------Admin Portal---------------------------------*/
@@ -166,53 +206,66 @@ textarea {
   margin-left: 5vw;
 }
 
-/*------------------------------Responsive Rendering-------------------------------------*/
+/* ------------------------------Responsive Rendering------------------------------------- */
 
-@media only screen and (min-device-width: 250px) and (max-device-width: 900px) and (-webkit-min-device-pixel-ratio: 3) {
-  #bar-chart {
-    width: 300px;
-  }
-
-  .graph {
-    width: 300px;
-  }
-
-  .recharts-wrapper {
-    width: 300px;
-  }
-
-  #stories-display {
-    width: 300px;
-    height: 350px;
-    overflow: auto;
-  }
-
-  #map-container {
-    height: 500px;
-    width: 75%;
-  }
-
+/* ---Larger Mobile Query--- */
+@media screen and (min-width: 500px) {
   #map-display {
-    margin: 0px;
-    width: 100%;
-    height: 600px;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    margin: 0 1em;
-   
-  }
-
-  #homepage-wrapper {
-    
-    margin: 0px;
-    flex-direction: column;
-    display: block;
-    justify-content: space-evenly;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 450px;
   }
 }
 
+/* ---Ipad screen Query (768-820px) --- */
+@media screen and (min-width: 500px) {
+}
+
+/* ---Larger screen Query (820 and larger) --- */
+@media screen and (min-width: 768px) {
+  #homepage-wrapper {
+    display: flex;
+    width: 95vw;
+    height: 600px;
+    flex-direction: row;
+    gap: 1vw;
+  }
+
+  #map-container {
+    width: 90%;
+    height: 500px;
+    margin-top: 0;
+  }
+
+  #map-display {
+    width: 500px;
+  }
+
+  #home-right {
+    display: flex;
+    margin-right: 10vw;
+    /* align-self: flex-start; */
+    flex-direction: column;
+    width: 50vw;
+  }
+
+  #intro-image {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vw;
+  }
+
+  #intro {
+    width: 40vw;
+    /* flex: 1 0 auto; */
+    margin: 1vw;
+  }
+
+  /* #image {
+    flex: 0 1 200px;
+  } */
+
+  #featured-story {
+    margin: 1em;
+    flex: 1;
+    max-width: 100%;
+  }
+}

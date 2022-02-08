@@ -1,51 +1,51 @@
-//----Necessary imports
-import React from "react";
-import "../App.css";
-import Map from "./Map";
-import { useState, useEffect } from "react";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
-import Featured from "./Featured";
-import Story from "./CountyStory";
-import Nav from "./Nav";
-import NavVertical from "./NavVertical";
+import React from 'react'
+import '../App.css'
+import Map from './Map'
+import { useState, useEffect } from 'react'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import Featured from './Featured'
+import Story from './CountyStory'
+import Nav from './Nav'
+import NavVertical from './NavVertical'
+import Debt1 from '../Debt1.jpg'
 
 //Home function to render page structural elements
-export default function Home() {
+export default function Home () {
   //creating use state variables
-  const [center, setCenter] = useState([43.88, -72.7317]);
-  const [zoom, setZoom] = useState(8);
-  const [featuredDisplay, setFeaturedDisplay] = useState(true);
-  const [countyStoryDisplay, setCountyStoryDisplay] = useState(false);
-  const [selectedCounty, setSelectedCounty] = useState("");
-  const [shuffledIndex, setShuffledIndex] = useState(0);
-  const [impact, setImpact] = useState("");
-  const [navCountySelect, setNavCountySelect] = useState("");
-  const [mobileView, setMobileView] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
+  const [center, setCenter] = useState([43.88, -72.7317])
+  const [zoom, setZoom] = useState(8)
+  const [featuredDisplay, setFeaturedDisplay] = useState(true)
+  const [countyStoryDisplay, setCountyStoryDisplay] = useState(false)
+  const [selectedCounty, setSelectedCounty] = useState('')
+  const [shuffledIndex, setShuffledIndex] = useState(0)
+  const [impact, setImpact] = useState('')
+  const [navCountySelect, setNavCountySelect] = useState('')
+  const [mobileView, setMobileView] = useState(false)
+  const [isSelected, setIsSelected] = useState(false)
 
   //creating a material ui style for maroon text
   const MaroonTextTypography = withStyles({
     root: {
-      color: "#5a203c",
-    },
-  })(Typography);
+      color: '#5a203c'
+    }
+  })(Typography)
 
-  //useEffect to set the mobile view based on the window width
+  //useEffect to set the mobile view for navigation based on the window width
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
         ? setMobileView(true)
-        : setMobileView(false);
-    };
+        : setMobileView(false)
+    }
 
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
+    setResponsiveness()
+    window.addEventListener('resize', () => setResponsiveness())
 
     return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
+      window.removeEventListener('resize', () => setResponsiveness())
+    }
+  }, [])
 
   return (
     <>
@@ -70,10 +70,10 @@ export default function Home() {
         />
       )}
 
-      <div id="homepage-wrapper">
-        <div id="map-display">
-          <MaroonTextTypography variant="h5" align="center">
-            <b>Click Counties For Stories</b>
+      <div id='homepage-wrapper'>
+        <div id='map-display'>
+          <MaroonTextTypography variant='h5' align='center'>
+            {/* <b>Click Counties For Stories</b> */}
           </MaroonTextTypography>
           {/* Import map component and passing props */}
           <Map
@@ -93,20 +93,47 @@ export default function Home() {
             setNavCountySelect={setNavCountySelect}
           />
         </div>
-        {/* Import the featured story or county specific stories based on a boolean ternary and passing props */}
-        <div id="stories-display">
-          {featuredDisplay ? <Featured /> : null}
-          {countyStoryDisplay ? (
-            <Story
-              impact={impact}
-              setImpact={setImpact}
-              selectedCounty={selectedCounty}
-              shuffledIndex={shuffledIndex}
-              setShuffledIndex={setShuffledIndex}
-            />
-          ) : null}
+        <div id='home-right'>
+          <div id='intro-image'>
+            <div id='intro'>
+              <MaroonTextTypography variant='h6'>
+                <b> Stories from the State of Vermont </b>
+              </MaroonTextTypography>
+              <p>
+                The Health Care Advocacy Office of Vermont Legal Aid is
+                gathering and displaying stories of how Vermonters are impacted
+                by medical debt to raise awareness.
+              </p>
+              Please select a county by clicking on the map or the dropdown menu
+              at top to see stories.
+              <p>
+                {' '}
+                <a
+                  href='https://docs.google.com/forms/d/e/1FAIpQLScRvw8T2MMNnG9up4qYqJ-oKS2WkUUPnOmkIip8QQP-RVxBeQ/viewform'
+                  target='_blank'
+                >
+                  Submit your own story.
+                </a>
+              </p>
+            </div>
+            <div id='image'>
+              <img src={Debt1} alt='legal debt' />
+            </div>
+          </div>
+          <div id='featured-story'>
+            {featuredDisplay ? <Featured /> : null}
+            {countyStoryDisplay ? (
+              <Story
+                impact={impact}
+                setImpact={setImpact}
+                selectedCounty={selectedCounty}
+                shuffledIndex={shuffledIndex}
+                setShuffledIndex={setShuffledIndex}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
     </>
-  );
+  )
 }
