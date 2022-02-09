@@ -89,6 +89,10 @@ div.MuiFormControl-root.css-1e7cuzv-MuiFormControl-root {
 
 img[src*='Debt1'] {
   border-radius: 20px;
+  width: 250px;
+}
+
+img[src*='Debt2'] {
   width: 200px;
 }
 
@@ -251,6 +255,15 @@ textarea {
     display: flex;
     flex-direction: row;
     margin-top: 1vw;
+  }
+
+  img[src*='Debt1'] {
+    border-radius: 20px;
+    width: 300px;
+  }
+
+  img[src*='Debt2'] {
+    width: 300px;
   }
 
   #intro {

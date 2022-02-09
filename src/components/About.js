@@ -6,7 +6,7 @@ import NavVertical from './NavVertical'
 import { useState, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import Debt1 from '../Debt1.PNG'
+import Debt2 from '../Debt2.svg'
 
 //creating a material ui style for maroon text
 const MaroonTextTypography = withStyles({
@@ -134,7 +134,7 @@ export default function About () {
         </div>
 
         <div class='right-article'>
-          <img src={Debt1} alt='legal debt' width='300' />
+          <img src={Debt2} alt='legal debt' />
         </div>
       </div>
     </>
