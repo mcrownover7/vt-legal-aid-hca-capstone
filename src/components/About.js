@@ -57,14 +57,14 @@ export default function About () {
     <>
       {/* ternary to display the correct nav based on the useEffect window width */}
       {mobileView ? (
-        <NavVertical
+        <NavVerticalAbout
           setSelectedCounty={setSelectedCounty}
           setCountyStoryDisplay={setCountyStoryDisplay}
           setFeaturedDisplay={setFeaturedDisplay}
           navCountySelect={navCountySelect}
           setNavCountySelect={setNavCountySelect}
           setIsSelected={setIsSelected}
-        ></NavVertical>
+        ></NavVerticalAbout>
       ) : (
         <NavAbout
           setSelectedCounty={setSelectedCounty}
