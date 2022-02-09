@@ -8,7 +8,7 @@ import Featured from './Featured'
 import Story from './CountyStory'
 import Nav from './Nav'
 import NavVertical from './NavVertical'
-import Debt1 from '../Debt1.jpg'
+import Debt1 from '../Debt1.PNG'
 
 //Home function to render page structural elements
 export default function Home () {
