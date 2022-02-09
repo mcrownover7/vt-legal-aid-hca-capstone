@@ -2,7 +2,7 @@
 import React from 'react'
 import '../App.css'
 import NavAbout from './NavAbout'
-import NavVertical from './NavVertical'
+import NavVerticalAbout from './NavVerticalAbout'
 import { useState, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
