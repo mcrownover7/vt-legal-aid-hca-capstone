@@ -49,32 +49,6 @@ export default function Featured (props) {
   }
   return (
     <>
-      <MaroonTextTypography variant='h5'>
-        <b> Stories from the State of Vermont </b>
-      </MaroonTextTypography>
-      <div class='graphic-container'>
-        <div class='home-text'>
-          <p>
-            The Health Care Advocacy Office of Vermont Legal Aid is gathering
-            and displaying stories of how Vermonters are impacted by medical
-            debt to raise awareness.
-          </p>
-          Please select a county by clicking on the map or the dropdown menu at
-          top to see stories.
-          <p>
-            {' '}
-            <a
-              href='https://docs.google.com/forms/d/e/1FAIpQLScRvw8T2MMNnG9up4qYqJ-oKS2WkUUPnOmkIip8QQP-RVxBeQ/viewform'
-              target='_blank'
-            >
-              Submit your own story.
-            </a>
-          </p>
-        </div>
-        <div class='home-image'>
-          <img src={Debt1} alt='legal debt' width='200' />
-        </div>
-      </div>
       <div class='featured-story'>
         <MaroonTextTypography variant='h6'>
           <b>Featured Story: </b>
