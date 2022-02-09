@@ -1,7 +1,7 @@
 //----Necessary imports
 import React from 'react'
 import '../App.css'
-import Nav from './Nav'
+import NavAbout from './NavAbout'
 import NavVertical from './NavVertical'
 import { useState, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
@@ -66,7 +66,7 @@ export default function About () {
           setIsSelected={setIsSelected}
         ></NavVertical>
       ) : (
-        <Nav
+        <NavAbout
           setSelectedCounty={setSelectedCounty}
           setCountyStoryDisplay={setCountyStoryDisplay}
           setFeaturedDisplay={setFeaturedDisplay}

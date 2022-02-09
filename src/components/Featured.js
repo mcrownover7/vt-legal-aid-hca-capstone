@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import Debt1 from '../Debt1.PNG'
 
 export default function Featured (props) {
   //setting up state variables
