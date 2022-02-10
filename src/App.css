@@ -139,7 +139,8 @@ li.story-bullets {
 p {
   padding-bottom: 5px;
 }
-/*------------------------------Sub Pages---------------------------------*/
+/*------------------------------Sub Pages (About.js)---------------------------------*/
+/* display for mobile (first) */
 .subpage-wrapper {
   display: flex;
   flex-direction: column;
@@ -220,11 +221,11 @@ textarea {
   }
 }
 
-/* ---Ipad screen Query (768-820px) --- */
+/* ---Ipad screen Query --- */
 @media screen and (min-width: 500px) {
 }
 
-/* ---Larger screen Query (820 and larger) --- */
+/* ---Larger screen Query (768 and larger) --- */
 @media screen and (min-width: 768px) {
   #homepage-wrapper {
     display: flex;
@@ -272,10 +273,6 @@ textarea {
     /* flex: 1 0 auto; */
     margin: 1vw;
   }
-
-  /* #image {
-    flex: 0 1 200px;
-  } */
 
   #featured-story {
     margin: 1em;

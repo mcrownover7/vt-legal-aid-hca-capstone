@@ -95,7 +95,7 @@ export default function NavVertical (props) {
               <Stack>
                 <ListItem className='V-Buttons'>
                   {' '}
-                  <Button color='inherit' onClick={refreshPage}>
+                  <Button color='inherit' component={Link} to='/About'>
                     About
                   </Button>
                 </ListItem>
