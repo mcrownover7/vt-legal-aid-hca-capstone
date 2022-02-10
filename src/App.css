@@ -142,7 +142,8 @@ p {
 /*------------------------------Sub Pages---------------------------------*/
 .subpage-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex: wrap;
   margin-top: 15px;
   margin-left: 3vw;
   margin-right: 5vw;
@@ -153,14 +154,14 @@ p {
 }
 
 .left-article {
-  width: 60%;
+  min-width: 100%;
   margin-top: 1vw;
   margin-left: 1vw;
   margin-right: 3vw;
 }
 
 .right-article {
-  width: 40%;
+  min-width: 100%;
   align-items: center;
   /* margin-top: 4vw; */
   margin-left: 1vw;
@@ -280,5 +281,33 @@ textarea {
     margin: 1em;
     flex: 1;
     max-width: 100%;
+  }
+
+  .subpage-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    margin-top: 15px;
+    margin-left: 3vw;
+    margin-right: 5vw;
+  }
+
+  .content {
+    padding-top: 10px;
+  }
+
+  .left-article {
+    min-width: 60%;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    margin-right: 3vw;
+  }
+
+  .right-article {
+    min-width: 40%;
+    align-items: center;
+    /* margin-top: 4vw; */
+    margin-left: 1vw;
+    margin-right: 1vw;
   }
 }
