@@ -33,12 +33,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "startReact": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
-    "test": "react-scripts --openssl-legacy-provider test"
+    "startReact": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "engines": {
-    "node": "17.x"
+    "node": "16.x"
   },
   "eslintConfig": {
     "extends": ["react-app", "react-app/jest"]
