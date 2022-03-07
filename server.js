@@ -69,14 +69,6 @@ const upload = multer({ dest: 'uploads/' })
 
 //-------------------------------ROUTES----------------------------------------
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'), function (err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
-
 //---------CREATE-------------
 app.post('/createnew', async (req, res) => {
   //creation of a new story from admin portal
