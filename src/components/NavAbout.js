@@ -19,13 +19,14 @@ export default function NavAbout (props) {
         className={'Nav-bar'}
       >
         <Toolbar>
-          <img
-            src={LegalAidLogo1}
-            alt='logo'
-            width='100'
-            target='_blank'
-            href='https://www.vtlegalaid.org/'
-          />
+          <a href='https://www.vtlegalaid.org/'>
+            {' '}
+            <img
+              src={LegalAidLogo1}
+              alt='logo'
+              width='150'
+            />
+          </a>
 
           <div id='nav-typography'>
             <Typography variant='h4'>Health Care Debt in Vermont</Typography>

@@ -172,7 +172,7 @@ function Map (props) {
       />
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />
-      <ScaleControl position='bottomleft' />
+      <ScaleControl position='topright' />
     </MapContainer>
   )
 }

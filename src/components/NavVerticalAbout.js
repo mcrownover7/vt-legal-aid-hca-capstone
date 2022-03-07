@@ -63,13 +63,9 @@ export default function NavVertical (props) {
         <Toolbar>
           <Stack spacing={2}>
             <ListItem id='V-Nav-Logo'>
-              <img
-                src={LegalAidLogo1}
-                alt='logo'
-                width='100'
-                target='_blank'
-                href='https://www.vtlegalaid.org/'
-              />
+              <a href='https://www.vtlegalaid.org/'>
+                <img src={LegalAidLogo1} alt='logo' width='150' />
+              </a>
             </ListItem>
             <ListItem id='V-Nav-Title'>
               {' '}
