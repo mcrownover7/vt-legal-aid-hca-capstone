@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import LegalAidLogo1 from '../LegalAidLogo1.png'
+import LegalAidLogo1 from '../LegalAidLogo1.jpg'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -63,7 +63,13 @@ export default function NavVertical (props) {
         <Toolbar>
           <Stack spacing={2}>
             <ListItem id='V-Nav-Logo'>
-              <img src={LegalAidLogo1} alt='logo' width='100' />
+              <img
+                src={LegalAidLogo1}
+                alt='logo'
+                width='100'
+                target='_blank'
+                href='https://www.vtlegalaid.org/'
+              />
             </ListItem>
             <ListItem id='V-Nav-Title'>
               {' '}

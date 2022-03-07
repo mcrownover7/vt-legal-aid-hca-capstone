@@ -100,12 +100,14 @@ export default function Home () {
                 <b> Stories from the State of Vermont </b>
               </MaroonTextTypography>
               <p>
-                The Health Care Advocacy Office of Vermont Legal Aid is
+                The Office of the Health Care Advocate at Vermont Legal Aid is
                 gathering and displaying stories of how Vermonters are impacted
-                by medical debt to raise awareness.
+                by medical debt. Our goal is to raise awareness of how common
+                and painful medical debt is for individuals and families across
+                Vermont.
               </p>
-              Please select a county by clicking on the map or the dropdown menu
-              at top to see stories.
+              To read stories, please click on a county on the map or choose a
+              county from the dropdown menu at the top of the page.
               <p>
                 {' '}
                 <a
