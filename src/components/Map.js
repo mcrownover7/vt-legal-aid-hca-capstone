@@ -7,7 +7,8 @@ import {
   Polygon,
   GeoJSON,
   useMap,
-  ScaleControl
+  ScaleControl,
+  ZoomControl
 } from 'react-leaflet'
 import countyBoundary from '../data/countyBorder.js'
 
@@ -149,9 +150,9 @@ function Map (props) {
       id={'map-container'}
       center={props.center}
       zoom={props.zoom}
+      zoomControl={false}
       scrollWheelZoom={true}
       doubleClickZoom={false}
-      zoomControl={false}
       touchZoom={false}
       dragging={true}
       zoomDelta={0}
@@ -173,6 +174,7 @@ function Map (props) {
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />
       <ScaleControl position='topright' />
+      <ZoomControl position='topleft' />
     </MapContainer>
   )
 }
