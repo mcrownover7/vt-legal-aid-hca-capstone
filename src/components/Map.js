@@ -1,14 +1,11 @@
 //imports
-import Typography from '@material-ui/core/Typography'
-import { NoEncryption } from '@material-ui/icons'
+import { useState } from 'react'
 import {
   MapContainer,
   TileLayer,
-  Polygon,
   GeoJSON,
   useMap,
   ScaleControl,
-  ZoomControl
 } from 'react-leaflet'
 import countyBoundary from '../data/countyBorder.js'
 
@@ -16,6 +13,8 @@ import countyBoundary from '../data/countyBorder.js'
 function MyComponent ({ center, zoom }) {
   const map = useMap()
   map.setView(center, zoom)
+  map.setMinZoom(7);
+  map.setMaxZoom(12);
   return null
 }
 
@@ -23,9 +22,11 @@ function Map (props) {
   //-----------------------------------------GeoJSON onEachFeature-------------------------------------------
   //global variable to track the previously clicked county
   let previouslySelectedCounty = null
+  const [map, setMap] = useState(null);
 
   //creating a function that allows for click evt listener using .on on the layer
   function featureSelection (feature, layer) {
+
     //this setStyle determines the default styling for each layer on page load for each feature
     layer.setStyle({
       fillColor: '#632E0F',
@@ -52,20 +53,7 @@ function Map (props) {
 
     if (props.isSelected) {
       if (props.navCountySelect.toUpperCase() === feature.properties.cntyname) {
-        // console.log(feature.properties);
-        props.setCenter([
-          feature.properties.geo_point_2d[0],
-          feature.properties.geo_point_2d[1]
-        ])
-        props.setZoom(9)
-        props.setFeaturedDisplay(false)
-        props.setCountyStoryDisplay(true)
-        props.setSelectedCounty(feature.properties.cntyname)
-        props.setShuffledIndex(0)
-        props.setImpact('')
-
-        //NOTE: NOT WORKING CURRENTLY
-        layer.setStyle({ fillColor: '#205A3E' })
+        countyClick(null, layer);
       }
       props.setIsSelected(false)
     }
@@ -94,12 +82,10 @@ function Map (props) {
 
   //function for when a county is clicked on the map
   function countyClick (evt, layer) {
-    // console.log(evt);
-    // console.log(evt.target.feature.properties.cntyname);
     //resetting the center point of the map using the lat and lon from the features properties in the geojson
     props.setCenter([
-      evt.target.feature.properties.geo_point_2d[0],
-      evt.target.feature.properties.geo_point_2d[1]
+      layer.feature.properties.geo_point_2d[0],
+      layer.feature.properties.geo_point_2d[1]
     ])
     //zooming in on the clicked on counties center point
     props.setZoom(9)
@@ -111,7 +97,7 @@ function Map (props) {
     props.setCountyStoryDisplay(true)
 
     //using props to set the selected county using the clicked features properties
-    props.setSelectedCounty(evt.target.feature.properties.cntyname)
+    props.setSelectedCounty(layer.feature.properties.cntyname)
 
     //using props to reset the index for the array shuffle display in story.js
     props.setShuffledIndex(0)
@@ -148,15 +134,12 @@ function Map (props) {
   return (
     <MapContainer
       id={'map-container'}
-      center={props.center}
-      zoom={props.zoom}
-      zoomControl={false}
       scrollWheelZoom={true}
       doubleClickZoom={false}
       touchZoom={false}
       dragging={true}
-      zoomDelta={0}
       keyboard={false}
+      whenCreated={setMap}
       style={{
         // height: "600px",
         // width: "600px",
@@ -174,7 +157,6 @@ function Map (props) {
       {/* GeoJSON created using the countyBoundary data imported from the VT county boundary data. GeoJSON has a onEachFeature set to call the featureSelection function that will allow for interaction with each county in the layer */}
       <GeoJSON data={countyBoundary} onEachFeature={featureSelection} />
       <ScaleControl position='topright' />
-      <ZoomControl position='topleft' />
     </MapContainer>
   )
 }

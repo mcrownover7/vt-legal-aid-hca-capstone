@@ -260,12 +260,15 @@ app.post('/register', async (req, res) => {
   res.redirect('back')
 })
 
-//routing * to handle any non-set routes to a 404 page
-// app.get("*", (req, res) => {
-//   res.send(`<h3>404: Whoops, something went wrong...</h3>`);
-// });
-
 app.use(express.static('build')) //looks @ build directory as static site to serve up
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 //listening on port 5000 and console logging a message to ensure it is listening
 app.listen(port, () =>
